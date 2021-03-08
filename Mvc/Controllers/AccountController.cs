@@ -46,8 +46,7 @@ namespace WebApplication1_NoteMarketPlace.Controllers
                     use.CreatedDate = DateTime.Now;
                     db.Users.Add(use);
                     db.SaveChanges();
-                    int id = use.Id;
-                    
+                  
                         SendActivationEmail(use);
                         ViewBag.Success = "Your account is Created  Verify Email.";
                     
@@ -66,7 +65,7 @@ namespace WebApplication1_NoteMarketPlace.Controllers
 
         private void SendActivationEmail(User objUserModel)
         {
-            using (MailMessage mm = new MailMessage("amiprajapati1102@gmail.com", objUserModel.EmailID))
+            using (MailMessage mm = new MailMessage("your email@gmail.com", objUserModel.EmailID))
             {
                 mm.Subject = "Note MarketPlace Email Verification";
 
@@ -87,7 +86,7 @@ namespace WebApplication1_NoteMarketPlace.Controllers
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
                 smtp.EnableSsl = true;
-                NetworkCredential NetworkCred = new NetworkCredential("amiprajapati1102@gmail.com", "rajesh@1102");
+                NetworkCredential NetworkCred = new NetworkCredential("youremail@gmail.com", "password");
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = NetworkCred;
                 smtp.Port = 587;
