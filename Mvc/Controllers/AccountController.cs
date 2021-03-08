@@ -42,12 +42,13 @@ namespace WebApplication1_NoteMarketPlace.Controllers
                     use.LastName = user.LastName;
                     use.Password = user.Password;
                     use.RoleID = 3;
+                    use.Code = Guid.NewGuid();
                     use.CreatedDate = DateTime.Now;
                     db.Users.Add(use);
                     db.SaveChanges();
                     int id = use.Id;
                     
-                        SendActivationEmail(user);
+                        SendActivationEmail(use);
                         ViewBag.Success = "Your account is Created  Verify Email.";
                     
 
@@ -63,9 +64,9 @@ namespace WebApplication1_NoteMarketPlace.Controllers
             return View();
         }
 
-        private void SendActivationEmail(UserModel objUserModel)
+        private void SendActivationEmail(User objUserModel)
         {
-            using (MailMessage mm = new MailMessage("amiprahapati1102@gmail.com", objUserModel.EmailID))
+            using (MailMessage mm = new MailMessage("amiprajapati1102@gmail.com", objUserModel.EmailID))
             {
                 mm.Subject = "Note MarketPlace Email Verification";
 
@@ -75,7 +76,8 @@ namespace WebApplication1_NoteMarketPlace.Controllers
                     body = reader.ReadToEnd();
                 }
 
-                var confirmationLink = Url.Action("ConfirmEmail", "Account", new { userId = objUserModel.EmailID, pass = objUserModel.Password }, protocol: Request.Url.Scheme);
+            
+                var confirmationLink = Url.Action("ConfirmEmail", "Account", new { userId = objUserModel.EmailID, pass = objUserModel.Password , activationCode =objUserModel.Code}, protocol: Request.Url.Scheme);
 
                 body = body.Replace("{Username}", objUserModel.FirstName);
                 body = body.Replace("{ConfirmationLink}", confirmationLink);
@@ -94,9 +96,9 @@ namespace WebApplication1_NoteMarketPlace.Controllers
         }
 
         [Route("Account/ConfirmEmail")]
-        public ActionResult ConfirmEmail(string userId, string pass)
+        public ActionResult ConfirmEmail(string userId, string pass, string activationCode)
         {
-            var check = db.Users.Where(model => model.EmailID == userId).FirstOrDefault();
+            var check = db.Users.Where(model => model.EmailID == userId && model.Code == new Guid(activationCode)).FirstOrDefault();
 
             if (check != null)
             {
@@ -111,11 +113,11 @@ namespace WebApplication1_NoteMarketPlace.Controllers
                 }
                 else
                 {
-                    return Content("Invalid Credentials");
+                    return Content(" Credentials are Invalid");
                 }
             }
 
-            return Content("Invalid Credentials");
+            return Content(" Credentials are Invalid");
         }
 
 
