@@ -1,0 +1,1267 @@
+@media(min-width: 992px) {
+    .navbar {
+        height: 100px;
+    }
+}
+
+@media(max-width: 992px) {
+    .navbar-light .navbar-nav .nav-link {
+        padding-top: 25PX;
+        color: #333333;
+        font-family: Open Sans;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 20px;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .navbar-light .navbar-nav .nav-link:hover {
+        background: #6255a5;
+        color: #fff !important;
+        -webkit-transition: all .6s;
+        transition: all .6s;
+        color: #6255a5;
+    }
+
+    .navbar-light .navbar-nav .nav-item img {
+        border-radius: 50%;
+        margin: 25px 30px 0;
+    }
+}
+
+
+/* Medium Devices (Medium Desktop & Tablets) */
+@media(min-width: 992px) and (max-width: 1199px) {
+
+    /* Home */
+    .home-text {
+        top: 8%;
+        height: 520px;
+    }
+
+    .vertical-center h1 {
+        font-size: 46px;
+        line-height: 52px;
+    }
+
+    .vertical-center p {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    /*Note Details*/
+
+    .book_left h2 {
+        font-size: 24px;
+    }
+
+    .book_left img {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 160px;
+        height: 220px;
+    }
+
+    .book_left p {
+        font-size: 14px;
+    }
+
+    .book_left .download_button {
+        margin-bottom: 30px;
+    }
+
+    .book_right .note-text-left h5,
+    .book_right .note-text-right h5 {
+        font-size: 13px;
+    }
+
+    .book_right .rate {
+        padding-left: 50px;
+        padding-top: 0;
+    }
+
+    /* Admin dashboard */
+    .dashboard_top .new_downloaded_box-admin {
+        padding-top: 0;
+    }
+
+
+    /*      Search Notes    */
+
+    .filters-other select {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .notes {
+        width: 280px;
+        border: 1px solid #d1d1d1;
+    }
+
+    .notes .note-img {
+        width: 279px;
+    }
+
+    .notes .details h4 {
+        height: 48px;
+        margin: 0 0 30px 0;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 24px;
+    }
+
+    .notes .details p {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+        color: #333333;
+    }
+
+
+
+
+
+    .member_details .member_content .member_right {
+        float: right;
+        padding: 0;
+        margin-right: 2%;
+    }
+
+    .center_line {
+        margin-left: 5%;
+        width: 5px;
+        float: left;
+        padding: 0;
+        border-left: 1px solid #d1d1d1;
+        height: 170px;
+    }
+}
+
+
+/* Small Devices */
+@media(min-width: 768px) and (max-width: 991px) {
+    
+    .m-t-100{
+        margin-top: 70px;
+    }
+    
+    .m-t-160{
+        margin-top: 80px;
+    }
+
+    /* Home */
+    .home-text {
+        top: 8%;
+        height: 520px;
+    }
+
+    .vertical-center h1 {
+        font-size: 40px;
+        line-height: 48px;
+    }
+
+    .vertical-center p {
+        font-size: 16px;
+        line-height: 28px;
+    }
+
+    /* Add notes */
+    .container .form-row .form-group .upload-custom-add-notes p {
+        top: -2%;
+    }
+
+    .container .form-row .form-group .upload-custom p {
+        top: -10%;
+    }
+
+    .testimonial .team {
+        padding: 20px;
+    }
+
+    .team .team_name {
+        font-size: 22px;
+    }
+
+    .team .team_job {
+        font-size: 14px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 50%;
+        overflow: hidden;
+        position: absolute;
+        display: inline-block;
+        margin-top: 0;
+    }
+
+    .testimonial .team p {
+        font-size: 16px;
+        margin: 0;
+    }
+
+    /*Note Details*/
+
+    .book_left h2 {
+        font-size: 24px;
+    }
+
+    .book_left img {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 180px;
+    }
+
+    .book_left p {
+        font-size: 14px;
+    }
+
+    .book_left .download_button {
+        margin-bottom: 30px;
+    }
+
+    .book_right .note-text-left h5,
+    .book_right .note-text-right h5 {
+        font-size: 13px;
+    }
+
+    .book_right .rate {
+        padding-left: 50px;
+        padding-top: 0;
+    }
+
+    .notes_details_down .book_right .customer {
+        font-size: 14px;
+    }
+
+    .notes_details_down .book_right .customer p {
+        font-size: 12px;
+    }
+
+    .notes_details_down .book_right {
+        height: 430px;
+    }
+
+    .notes_details_down .book_left iframe,
+    .notes_details_down .book_left {
+        height: 430px;
+    }
+
+
+    /* Dasboard */
+    .dashboard_top{
+        margin-top: 90px;
+    }
+    
+    .dashboard_top .main_heading {
+        font-size: 26px;
+    }
+
+    .dashboard_top .add_btn button {
+        width: 100px;
+        font-size: 14px;
+    }
+
+    .dashboard_top .boxes .heading {
+        font-size: 22px;
+    }
+
+    .dashboard_top .sold_box {
+        padding-top: 0 !important;
+    }
+
+    .dashboard_top .sold_box .sold {
+        max-width: 100%;
+    }
+
+    .dashboard_top .earning_box img {
+        padding-top: 15px;
+    }
+
+    .dashboard_top .boxes .sub_heading {
+        font-size: 14px;
+    }
+
+    .dashboard_top .new_downloaded_box-admin {
+        padding-top: 0;
+    }
+
+
+    /* Searchbar */
+    .dashboard_table .download_heading {
+        font-size: 26px;
+    }
+
+
+
+    /* Add notes */
+    .container .form-row .form-group .upload-custom-add-notes p {
+        top: -2%;
+    }
+
+    .container .form-row .form-group .upload-custom p {
+        top: -10%;
+    }
+
+    /* Admin-Download */
+    .dashboard_table .admin-dash button {
+        font-size: 12px !important;
+    }
+
+    /*      Search Notes    */
+
+    .filters-other select {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .notes {
+        width: 240px;
+        border: 1px solid #d1d1d1;
+    }
+
+    .notes .note-img {
+        width: 240px;
+
+    }
+
+    .notes .details h4 {
+        height: 70px;
+        margin: 0 0 25px 0;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 24px;
+    }
+
+    .notes .details p {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+        color: #333333;
+    }
+    
+    .rate{
+        padding-top: 0px;
+    }
+    
+    .ratings p{
+        top: 11px;
+    }
+
+
+    .member_details .member_content .member_right {
+        float: right;
+        padding: 0;
+        margin-right: 0%;
+    }
+
+    .center_line {
+        margin-left: 7%;
+        width: 5px;
+        float: left;
+        padding: 0;
+        border-left: 1px solid #d1d1d1;
+        height: 130px;
+    }
+
+    .member_details .member_content .member_img {
+        padding: 0;
+        float: left;
+        transform: scale(.75);
+    }
+
+    .member_info {
+        padding-left: 10%;
+        font-family: Open Sans;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 18px;
+        color: #333333;
+    }
+
+    .member_info_dark {
+        padding-left: 10px;
+        font-family: Open Sans;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 18px;
+        color: #6255a5;
+    }
+
+}
+
+/* Extra Small Devices */
+@media(max-width: 767px) {
+    
+    .m-t-100{
+        margin-top: 70px;
+    }
+    
+    .m-t-160{
+        margin-top: 80px;
+    }
+
+    /* Home */
+    .home-text {
+        top: 8%;
+        height: 530px;
+    }
+
+    .vertical-center h1 {
+        font-size: 25px;
+        line-height: 35px;
+    }
+
+    .vertical-center p {
+        font-size: 14px;
+        line-height: 22px;
+    }
+    
+    .work .work_btn #btn1 {
+        margin-bottom: 30px;
+    }
+
+    .about_heading {
+        margin-bottom: 30px;
+    }
+
+    .testimonial .team {
+        padding: 20px;
+    }
+
+    .team .team_name {
+        font-size: 22px;
+    }
+
+    .team .team_job {
+        font-size: 14px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 50%;
+        overflow: hidden;
+        position: absolute;
+        display: inline-block;
+        margin-top: 0;
+    }
+
+    .testimonial .team p {
+        font-size: 16px;
+        margin: 0;
+    }
+
+    .testimonial #team4 {
+        margin-top: 30px;
+    }
+
+
+    /*Note Details*/
+
+    .book_left h2 {
+        font-size: 24px;
+    }
+
+    .book_left img {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 180px;
+        height: 240px;
+    }
+
+    .book_left p {
+        font-size: 14px;
+    }
+
+    .book_left .download_button {
+        margin-bottom: 30px;
+    }
+
+    .book_right .note-text-left h5,
+    .book_right .note-text-right h5 {
+        font-size: 16px;
+    }
+
+    .book_right .rate {
+        position: relative;
+        padding-left: 90px;
+        padding-top: 0;
+    }
+
+    .notes_details_down .book_right {
+        height: 390px;
+    }
+
+    .notes_details_down .book_right .customer p {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    /* Dasboard */
+    .dashboard_top{
+        margin-top: 90px;
+    }
+    
+    .dashboard_top .main_heading {
+        font-size: 26px;
+    }
+
+    .dashboard_top .add_btn button {
+        width: 100px;
+        font-size: 14px;
+    }
+
+    .dashboard_top .boxes .heading {
+        font-size: 24px;
+    }
+
+    .dashboard_top .sold_box {
+        padding-top: 0 !important;
+    }
+
+
+    /* Searchbar */
+    .dashboard_table .download_heading {
+        padding-top: 0;
+        font-size: 26px;
+    }
+
+    .search-note {
+        padding-top: 0px;
+        float: none;
+    }
+
+    .search-note .search_button button {
+        width: 80px;
+        font-size: 14px;
+    }
+
+
+
+
+    /* Add Notes */
+    .container .form-row .form-group .upload-custom-add-notes {
+        height: 125px;
+    }
+
+    /*      search Notes    */
+
+    .search-filters .filter-inputs {
+        height: 300px;
+        padding: 30px;
+    }
+
+    .filters-other .row [Class*=col-] {
+        margin-bottom: 10px;
+    }
+
+    .notes {
+        margin: 0 auto;
+    }
+
+    .member_details .member_content .member_left {
+        margin-top: 5%;
+        margin-bottom: -3%;
+    }
+
+    .member_details .member_content .member_right {
+        float: right;
+        padding: 0;
+        margin-top: -5%;
+        margin-right: 0%;
+    }
+
+    .center_line {
+        width: 5px;
+        margin-left: 40%;
+        border-left: 1px solid #d1d1d1;
+        height: 100px;
+        transform: rotate(90deg);
+    }
+
+    .member_details .member_content .member_img {
+        left: 30%;
+    }
+
+    .member_info {
+        padding-left: 10%;
+        font-family: Open Sans;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 18px;
+        color: #333333;
+    }
+
+    .member_info_dark {
+        padding-left: 10px;
+        font-family: Open Sans;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 18px;
+        color: #6255a5;
+    }
+
+}
+
+/* Extra Small Devices */
+@media(max-width: 480px) {
+
+    /* Home */
+     .home-text {
+        top: 2%;
+        height: 530px;
+        width: 90%; 
+    }
+
+    .vertical-center h1 {
+        font-size: 20px;
+        line-height: 26px;
+    }
+
+    .vertical-center p {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .work .work_btn #btn1 {
+        margin-bottom: 30px;
+    }
+
+    .about_heading {
+        margin-bottom: 30px;
+    }
+
+
+    .team .team_name {
+        font-size: 22px;
+    }
+
+    .team .team_job {
+        font-size: 14px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 50%;
+        overflow: hidden;
+        position: absolute;
+        display: inline-block;
+        margin-top: 0;
+    }
+
+    .testimonial .team p {
+        font-size: 16px;
+        margin: 0;
+    }
+
+    .testimonial #team4 {
+        margin-top: 30px;
+    }
+
+
+    /*Note Details*/
+
+    .book_left h2 {
+        padding-top: 20px;
+        font-size: 24px;
+    }
+
+    .book_left img {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 180px;
+        height: 240px;
+    }
+
+    .book_left p {
+        font-size: 14px;
+    }
+
+    .book_left .download_button {
+        margin-bottom: 30px;
+    }
+
+    .book_right .note-text-left h5,
+    .book_right .note-text-right h5 {
+        font-size: 13px;
+    }
+
+    .book_right .rate {
+        padding-left: 50px;
+        padding-top: 0;
+    }
+
+    .notes_details_down .book_right {
+        height: 90%;
+    }
+
+    .notes_details_down .book_right .customer p {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    /* Admin-Download */
+    .dashboard_table .admin-dash button {
+        font-size: 16px !important;
+    }
+
+
+
+    /* Login form */
+    .login-form {
+        padding: 50px 30px;
+    }
+
+    #not-account {
+        font-size: 14px;
+    }
+
+
+    /* Pagination */
+
+    .pagination {
+        padding-left: 0;
+    }
+
+    .pagination li a {
+        margin-right: 0;
+    }
+
+    .pagination .page-item .active {
+        margin-right: 0;
+    }
+
+    .pagination li .page-link-icon {
+        margin-right: 0;
+    }
+
+    /* Dasboard */
+    .dashboard_top .main_heading {
+        font-size: 26px;
+    }
+
+    .dashboard_top .add_btn button {
+        width: 100px;
+        font-size: 14px;
+    }
+
+    .dashboard_top .boxes .heading {
+        font-size: 24px;
+    }
+
+    .dashboard_top .sold_box {
+        padding-top: 0 !important;
+    }
+
+    /* Searchbar */
+    .dashboard_table .download_heading {
+        padding-top: 20px;
+    }
+
+    .search-note {
+        padding-top: 30px;
+        float: none;
+    }
+
+    .search-note .search_button button {
+        width: 100px;
+        float: right;
+        margin: 0;
+        padding: 0;
+    }
+
+
+    /*      search Notes    */
+
+    .title h2 {
+        font-size: 22px;
+    }
+
+    .search-filters .filter-inputs {
+        height: 240px;
+        padding: 20px;
+    }
+
+    .search-filters h2 {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .filters {
+        height: 40px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .filter-search img {
+        top: 12px;
+        left: 10px;
+    }
+
+    .filters-other select {
+        width: 100%;
+        height: 40px;
+        padding: 5px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .search-result {
+        padding: 0 20px;
+    }
+
+    .search-result h2 {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .notes {
+        width: 260px;
+        margin: 0 auto;
+    }
+
+    .notes .note-img {
+        width: 259px;
+    }
+
+    .notes .details {
+        height: 280px;
+        padding: 20px 10px 0 15px;
+    }
+
+    .notes .details h4 {
+        height: 60px;
+        margin: 0 0 25px 0;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .notes .details p {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .rate:not(:checked) > label {
+        width: 0.9em;
+        font-size: 20px;
+    }
+
+    .ratings p {
+        font-size: 14px;
+    }
+
+}
+
+@media(min-width:319px) and (max-width:400px) {
+    
+    .m-t-100{
+        margin-top: 57px;
+    }
+    
+    .m-t-160{
+        margin-top: 80px;
+    }
+    
+    #submit-btn-email-verify {
+        font-size: 12px;   
+    }
+    
+    /* Navbar */
+    .navbar .navbar-brand{
+        width: 70%;
+    }
+    .navbar .navbar-brand img{
+        width: 100%;
+        
+    }
+
+
+    /* Home */
+
+    .about_heading {
+        margin-bottom: 30px;
+    }
+
+    .work .work_btn #btn1 {
+        margin-bottom: 30px;
+    }
+
+    .testimonial .team {
+        padding: 20px;
+    }
+
+    .team .team_name {
+        font-size: 22px;
+    }
+
+    .footer p {
+        text-align: center !important;
+    }
+
+    .team .team_job {
+        font-size: 14px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 50%;
+        overflow: hidden;
+        position: absolute;
+        display: inline-block;
+        margin-top: 0;
+    }
+
+    .testimonial .team p {
+        font-size: 16px;
+        margin: 0;
+    }
+
+    .testimonial #team4 {
+        margin-top: 30px;
+    }
+
+    .text-right {
+        text-align: center !important;
+        margin-top: 20px;
+    }
+
+    .footer_content,
+    .footer_social {
+        width: 100% !important;
+    }
+
+    /*Note Details*/
+
+    .book_left h2 {
+        padding-top: 20px;
+        font-size: 24px;
+    }
+
+    .book_left img {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 180px;
+        height: 240px;
+    }
+
+    .book_left p {
+        font-size: 14px;
+    }
+
+    .book_left .download_button {
+        margin-bottom: 30px;
+    }
+
+    .book_right .note-text-left h5,
+    .book_right .note-text-right h5 {
+        font-size: 12px;
+    }
+
+    .book_right .rate {
+        padding-left: 0;
+        padding-top: 0;
+    }
+
+    .notes_details_down .book_right {
+        height: 85%;
+    }
+
+    .notes_details_down .book_right .customer p {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    /* Dasboard */
+    .dashboard_top .main_heading {
+        font-size: 26px;
+    }
+
+    .dashboard_top .add_btn button {
+        width: 100px;
+        font-size: 14px;
+    }
+
+    .dashboard_top .boxes .heading {
+        font-size: 24px;
+    }
+
+    .dashboard_top .boxes .sub_heading {
+        font-size: 14px;
+    }
+
+    .dashboard_top .sold_box {
+        padding-top: 0 !important;
+    }
+
+    /* Searchbar */
+    .dashboard_table .download_heading {
+        padding-top: 20px;
+    }
+
+    .search-note {
+        padding-top: 30px;
+    }
+
+    .search_button button {
+        width: 100px;
+    }
+
+    /* Admin-Download */
+    .dashboard_table .admin-dash button {
+        font-size: 12px !important;
+    }
+
+
+    /* Add notes */
+    .container .form-row .form-group .upload-custom-add-notes p {
+        top: -10%;
+    }
+
+    .container .form-row .form-group .upload-custom-add-notes {
+        height: 125px;
+    }
+
+    .container .form-row .form-group .upload-custom p {
+        top: -10%;
+    }
+
+    #submit-btn-user {
+        width: 120px;
+    }
+
+    .member_info {
+        padding-left: 5%;
+        padding-right: 0;
+        margin-right: -6%;
+        font-family: Open Sans;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 18px;
+        color: #333333;
+    }
+
+    .member_info_dark {
+        padding: 0;
+        margin: 0;
+        font-family: Open Sans;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 18px;
+        color: #6255a5;
+    }
+}
+
+/* Extra Small Devices */
+@media(max-width: 320px) {
+
+    /* Home */
+    .home-text {
+        top: 2%;
+        height: 530px;
+    }
+
+    .vertical-center h1 {
+        font-size: 22px;
+        line-height: 34px;
+    }
+
+    .vertical-center p {
+        font-size: 13px;
+        line-height: 20px;
+    }
+
+    .work .work_btn #btn1 {
+        margin-bottom: 30px;
+    }
+
+    .testimonial .team {
+        padding: 20px;
+    }
+
+    .team .team_name {
+        font-size: 22px;
+    }
+
+    .team .team_job {
+        font-size: 14px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 50%;
+        overflow: hidden;
+        position: absolute;
+        display: inline-block;
+        margin-top: 0;
+    }
+
+    .testimonial .team p {
+        font-size: 16px;
+        margin: 0;
+    }
+
+    .testimonial #team4 {
+        margin-top: 30px;
+    }
+
+    .text-right {
+        text-align: center !important;
+        margin-top: 20px;
+    }
+
+
+    .footer p {
+        text-align: center !important;
+    }
+
+    .footer_content,
+    .footer_social {
+        width: 100% !important;
+    }
+
+    /* Login form */
+    .login-form {
+        padding: 50px 30px;
+    }
+
+    #not-account {
+        font-size: 14px;
+    }
+
+    /* Search notes */
+
+    #search-note {
+        margin-top: 100px;
+    }
+
+    .title h2 {
+        font-size: 20px;
+    }
+
+    /* Pagination */
+
+    .pagination {
+        padding-left: 0;
+    }
+
+    .pagination li a {
+        margin-right: 0;
+    }
+
+    .pagination .page-item .active {
+        margin-right: 0;
+    }
+
+    .pagination li .page-link-icon {
+        margin-right: 0;
+    }
+
+    /*Note Details*/
+
+
+    .book_left h2 {
+        padding-top: 20px;
+        font-size: 24px;
+    }
+
+    .book_left img {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 180px;
+        height: 240px;
+    }
+
+    .book_left p {
+        font-size: 14px;
+    }
+
+    .book_left .download_button {
+        margin-bottom: 30px;
+    }
+
+    .book_right .note-text-left h5,
+    .book_right .note-text-right h5 {
+        font-size: 12px;
+    }
+
+    .book_right .rate {
+        padding-left: 0;
+        padding-top: 0;
+    }
+
+    .notes_details_down .book_right {
+        height: 510px;
+    }
+
+    .notes_details_down .book_right .customer p {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .dashboard_top .sold_box {
+        padding-top: 0 !important;
+    }
+
+    .dashboard_top .boxes .sub_heading {
+        font-size: 14px;
+    }
+
+
+    /* Dasboard */
+    .dashboard_top .main_heading {
+        font-size: 26px;
+    }
+
+    .dashboard_top .add_btn button {
+        width: 100px;
+        font-size: 14px;
+    }
+
+    .dashboard_top .boxes .heading {
+        font-size: 24px;
+    }
+
+    .dashboard_top .sold_box {
+        padding-top: 0 !important;
+    }
+
+    /* Searchbar */
+    .dashboard_table .download_heading {
+        padding-top: 20px;
+    }
+
+    .search-note {
+        padding-top: 30px;
+    }
+
+    .search_button button {
+        width: 100px;
+    }
+
+    /* Admin-Download */
+    .dashboard_table .admin-dash button {
+        font-size: 12px !important;
+    }
+
+
+
+    /* Add notes */
+
+    .container .form-row .form-group .upload-custom-add-notes {
+        height: 125px;
+    }
+
+    .container .form-row .form-group .upload-custom-add-notes p,
+    .container .form-row .form-group .upload-custom p {
+        top: -10%;
+    }
+
+    #submit-btn-user {
+        width: 120px;
+    }
+
+    /* FAQ */
+    .faq-ans,
+    .q .faq-qstn {
+        font-size: 14px;
+    }
+
+}
