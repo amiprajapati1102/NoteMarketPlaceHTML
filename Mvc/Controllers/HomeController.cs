@@ -11,17 +11,12 @@ namespace NoteMarketPlace.Controllers
     {
         NoteMarketPlaceHtmlEntities objUserDBEntities = new NoteMarketPlaceHtmlEntities();
         // GET: Home
-        public ActionResult Index()
+      public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Contact()
-        {
-            return View();
-        }
-
-
+        
 
     }
 }

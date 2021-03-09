@@ -29,7 +29,10 @@
     <section id="nav-bar" class="home_navbar">
         <nav class="navbar navbar-expand-lg navbar-light ">
             <a class="navbar-brand" href="#">
-                <img src="~/Content/images/logo/logo-white.png" alt="logo">
+
+
+
+
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -43,22 +46,22 @@
                     <li class="nav-item">
                         <a class="nav-link" href="dashboard.html">Sell Your Notes</a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="faq.html">FAQ</a>
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Contact Us","Contact","Home",null, new { @class = "nav-link"})
+                        @Html.ActionLink("Contact Us", "Contact", "Home", null, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
                         @if (Session["EmailID"] == null)
                         {
-                            <button type="submit" class="btn btn-primary btn-lg btn-block btn_login"><a href="../Account/Login">Login</a></button>
-                        }
-                        else
-                        {
-                            <button type="submit" class="btn btn-primary btn-lg btn-block btn_login"><a href="../Account/Logout">Logout</a></button>
-                        }
+            @Html.ActionLink("Login", "Login", "Account", null, new { @class = "btn btn-primary btn-lg btn-block btn_login", Style = "background:#6255a5; color:#fff;" }) }
+        else
+        {
+@Html.ActionLink("Logout", "Logout", "Account", null, new { @class = "btn btn-primary btn-lg btn-block btn_login ",Style = "background:#6255a5; color:#fff;" })}
                     </li>
+
 
                 </ul>
 
@@ -100,19 +103,14 @@
                 </div>
             </div>
         </section>
-        <!-- footer end -->
+
     </div>
 
-    <!-- Jquery Js -->
+
     <script type="text/javascript" src="~/Scripts/js/jquery.min.js"></script>
-
-    <!-- popper Js  -->
-    <script type="text/javascript" src="~/Scripts/js/popper.min.js"></script>
-
-    <!-- Bootstrap Js -->
     <script type="text/javascript" src="~/Scripts/js/bootstrap.min.js"></script>
-
-    <!--custom script-->
+   
     <script type="text/javascript" src="~/Scripts/js/script.js"></script>
+
 </body>
 </html>

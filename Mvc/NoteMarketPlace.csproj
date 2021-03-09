@@ -154,7 +154,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Class1.cs" />
+    <Compile Include="Models\ForgotPasswordModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -213,6 +213,12 @@
     <Content Include="Content\images\logo\favicon.ico" />
     <Content Include="Content\images\logo\logo-blue.png" />
     <Content Include="Content\images\logo\logo-white.png" />
+    <Content Include="Content\images\logo\logo.png" />
+    <Content Include="Content\images\logo\seller.png" />
+    <Content Include="Content\images\user\customer-1.png" />
+    <Content Include="Content\images\user\customer-2.png" />
+    <Content Include="Content\images\user\customer-3.png" />
+    <Content Include="Content\images\user\customer-4.png" />
     <Content Include="Content\images\user\member.png" />
     <Content Include="Content\images\user\user-img.png" />
     <Content Include="DbModel\Model1.Context.tt">
@@ -226,6 +232,7 @@
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <Content Include="EmailTemplate\AccountConfirmation.html" />
+    <Content Include="EmailTemplate\ForgotPassword.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -255,6 +262,12 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js\bootstrap.min.js" />
+    <Content Include="Scripts\js\bootstrap\bootstrap.js" />
+    <Content Include="Scripts\js\jquery.js" />
+    <Content Include="Scripts\js\jquery.min.js" />
+    <Content Include="Scripts\js\popper.min.js" />
+    <Content Include="Scripts\js\script.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -266,14 +279,13 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\fixed_layout.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_loginPartial.cshtml" />
-    <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Signup.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

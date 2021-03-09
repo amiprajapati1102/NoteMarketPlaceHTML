@@ -65,7 +65,7 @@ namespace WebApplication1_NoteMarketPlace.Controllers
 
         private void SendActivationEmail(User objUserModel)
         {
-            using (MailMessage mm = new MailMessage("your email@gmail.com", objUserModel.EmailID))
+            using (MailMessage mm = new MailMessage("amiprajapati1102@gmail.com", objUserModel.EmailID))
             {
                 mm.Subject = "Note MarketPlace Email Verification";
 
@@ -86,7 +86,7 @@ namespace WebApplication1_NoteMarketPlace.Controllers
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
                 smtp.EnableSsl = true;
-                NetworkCredential NetworkCred = new NetworkCredential("youremail@gmail.com", "password");
+                NetworkCredential NetworkCred = new NetworkCredential("amiprajapati1102@gmail.com", "rajesh@1102");
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = NetworkCred;
                 smtp.Port = 587;
@@ -161,5 +161,93 @@ namespace WebApplication1_NoteMarketPlace.Controllers
             Session.Abandon();
             return RedirectToAction("Index", "Home");
         }
+        public ActionResult ForgotPassword()
+        {
+            ForgotPasswordModel model = new ForgotPasswordModel();
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult ForgotPassword(ForgotPasswordModel pass)
+        {
+            if (db.Users.Any(model => model.EmailID == pass.EmailID))
+            {
+
+                SendForgotPasswordEmail(pass);
+                ViewBag.Success = "Check Your Email for Temporary Password .";
+                return View();
+            }
+            else
+            {
+                ModelState.AddModelError("Error", "Email Does Not exists!");
+                return View();
+            }
+        }
+        private void SendForgotPasswordEmail(ForgotPasswordModel model)
+        {
+            var check = db.Users.Where(x => x.EmailID == model.EmailID).FirstOrDefault();
+
+            using (MailMessage mm = new MailMessage("amiprajapati1102@gmail.com", model.EmailID))
+            {
+                mm.Subject = "New Temporary Password has been created for you";
+
+                string body = string.Empty;
+                using (StreamReader reader = new StreamReader(Server.MapPath("~/EmailTemplate/ForgotPassword.html")))
+                {
+                    body = reader.ReadToEnd();
+                }
+                string strNewPassword = GeneratePassword().ToString();
+                body = body.Replace("{SystemPassword}", strNewPassword);
+                mm.Body = body;
+                mm.IsBodyHtml = true;
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.EnableSsl = true;
+                NetworkCredential NetworkCred = new NetworkCredential("amiprajapati1102@gmail.com", "rajesh@1102");
+                smtp.UseDefaultCredentials = true;
+                smtp.Credentials = NetworkCred;
+                smtp.Port = 587;
+                smtp.Send(mm);
+                if (strNewPassword != null)
+                {
+                    var change = db.Users.Where(x => x.EmailID == model.EmailID).FirstOrDefault();
+                    if (change != null)
+                    {
+
+                        change.Password = strNewPassword;
+
+                        db.SaveChanges();
+
+
+                    }
+
+
+
+                }
+            }
+        }
+        public string GeneratePassword()
+        {
+            string PasswordLength = "6";
+            string NewPassword = "";
+
+            string allowedChars = "";
+            allowedChars = "1,2,3,4,5,6,7,8,9,0";
+            //allowedChars += "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,";
+            //allowedChars += "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,";
+
+            char[] sep = { ',' };
+            string[] arr = allowedChars.Split(sep);
+            string IDString = "";
+            string temp = "";
+            Random rand = new Random();
+            for (int i = 0; i < Convert.ToInt32(PasswordLength); i++)
+            {
+                temp = arr[rand.Next(0, arr.Length)];
+                IDString += temp;
+                NewPassword = IDString;
+            }
+            return NewPassword;
+        }
+
     }
 }
