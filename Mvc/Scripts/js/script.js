@@ -5,10 +5,10 @@ function sticky_header() {
     var scrollTop = jQuery(window).scrollTop();;
     if (scrollTop > header_height) {
         jQuery('body').addClass('sticky-nav')
-        $(".home_navbar .navbar img").attr("src", "images/logo/logo-blue.png");
+        $(".home_navbar .navbar img").attr("src", "/Content/images/logo/logo-blue.png");
     } else {
         jQuery('body').removeClass('sticky-nav')
-        $(".home_navbar .navbar img").attr("src", "images/logo/logo-white.png");
+        $(".home_navbar .navbar img").attr("src", "/Content/images/logo/logo-white.png");
     }
 }
 
