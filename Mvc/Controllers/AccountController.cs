@@ -65,7 +65,7 @@ namespace WebApplication1_NoteMarketPlace.Controllers
 
         private void SendActivationEmail(User objUserModel)
         {
-            using (MailMessage mm = new MailMessage("amiprajapati1102@gmail.com", objUserModel.EmailID))
+            using (MailMessage mm = new MailMessage("your email@gmail.com", objUserModel.EmailID))
             {
                 mm.Subject = "Note MarketPlace Email Verification";
 
@@ -86,7 +86,7 @@ namespace WebApplication1_NoteMarketPlace.Controllers
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
                 smtp.EnableSsl = true;
-                NetworkCredential NetworkCred = new NetworkCredential("amiprajapati1102@gmail.com", "rajesh@1102");
+                NetworkCredential NetworkCred = new NetworkCredential("youremail@gmail.com", "password");
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = NetworkCred;
                 smtp.Port = 587;
@@ -186,7 +186,7 @@ namespace WebApplication1_NoteMarketPlace.Controllers
         {
             var check = db.Users.Where(x => x.EmailID == model.EmailID).FirstOrDefault();
 
-            using (MailMessage mm = new MailMessage("amiprajapati1102@gmail.com", model.EmailID))
+            using (MailMessage mm = new MailMessage("youremail@gmail.com", model.EmailID))
             {
                 mm.Subject = "New Temporary Password has been created for you";
 
@@ -202,7 +202,7 @@ namespace WebApplication1_NoteMarketPlace.Controllers
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
                 smtp.EnableSsl = true;
-                NetworkCredential NetworkCred = new NetworkCredential("amiprajapati1102@gmail.com", "rajesh@1102");
+                NetworkCredential NetworkCred = new NetworkCredential("your email@gmail.com", "password");
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = NetworkCred;
                 smtp.Port = 587;
