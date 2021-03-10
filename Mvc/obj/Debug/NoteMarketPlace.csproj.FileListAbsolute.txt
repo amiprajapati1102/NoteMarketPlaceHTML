@@ -163,3 +163,4 @@ D:\NoteMarketplaceHTML\Mvc\obj\Debug\NoteMarketPlace.csproj.CoreCompileInputs.ca
 D:\NoteMarketplaceHTML\Mvc\obj\Debug\NoteMarketPlace.csproj.CopyComplete
 D:\NoteMarketplaceHTML\Mvc\obj\Debug\NoteMarketPlace.dll
 D:\NoteMarketplaceHTML\Mvc\obj\Debug\NoteMarketPlace.pdb
+D:\NoteMarketplaceHTML\Mvc\obj\Debug\NoteMarketPlace.csprojAssemblyReference.cache

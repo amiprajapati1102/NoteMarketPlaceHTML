@@ -9,14 +9,25 @@ namespace NoteMarketPlace.Controllers
 {
     public class HomeController : Controller
     {
-        NoteMarketPlaceHtmlEntities objUserDBEntities = new NoteMarketPlaceHtmlEntities();
+      
         // GET: Home
       public ActionResult Index()
         {
             return View();
         }
+        [Authorize]
+        public ActionResult Contact()
+        {
+            return View();      
+        }
+        [AllowAnonymous]
+        public ActionResult Contacta()
+        {
+            return View();
+        }
 
-        
+
+
 
     }
 }

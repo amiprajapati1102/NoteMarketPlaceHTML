@@ -47,7 +47,7 @@
                     </a>
                 </span>
 
-                @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+                @using (Html.BeginForm("Login", "Account", new { returnUrl = Request.QueryString["ReturnUrl"] }, FormMethod.Post))
                 {
                     @Html.AntiForgeryToken()
 

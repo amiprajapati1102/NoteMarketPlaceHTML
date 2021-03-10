@@ -65,7 +65,7 @@ namespace WebApplication1_NoteMarketPlace.Controllers
 
         private void SendActivationEmail(User objUserModel)
         {
-            using (MailMessage mm = new MailMessage("your email@gmail.com", objUserModel.EmailID))
+            using (MailMessage mm = new MailMessage("youremail@gmail.com", objUserModel.EmailID))
             {
                 mm.Subject = "Note MarketPlace Email Verification";
 
@@ -86,7 +86,7 @@ namespace WebApplication1_NoteMarketPlace.Controllers
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
                 smtp.EnableSsl = true;
-                NetworkCredential NetworkCred = new NetworkCredential("youremail@gmail.com", "password");
+                NetworkCredential NetworkCred = new NetworkCredential("yorr email@gmail.com", "password");
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = NetworkCred;
                 smtp.Port = 587;
@@ -128,7 +128,7 @@ namespace WebApplication1_NoteMarketPlace.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(LoginModel objLoginModel)
+        public ActionResult Login(LoginModel objLoginModel,string returnUrl)
         {
             if (ModelState.IsValid)
             {
@@ -142,7 +142,11 @@ namespace WebApplication1_NoteMarketPlace.Controllers
                 else if (result.IsEmailVerified == true)
                 {
 
-                    FormsAuthentication.SetAuthCookie(objLoginModel.EmailID, objLoginModel.RememberMe);
+                    FormsAuthentication.SetAuthCookie(objLoginModel.EmailID, false);
+                    if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/") && !returnUrl.StartsWith("//") && returnUrl.StartsWith("/\\"))
+                    {
+                        return Redirect(returnUrl);
+                    }
                     Session["EmailID"] = objLoginModel.EmailID;
                     return RedirectToAction("Index", "Home");
                 }
@@ -159,6 +163,7 @@ namespace WebApplication1_NoteMarketPlace.Controllers
         public ActionResult Logout()
         {
             Session.Abandon();
+            FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
         public ActionResult ForgotPassword()
@@ -186,7 +191,7 @@ namespace WebApplication1_NoteMarketPlace.Controllers
         {
             var check = db.Users.Where(x => x.EmailID == model.EmailID).FirstOrDefault();
 
-            using (MailMessage mm = new MailMessage("youremail@gmail.com", model.EmailID))
+            using (MailMessage mm = new MailMessage("your email@gmail.com", model.EmailID))
             {
                 mm.Subject = "New Temporary Password has been created for you";
 
@@ -202,7 +207,7 @@ namespace WebApplication1_NoteMarketPlace.Controllers
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
                 smtp.EnableSsl = true;
-                NetworkCredential NetworkCred = new NetworkCredential("youremail@gmail.com", "password");
+                NetworkCredential NetworkCred = new NetworkCredential("email@gmail.com", "password");
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = NetworkCred;
                 smtp.Port = 587;
