@@ -20,8 +20,9 @@ namespace NoteMarketPlace.Controllers
         {
             return View();      
         }
-        [AllowAnonymous]
-        public ActionResult Contacta()
+       
+
+        public ActionResult FAQ()
         {
             return View();
         }

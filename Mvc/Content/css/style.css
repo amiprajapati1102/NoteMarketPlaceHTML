@@ -339,7 +339,8 @@ label {
 ============================================ */
 
 .banner-image {
-    background-image: url(../images/User-Profile/banner-with-overlay.jpg);
+  
+    background-image: url('../images/banner-with-overlay.jpg');
     height: 250px;
     background-position: center;
     background-repeat: no-repeat;

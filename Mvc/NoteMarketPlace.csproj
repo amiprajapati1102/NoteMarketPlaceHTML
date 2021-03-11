@@ -166,9 +166,13 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\bootstrap\bootstrap.css" />
+    <Content Include="Content\css\faq\style.css" />
     <Content Include="Content\css\font-awesome\css\font-awesome.css" />
     <Content Include="Content\css\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\css\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\css\menu\responsive.css" />
+    <Content Include="Content\css\menu\style.css" />
+    <Content Include="Content\css\menu\white-menu.css" />
     <Content Include="Content\css\responsive.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\images\background\banner-with-overlay.jpg" />
@@ -264,6 +268,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\js\bootstrap.min.js" />
     <Content Include="Scripts\js\bootstrap\bootstrap.js" />
+    <Content Include="Scripts\js\faq\script.js" />
     <Content Include="Scripts\js\jquery.js" />
     <Content Include="Scripts\js\jquery.min.js" />
     <Content Include="Scripts\js\popper.min.js" />
@@ -287,7 +292,7 @@
     <Content Include="Views\Account\ForgotPassword.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Contacta.cshtml" />
+    <Content Include="Views\Home\FAQ.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

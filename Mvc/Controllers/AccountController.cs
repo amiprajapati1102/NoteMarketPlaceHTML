@@ -65,7 +65,7 @@ namespace WebApplication1_NoteMarketPlace.Controllers
 
         private void SendActivationEmail(User objUserModel)
         {
-            using (MailMessage mm = new MailMessage("youremail@gmail.com", objUserModel.EmailID))
+            using (MailMessage mm = new MailMessage("email@gmail.com", objUserModel.EmailID))
             {
                 mm.Subject = "Note MarketPlace Email Verification";
 
@@ -86,7 +86,7 @@ namespace WebApplication1_NoteMarketPlace.Controllers
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
                 smtp.EnableSsl = true;
-                NetworkCredential NetworkCred = new NetworkCredential("yorr email@gmail.com", "password");
+                NetworkCredential NetworkCred = new NetworkCredential("email@gmail.com", "pass");
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = NetworkCred;
                 smtp.Port = 587;
@@ -191,7 +191,7 @@ namespace WebApplication1_NoteMarketPlace.Controllers
         {
             var check = db.Users.Where(x => x.EmailID == model.EmailID).FirstOrDefault();
 
-            using (MailMessage mm = new MailMessage("your email@gmail.com", model.EmailID))
+            using (MailMessage mm = new MailMessage("email@gmail.com", model.EmailID))
             {
                 mm.Subject = "New Temporary Password has been created for you";
 
@@ -207,7 +207,7 @@ namespace WebApplication1_NoteMarketPlace.Controllers
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
                 smtp.EnableSsl = true;
-                NetworkCredential NetworkCred = new NetworkCredential("email@gmail.com", "password");
+                NetworkCredential NetworkCred = new NetworkCredential("email@gmail.com", "pass");
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = NetworkCred;
                 smtp.Port = 587;

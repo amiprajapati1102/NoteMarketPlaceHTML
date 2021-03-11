@@ -81,6 +81,8 @@ C:\Users\amipr\source\repos\NoteMarketPlace\obj\Debug\NoteMarketPlace.csproj.Cor
 C:\Users\amipr\source\repos\NoteMarketPlace\obj\Debug\NoteMarketPlace.csproj.CopyComplete
 C:\Users\amipr\source\repos\NoteMarketPlace\obj\Debug\NoteMarketPlace.dll
 C:\Users\amipr\source\repos\NoteMarketPlace\obj\Debug\NoteMarketPlace.pdb
+D:\NoteMarketplaceHTML\Mvc\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\NoteMarketplaceHTML\Mvc\obj\Debug\NoteMarketPlace.csproj.CoreCompileInputs.cache
 D:\NoteMarketplaceHTML\Mvc\bin\NoteMarketPlace.dll.config
 D:\NoteMarketplaceHTML\Mvc\bin\NoteMarketPlace.dll
 D:\NoteMarketplaceHTML\Mvc\bin\NoteMarketPlace.pdb
@@ -97,7 +99,6 @@ D:\NoteMarketplaceHTML\Mvc\bin\roslyn\Microsoft.CodeAnalysis.dll
 D:\NoteMarketplaceHTML\Mvc\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
 D:\NoteMarketplaceHTML\Mvc\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 D:\NoteMarketplaceHTML\Mvc\bin\roslyn\Microsoft.CSharp.Core.targets
-D:\NoteMarketplaceHTML\Mvc\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
 D:\NoteMarketplaceHTML\Mvc\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
 D:\NoteMarketplaceHTML\Mvc\bin\roslyn\Microsoft.Managed.Core.targets
 D:\NoteMarketplaceHTML\Mvc\bin\roslyn\Microsoft.VisualBasic.Core.targets
@@ -159,8 +160,6 @@ D:\NoteMarketplaceHTML\Mvc\bin\System.Web.WebPages.Razor.xml
 D:\NoteMarketplaceHTML\Mvc\bin\Newtonsoft.Json.xml
 D:\NoteMarketplaceHTML\Mvc\bin\Antlr3.Runtime.pdb
 D:\NoteMarketplaceHTML\Mvc\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\NoteMarketplaceHTML\Mvc\obj\Debug\NoteMarketPlace.csproj.CoreCompileInputs.cache
 D:\NoteMarketplaceHTML\Mvc\obj\Debug\NoteMarketPlace.csproj.CopyComplete
 D:\NoteMarketplaceHTML\Mvc\obj\Debug\NoteMarketPlace.dll
 D:\NoteMarketplaceHTML\Mvc\obj\Debug\NoteMarketPlace.pdb
-D:\NoteMarketplaceHTML\Mvc\obj\Debug\NoteMarketPlace.csprojAssemblyReference.cache
