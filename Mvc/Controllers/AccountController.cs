@@ -65,7 +65,7 @@ namespace WebApplication1_NoteMarketPlace.Controllers
 
         private void SendActivationEmail(User objUserModel)
         {
-            using (MailMessage mm = new MailMessage("email@gmail.com", objUserModel.EmailID))
+            using (MailMessage mm = new MailMessage("youremail@gmail.com", objUserModel.EmailID))
             {
                 mm.Subject = "Note MarketPlace Email Verification";
 
@@ -86,7 +86,7 @@ namespace WebApplication1_NoteMarketPlace.Controllers
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
                 smtp.EnableSsl = true;
-                NetworkCredential NetworkCred = new NetworkCredential("email@gmail.com", "[assword");
+                NetworkCredential NetworkCred = new NetworkCredential("email@gmail.com", "password");
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = NetworkCred;
                 smtp.Port = 587;

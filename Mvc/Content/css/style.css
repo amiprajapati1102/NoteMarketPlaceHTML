@@ -236,7 +236,7 @@ p {
     background: #6255a5;
     border-radius: 3px;
     text-decoration-color: #fff;
-    font-style: Open Sans;
+    font-family: Open Sans;
     font-size: 18px;
     line-height: 22px;
 }
@@ -245,7 +245,7 @@ p {
     background: #6255a5;
     border-radius: 3px;
     text-decoration-color: #fff;
-    font-style: Open Sans;
+    font-family: Open Sans;
     font-size: 18px;
     line-height: 22px;
 }
@@ -256,7 +256,7 @@ p {
     height: 40px;
     border-radius: 3px;
     text-decoration-color: #fff;
-    font-style: Open Sans;
+    font-family: Open Sans;
     font-size: 18px;
     line-height: 22px;
 }
@@ -265,7 +265,7 @@ p {
     background: #6255a5;
     border-radius: 3px;
     text-decoration-color: #fff;
-    font-style: Open Sans;
+    font-family: Open Sans;
     font-size: 18px;
     line-height: 22px;
 }
@@ -525,10 +525,10 @@ input[type=radio] {
 }
 
 .accordion-toggle:after {
-    /* symbol for "opening" panels */
+    
     font-family: 'FontAwesome';
     font-size: 16px;
-    font-weight: 0;
+    font-weight: 100;
     content: "\f068";
     float: right;
     color: #b1b1b1;
@@ -668,7 +668,7 @@ input[type=radio] {
 
 .sticky-nav .navbar {
     background-color: #fff !important;
-    box-shadow: 0 0 30px 0 rgba(0,0,0,0,1) !important;
+    box-shadow: 0 0 30px 0 rgba(0,0,0,0.1) !important;
 }
 
 .home_navbar .navbar .nav-item a {
@@ -903,7 +903,7 @@ input[type=radio] {
     text-align: center;
     font-family: Open Sans;
     font-size: 34px;
-    font-weight: 600px;
+    font-weight: 600;
     line-height: 38px;
     color: #6255a5;
 }
@@ -1395,7 +1395,7 @@ input[type=radio] {
         height: 34px;
         color: #333333;
         font-family: Open Sans;
-        font-style: 400;
+        font-weight: 400;
         font-size: 16px;
         line-height: 20px;
         border-radius: 50%;
@@ -1409,7 +1409,7 @@ input[type=radio] {
         background: #6255a5;
         color: #fff;
         font-family: Open Sans;
-        font-style: 400;
+        font-weight: 400;
         font-size: 16px;
         line-height: 20px;
         border-radius: 50%;
@@ -1420,7 +1420,8 @@ input[type=radio] {
     .pagination li .page-link-icon {
         font-size: 15px;
         margin-right: 35px;
-        margin-left: 35px border: none;
+        margin-left: 35px;
+        border: none;
         width: 8px;
         height: 15px;
         color: #333333;
