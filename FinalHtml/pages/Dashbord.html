@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <title>Ami Prajapati -Dashboard  </title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+
+<body>
+     <header>
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+            <a class="navbar-brand" href="HomePage.html">
+                <img src="../images/logo/logo-blue.png" alt="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="SearchNotes.html">Search Notes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Dashbord.html">Sell Your Notes</a>
+                    </li>
+                    <li class="nav-item">
+                         <a class="nav-link" href="BuyerRequest.html">Buyer Requests</a>
+                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Faq.html">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ContactUs.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="user_img" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../images/user/user-img.png"></a>
+                        <div class="dropdown-menu">
+                            <a href="UserProfile.html"><button class="dropdown-item" type="button">My Profile</button></a>
+                            <a href="myDownloads.html"><button class="dropdown-item" type="button">My Downloads</button></a>
+                            <a href="MySoldNotes.html"><button class="dropdown-item" type="button">My Sold Notes</button></a>
+                            <a href="MyRejectedNotes.html"><button class="dropdown-item" type="button">My Rejected Notes</button></a>
+                            <a href="ChangePassword.html"><button class="dropdown-item" type="button">Change Password</button></a>
+                            <a href="HomePage.html"><button class="dropdown-item" type="button"><span>LOGOUT</span></button></a>
+                            </div>
+                     </li>
+                    <li class="nav-item">
+                        <a href="HomePage.html"><button type="button" class="btn btn-primary btn-lg btn-block btn_login">Logout</button></a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+    <!-- Header End -->
+    
+    <!-- dashboard -->
+    <section class="dashboard_top">
+        <div class="container">
+            <div class="row">
+                <div class="main_heading col-md-6 col-6">Dashboard</div>
+                <div class="add_btn col-md-6 col-6">
+                    <a href="AddNotes.html"><button type="button" class="btn btn-primary add_note_btn">ADD Note</button></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="boxes col-md-2">
+                    <div class="earning_box">
+                        <div class="earning_img text-center">
+                            <img src="../images/Dashboard/earning-icon.svg"><br>
+                            <span class="heading">My Earning</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="boxes col-md-4">
+                    <div class="sold_box">
+                        <div class="col-md-6 sold">
+                            <span class="heading">100</span><br>
+                            <span class="sub_heading">Numbers of Notes Sold</span>
+                        </div>
+                        <div class="myearning">
+                            <span class="heading">$10,00,000</span><br>
+                            <span class="sub_heading">Money Earned</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="boxes col-md-2">
+                    <div class="download_box">
+                        <span class="heading">38</span><br>
+                        <span class="sub_heading">My Downloads</span>
+                    </div>
+                </div>
+                <div class="boxes col-md-2">
+                    <div class="reject_box">
+                        <span class="heading">12</span><br>
+                        <span class="sub_heading">My Rejected Notes</span>
+                    </div>
+                </div>
+                <div class="boxes col-md-2">
+                    <div class="request_box">
+                        <span class="heading">102</span><br>
+                        <span class="sub_heading">Buyer Requests</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="dashboard_table m-t-30">
+        <div class="container">
+            <div class="row">
+                <div class="heading col-md-4 col-sm-6 col-12 ">In Progress Notes</div>
+                
+                   <div class="col-md-8 col-sm-6 col-12">
+                    <div class="search-note">
+                       
+                        <div class="row">
+                            <div class="col-md-8 col-sm-8 col-8">
+                                <div class="search">
+                                    <img src="../images/assets/search.jpg">
+                                    <input type="search" class="form-control" placeholder="Search">
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4 col-sm-4 col-4 search_button">
+                                <button type="button" class="btn btn-primary searc_btn">Search</button>    
+                            </div> 
+                        </div>
+
+                    </div>   
+                </div>
+                
+                
+            </div>
+            <div class="row booktable">
+                <table class="table table-hover table-responsive">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 10%">Added date</th>
+                            <th scope="col" style="width: 30%">title</th>
+                            <th scope="col" style="width: 20%">category</th>
+                            <th scope="col" style="width: 20%">status</th>
+                            <th scope="col" style="width: 20%">actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>09-10-2020</td>
+                            <td>Data Science</td>
+                            <td>Science</td>
+                            <td>Draft</td>
+                            <td>
+
+                                <a href="#" class="icon"><i class="fas fa-pencil-alt"></i></a>
+                                <a href="#" class="icon"><i class="fas fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>10-10-2020</td>
+                            <td>Accounts</td>
+                            <td>Commerce</td>
+                            <td>In Review</td>
+                            <td><a href="#" class="icon"><i class="far fa-eye"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td>11-10-2020</td>
+                            <td>Social Studies</td>
+                            <td>Social</td>
+                            <td>Submitted</td>
+                            <td><a href="#" class="icon"><i class="far fa-eye"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td>12-10-2020</td>
+                            <td>AI</td>
+                            <td>IT</td>
+                            <td>Submitted</td>
+                            <td><a href="#" class="icon"><i class="far fa-eye"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td>13-10-2020</td>
+                            <td>Lorem ipsum dolor sit ametsectetur</td>
+                            <td>Lorem</td>
+                            <td>Draft</td>
+                            <td>
+
+                                <a href="#" class="icon"><i class="fas fa-pencil-alt"></i></a>
+                                <a href="#" class="icon"><i class="fas fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section class="pages">
+        <div class="container">
+            <div class="row">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link page-link-icon" href="#" aria-label="Previous">
+                            <i class="fa fa-chevron-left"></i>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                    <li class="page-item">
+                        <a class="page-link page-link-icon" href="#" aria-label="Next">
+                            <i class="fa fa-chevron-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="dashboard_table">
+        <div class="container">
+            <div class="row">
+                <div class="heading col-md-4 col-sm-6 col-12">Published Notes</div>
+                
+                   <div class="col-md-8 col-sm-6 col-12">
+                    <div class="search-note">
+                       
+                        <div class="row">
+                            <div class="col-md-8 col-sm-8 col-7">
+                                <div class="search">
+                                    <img src="../images/assets/search.jpg">
+                                    <input type="search" class="form-control" placeholder="Search">
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4 col-sm-4 col-5 search_button">
+                                <button type="button" class="btn btn-primary searc_btn">Search</button>    
+                            </div> 
+                        </div>
+
+                    </div>   
+                </div>
+                
+            </div>
+            <div class="row booktable">
+                <table class="table table-hover table-responsive">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 10%">Added date</th>
+                            <th scope="col" style="width: 30%">title</th>
+                            <th scope="col" style="width: 20%">category</th>
+                            <th scope="col" style="width: 20%">sell type</th>
+                            <th scope="col" style="width: 20%">price</th>
+                            <th scope="col" style="width: 20%">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>09-10-2020</td>
+                            <td>Data Science</td>
+                            <td>Science</td>
+                            <td>Paid</td>
+                            <td>$575</td>
+                            <td><a href="#" class="icon"><i class="far fa-eye"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td>10-10-2020</td>
+                            <td>Accounts</td>
+                            <td>Commerce</td>
+                            <td>Free</td>
+                            <td>$0</td>
+                            <td><a href="#" class="icon"><i class="far fa-eye"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td>11-10-2020</td>
+                            <td>Social Studies</td>
+                            <td>Social</td>
+                            <td>Free</td>
+                            <td>$0</td>
+                            <td><a href="#" class="icon"><i class="far fa-eye"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td>12-10-2020</td>
+                            <td>AI</td>
+                            <td>IT</td>
+                            <td>Paid</td>
+                            <td>$3542</td>
+                            <td><a href="#" class="icon"><i class="far fa-eye"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td>13-10-2020</td>
+                            <td>Lorem ipsum dolor sit ametsectetur</td>
+                            <td>Lorem</td>
+                            <td>Free</td>
+                            <td>$0</td>
+                            <td><a href="#" class="icon"><i class="far fa-eye"></i></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section class="pages">
+        <div class="container">
+            <div class="row">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link page-link-icon" href="#" aria-label="Previous">
+                            <i class="fa fa-chevron-left"></i>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                    <li class="page-item">
+                        <a class="page-link page-link-icon" href="#" aria-label="Next">
+                            <i class="fa fa-chevron-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="footer">
+        <div class="container">
+            
+            <div class="row">
+                <div class="col-md-6 footer_content" style="width: 60%;">
+                    <p>Copyright © <a href="https://www.tatvasoft.com/">TatvaSoft</a> All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 footer_social text-right" style="width: 40%;">
+                    <ul class="social-list">
+                        <li><a href="#">
+                                <i class="fab fa-facebook-f"></i>
+                            </a></li>
+                        <li><a href="#">
+                                <i class="fab fa-twitter"></i>
+                            </a></li>
+                        <li><a href="#">
+                                <i class="fab fa-google-plus-g"></i>
+                            </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap/bootstrap.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

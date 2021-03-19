@@ -16,12 +16,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
     <!--bootstrap css-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="~/Content/css/style.css">
-    <link href="~/Content/css/faq/style.css" rel="stylesheet" />
+
     <!--Responsive CSS-->
     <link rel="stylesheet" href="~/Content/css/responsive.css">
 </head>
@@ -45,7 +44,7 @@
                         <a class="nav-link" href="Add_Notes.html">Sell Your Notes</a>
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("FAQ", "FAQ", "Home", null, new { @class = "nav-link" })
+                        <a class="nav-link" href="faq.html">FAQ</a>
                     </li>
                     <li class="nav-item">
                         @Html.ActionLink("Contact Us", "Contact", "Home", null, new { @class = "nav-link" })
@@ -53,10 +52,12 @@
                     <li class="nav-item">
                         @if (Session["EmailID"] == null)
                         {
-                @Html.ActionLink("Login", "Login", "Account", null, new { @class = "btn btn-primary btn-lg btn-block btn_login" }) }
-            else
-            {
-                @Html.ActionLink("Logout", "Logout", "Account", null, new { @class = "btn btn-primary btn-lg btn-block btn_login" })}
+                            @Html.ActionLink("Login", "Login", "Account", null, new { @class = "btn btn-primary btn-lg btn-block btn_login" })
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Logout", "Logout", "Account", null, new { @class = "btn btn-primary btn-lg btn-block btn_login" })
+                        }
                     </li>
 
                 </ul>
@@ -102,10 +103,16 @@
         <!-- footer end -->
     </div>
 
+    <!-- Jquery Js -->
     <script type="text/javascript" src="~/Scripts/js/jquery.min.js"></script>
+
+    <!-- popper Js  -->
+    <script type="text/javascript" src="~/Scripts/js/popper.min.js"></script>
+
+    <!-- Bootstrap Js -->
     <script type="text/javascript" src="~/Scripts/js/bootstrap.min.js"></script>
 
+    <!--custom script-->
     <script type="text/javascript" src="~/Scripts/js/script.js"></script>
-    <script src="~/Scripts/js/faq/script.js"></script>
 </body>
 </html>

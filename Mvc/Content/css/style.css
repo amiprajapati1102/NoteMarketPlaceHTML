@@ -10,29 +10,26 @@ html {
     font-family: Open Sans;
 }
 
-.m-b-20 {
+.x-b-20 {
     margin-bottom: 20px;
 }
 
-.m-t-30 {
+.x-t-30 {
     margin-top: 30px;
 }
 
-.m-t-100 {
+.x-t-100 {
     margin-top: 100px;
 }
 
-.m-t-160 {
+.x-t-160 {
     margin-top: 160px;
 }
 
-.m-t-60 {
+.x-t-60 {
     margin-top: 60px;
 }
 
-/* =========================================
-                login Page
-============================================ */
 
 .main-wrap {
     width: 100%;
@@ -190,7 +187,7 @@ html {
         color: #6255a5;
     }
 
-.login-form .m-b-30 {
+.login-form .x-b-30 {
     margin-bottom: 30px;
 }
 
@@ -227,10 +224,6 @@ p {
     margin: 0px;
 }
 
-
-/* =========================================
-                Buttons
-============================================ */
 
 #login-btn {
     background: #6255a5;
@@ -272,7 +265,6 @@ p {
 
 
 
-/*---------------------Sign up Page------------------------*/
 
 .signup-heading p {
     font-family: Open Sans;
@@ -306,15 +298,6 @@ label {
     color: #ff3636;
 }
 
-/* =========================================
-                Forgot Page
-============================================ */
-
-
-
-/* =========================================
-                Signup Page
-============================================ */
 
 .signup-heading p {
     font-family: Open Sans;
@@ -334,12 +317,9 @@ label {
     text-align: center;
 }
 
-/* =========================================
-                User Profile
-============================================ */
 
 .banner-image {
-  
+    background-image: url(../images/User-Profile/banner-with-overlay.jpg);
     background-image: url('../images/banner-with-overlay.jpg');
     height: 250px;
     background-position: center;
@@ -364,7 +344,7 @@ label {
         line-height: 52px;
     }
 
-/* User form */
+
 
 .form-heading h3 {
     font-family: Open Sans;
@@ -399,10 +379,6 @@ label {
     }
 
 
-
-/* =========================================
-                Email Verification
-============================================ */
 
 .wrap-email {
     width: 580px;
@@ -456,7 +432,7 @@ label {
                 Add Notes
 ============================================ */
 
-.m-b-60 {
+.x-b-60 {
     margin-bottom: 60px;
 }
 
@@ -503,87 +479,6 @@ input[type=radio] {
     border: 1px solid #d1d1d1;
 }
 
-/* =========================================
-                FAQs
-============================================ */
-
-#faq .contact-text h4 {
-    font-size: 34px;
-    font-weight: 600;
-    line-height: 38px;
-    color: #6255a5;
-}
-
-#faq .content-box-lg {
-    padding-bottom: 0;
-}
-
-
-
-.q {
-    margin-top: 15px;
-}
-
-.accordion-toggle:after {
-    
-    font-family: 'FontAwesome';
-    font-size: 16px;
-    font-weight: 100;
-    content: "\f068";
-    float: right;
-    color: #b1b1b1;
-}
-
-.collapsed .accordion-toggle:after {
-    /* symbol for "collapsed" panels */
-    content: "\f067";
-}
-
-.q .collapsed .faq-qstn {
-    height: 60px;
-    background-color: #f1f1f1;
-    border: none;
-}
-
-.q .faq-qstn {
-    color: #333333;
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 22px;
-    height: 60px;
-    margin: 0;
-    padding: 20px;
-    border: 1px solid #d1d1d1;
-    border-bottom: none;
-    background-color: #fff;
-}
-
-.faq-ans {
-    color: #333333;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 22px;
-    padding-left: 20px;
-    padding-right: 40px;
-    border: 1px solid #d1d1d1;
-    border-top: none;
-    padding-bottom: 15px;
-    text-align: justify;
-}
-
-.faq-heading h3 {
-    font-family: Open Sans;
-    font-size: 34px;
-    font-weight: 600;
-    line-height: 38px;
-    color: #6255a5;
-    padding: 60px 0 30px 0;
-    margin: 0;
-}
-
-/* =========================================
-                Contact Us
-============================================ */
 
 .contact-heading h3 {
     font-family: Open Sans;
@@ -605,9 +500,7 @@ input[type=radio] {
     margin: 0;
 }
 
-/* =========================================
-                Home page
-============================================ */
+
 .home {
     height: 620px;
     width: 100%;
@@ -650,9 +543,7 @@ input[type=radio] {
         line-height: 30px;
         color: #ffffff;
     }
-/* =========================================
-               home Navigation
-============================================ */
+
 .home_navbar .navbar {
     font-family: Open Sans;
     font-size: 16px;
@@ -1210,7 +1101,7 @@ input[type=radio] {
             color: #df3434;
         }
 
-/*    ratings     */
+
 
 .rate {
     float: left;
@@ -1420,7 +1311,7 @@ input[type=radio] {
     .pagination li .page-link-icon {
         font-size: 15px;
         margin-right: 35px;
-        margin-left: 35px;
+        margin-left: 35px ;
         border: none;
         width: 8px;
         height: 15px;
@@ -1632,11 +1523,7 @@ input[type=radio] {
     margin-bottom: 0;
 }
 
-/* =========================================
-                Dashboard
-============================================ */
 
-/* Searchbar  */
 .search-note {
     display: inline-flex;
     float: right;
@@ -1902,8 +1789,7 @@ input[type=radio] {
         .dashboard_table .admin_button button:hover {
             color: #6255a5;
             background: #fff;
-        }
-/*--  admin code end  --*/
+}
 
 .dashboard_table .booktable {
     margin-top: 20px;
@@ -1964,9 +1850,7 @@ input[type=radio] {
     .table .purple_text {
         color: #6255a5 !important;
     }
-/* =========================================
-                myDownloads
-============================================ */
+
 .dashboard_table .download_heading {
     padding: 0;
     font-family: Open Sans;
@@ -2019,9 +1903,7 @@ input[type=radio] {
             background: #fff;
             color: #6255a5;
         }
-/* =========================================
-                All over drop-down
-============================================ */
+
 .dropdown-menu .dropdown-item {
     padding-top: 10px;
     font-family: Open Sans;
@@ -2035,9 +1917,7 @@ input[type=radio] {
         background: #6255a5;
         color: #fff;
     }
-/* =========================================
-                member details
-============================================ */
+
 .member_details .member_heading {
     padding: 0;
     margin-top: 60px;
@@ -2095,9 +1975,7 @@ input[type=radio] {
     line-height: 24px;
     color: #6255a5;
 }
-/* =========================================
-                Notes under review
-============================================ */
+
 .dashboard_table .small_text {
     margin-top: 15px;
     margin-bottom: -20px;
@@ -2108,7 +1986,7 @@ input[type=radio] {
     line-height: 20px;
     color: #333333;
 }
-/*--    button     --*/
+
 .dashboard_table .green_btn {
     width: 110px;
     background: #28a745;
@@ -2229,9 +2107,7 @@ input[type=radio] {
             color: #cccccc;
             background: #fff;
         }
-/* =========================================
-                Footer
-============================================ */
+
 .footer {
     padding-bottom: 15px;
 }

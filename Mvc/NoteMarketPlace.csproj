@@ -148,6 +148,9 @@
     <Compile Include="DbModel\User.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="DbModel\UserProfile.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="DbModel\UserRole.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -157,6 +160,7 @@
     <Compile Include="Models\ContactModel.cs" />
     <Compile Include="Models\ForgotPasswordModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\RoleProvider.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -167,13 +171,9 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\bootstrap\bootstrap.css" />
-    <Content Include="Content\css\faq\style.css" />
     <Content Include="Content\css\font-awesome\css\font-awesome.css" />
     <Content Include="Content\css\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\css\font-awesome\fonts\fontawesome-webfont.svg" />
-    <Content Include="Content\css\menu\responsive.css" />
-    <Content Include="Content\css\menu\style.css" />
-    <Content Include="Content\css\menu\white-menu.css" />
     <Content Include="Content\css\responsive.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\images\background\banner-with-overlay.jpg" />
@@ -228,8 +228,8 @@
     <Content Include="Content\images\user\user-img.png" />
     <Content Include="DbModel\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
       <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
     <Content Include="DbModel\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -245,6 +245,12 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\css\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\css\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\css\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\css\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\css\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\images\logo\Thumbs.db" />
     <EntityDeploy Include="DbModel\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -252,12 +258,6 @@
     <Content Include="DbModel\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
-    <Content Include="Content\css\font-awesome\fonts\fontawesome-webfont.eot" />
-    <Content Include="Content\css\font-awesome\fonts\fontawesome-webfont.ttf" />
-    <Content Include="Content\css\font-awesome\fonts\fontawesome-webfont.woff" />
-    <Content Include="Content\css\font-awesome\fonts\fontawesome-webfont.woff2" />
-    <Content Include="Content\css\font-awesome\fonts\FontAwesome.otf" />
-    <Content Include="Content\images\logo\Thumbs.db" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -270,7 +270,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\js\bootstrap.min.js" />
     <Content Include="Scripts\js\bootstrap\bootstrap.js" />
-    <Content Include="Scripts\js\faq\script.js" />
     <Content Include="Scripts\js\jquery.js" />
     <Content Include="Scripts\js\jquery.min.js" />
     <Content Include="Scripts\js\popper.min.js" />
@@ -294,7 +293,7 @@
     <Content Include="Views\Account\ForgotPassword.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\FAQ.cshtml" />
+    <Content Include="Views\Home\Contacta.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

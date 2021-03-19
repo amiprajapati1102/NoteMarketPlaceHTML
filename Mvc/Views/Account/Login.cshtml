@@ -59,7 +59,7 @@
 
                 </div>
 
-                <div class="form-group m-b-30">
+                <div class="form-group x-b-30">
                     <label for="login-email">Email</label>
                     @Html.TextBoxFor(model => model.EmailID, htmlAttributes: new { @class = "form-control", @placeholder = "Enter your email address" })
                     @Html.ValidationMessageFor(model => model.EmailID, "", new { @class = "text-danger" })
@@ -92,7 +92,7 @@
                     <label for="login-check">Remember Me</label>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-lg btn-block m-b-20" id="login-btn" value="Login">LOGIN</button>
+                <button type="submit" class="btn btn-primary btn-lg btn-block x-b-20" id="login-btn" value="Login">LOGIN</button>
 
                 <p class="text-center" id="not-account">Don't have an account? <a href="Signup"><span>Sign Up</span></a></p>
                 <p class="text-center text-danger">@ViewBag.Email</p>

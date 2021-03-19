@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <title>Ami Prajapati -Add country</title>
+    <link rel="shortcut icon" href="../images/logo/favicon.ico">
+   
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  
+    <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <link rel="stylesheet" href="../css/responsive.css">
+    
+    
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+            <a class="navbar-brand" href="dashboard.html">
+                <img src="../images/logo/logo-blue.png" alt="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="notes">Notes</a>
+                        <div class="dropdown-menu">
+                            <a href="NotesUnderReview.html"><button class="dropdown-item" type="button">Notes Under Review</button></a>
+                            <a href="PublishedNotes.html"><button class="dropdown-item" type="button">Published Notes</button></a>
+                            <a href="DownloadedNotes.html"><button class="dropdown-item" type="button">Downloaded Notes</button></a>
+                            <a href="RejectedNotes.html"><button class="dropdown-item" type="button">Rejected Notes</button></a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                         <a class="nav-link" href="Members.html">Members</a>
+                     </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="report">Reports</a>
+                        <div class="dropdown-menu">
+                            <a href="SpamReports.html"><button class="dropdown-item" type="button">Spam Report</button></a>
+                        </div>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="settings">Settings</a>
+                        <div class="dropdown-menu">
+                            <a href="SystemConfiguration.html"><button class="dropdown-item" type="button">Manage System Configuration</button></a>
+                            <a href="ManageAdmin.html"><button class="dropdown-item" type="button">Manage Administrator</button></a>
+                            <a href="ManageCategory.html"><button class="dropdown-item" type="button">Manage Category</button></a>
+                            <a href="ManageType.html"><button class="dropdown-item" type="button">Manage Type</button></a>
+                            <a href="ManageCountry.html"><button class="dropdown-item" type="button">Manage Countries</button></a>
+                        </div>
+                    </li>
+                    
+                    
+                    <li class="nav-item dropdown">
+                        <a class="user_img" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../images/user/user-img.png"></a>
+                        <div class="dropdown-menu">
+                            <a href="Profile.html"><button class="dropdown-item" type="button">Update Profile</button></a>
+                            <a href="#"><button class="dropdown-item" type="button">Change Password</button></a>
+                            <a href="../pages/HomePage.html"><button class="dropdown-item" type="button"><span>LOGOUT</span></button></a>
+                        </div>
+                    </li>
+                     
+                    <li class="nav-item">
+                        <a href="../pages/HomePage.html"><button type="button" class="btn btn-primary btn-lg btn-block btn_login">Logout</button></a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+  
+     
+     <div class="container form-wrap m-t-100">
+
+         <form>
+
+             <div class="form-heading">
+                 <h3>My Profile</h3>
+             </div>
+
+             <div class="row">
+
+
+                 <div class="col-md-8">
+
+                     <div class="form-group">
+                         <label for="country-name">Country Name *</label>
+                         <input type="text" class="form-control" id="country-name" placeholder="Enter your country name">
+                     </div>
+
+                     <div class="form-group">
+                         <label for="country-code">Country Code *</label>
+                         <input type="text" class="form-control" id="country-code" placeholder="Enter your country code">
+                     </div>
+
+
+                 </div>
+             </div>
+
+
+             <button type="button" class="btn btn-primary m-b-60 m-t-30" id="submit-btn-user">SUBMIT</button>
+
+         </form>
+     </div>
+  
+    <section class="footer">
+        <div class="container">
+            
+            <div class="row">
+                <div class="col-md-6 footer_content" style="width: 30%;">
+                    <p>Version 1.1.24</p>
+                </div>
+                <div class="col-md-6 footer_social text-right" style="width: 70%;">
+                    <p>Copyright &copy; TatvaSoft All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../js/jquery.js"></script>
+
+    <script src="../js/bootstrap/bootstrap.js"></script>
+ 
+    <script src="../js/script.js"></script>
+
+
+</body>
+
+</html>

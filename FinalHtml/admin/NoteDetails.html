@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <title>Ami-Prajapati - Note details</title>
+  
+    <link rel="shortcut icon" href="../images/logo/favicon.ico">
+   
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  
+    <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <link rel="stylesheet" href="../css/responsive.css">
+    
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+            <a class="navbar-brand" href="dashboard.html">
+                <img src="../images/logo/logo-blue.png" alt="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="notes">Notes</a>
+                        <div class="dropdown-menu">
+                            <a href="NotesUnderReview.html"><button class="dropdown-item" type="button">Notes Under Review</button></a>
+                            <a href="PublishedNotes.html"><button class="dropdown-item" type="button">Published Notes</button></a>
+                            <a href="DownloadedNotes.html"><button class="dropdown-item" type="button">Downloaded Notes</button></a>
+                            <a href="RejectedNotes.html"><button class="dropdown-item" type="button">Rejected Notes</button></a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                         <a class="nav-link" href="Members.html">Members</a>
+                     </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="report">Reports</a>
+                        <div class="dropdown-menu">
+                            <a href="SpamReports.html"><button class="dropdown-item" type="button">Spam Report</button></a>
+                        </div>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="settings">Settings</a>
+                        <div class="dropdown-menu">
+                            <a href="SystemConfiguration.html"><button class="dropdown-item" type="button">Manage System Configuration</button></a>
+                            <a href="ManageAdmin.html"><button class="dropdown-item" type="button">Manage Administrator</button></a>
+                            <a href="ManageCategory.html"><button class="dropdown-item" type="button">Manage Category</button></a>
+                            <a href="ManageType.html"><button class="dropdown-item" type="button">Manage Type</button></a>
+                            <a href="ManageCountry.html"><button class="dropdown-item" type="button">Manage Countries</button></a>
+                        </div>
+                    </li>
+                    
+                    
+                    <li class="nav-item dropdown">
+                        <a class="user_img" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../images/user/user-img.png"></a>
+                        <div class="dropdown-menu">
+                            <a href="Profile.html"><button class="dropdown-item" type="button">Update Profile</button></a>
+                            <a href="#"><button class="dropdown-item" type="button">Change Password</button></a>
+                            <a href="../pages/HomePage.html"><button class="dropdown-item" type="button"><span>LOGOUT</span></button></a>
+                        </div>
+                    </li>
+                     
+                    <li class="nav-item">
+                        <a href="../pages/HomePage.html"><button type="button" class="btn btn-primary btn-lg btn-block btn_login">Logout</button></a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+   <section class="notes_details m-t-100">
+       <div class="container">
+           <div class="row">
+               <div class="col-md-12 small_heading">
+                   Notes Details
+               </div>
+           </div>
+
+           <div class="row">
+
+
+               <div class="col-md-7">
+
+                   <div class="book_left">
+
+                       <div class="row">
+
+                           <div class="col-md-4 col-sm-4">
+                               <img src="../images/Notes-Details/1.jpg">
+                           </div>
+
+                           <div class="col-md-8 col-sm-8">
+                               <h2>Computer Science</h2>
+                               <h5>Computer Science</h5>
+                               <p>
+                                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum ab, vitae, quo neque, ut iure inventore id veritatis dicta omnis voluptatum quis voluptatibus .
+                               </p>
+                               <div class="download_button">
+                                   <button type="button" class="btn btn-primary btn_download" data-toggle="modal" data-target="#exampleModal">Download / $15</button>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+
+               <div class="col-md-5 book_right">
+
+                   <div class="row">
+
+                       <div class="col-md-6 col-sm-6 col-4">
+                           <div class="note-text-left">
+                               <h5>Institution:</h5>
+                           </div>
+                       </div>
+                       <div class="col-md-6 col-sm-6 col-8">
+                           <div class="note-text-right">
+                               <h5>University of California</h5>
+                           </div>
+                       </div>
+
+
+                       <div class="col-md-6 col-sm-6 col-6">
+                           <div class="note-text-left">
+                               <h5>Course Name:</h5>
+                           </div>
+                       </div>
+                       <div class="col-md-6 col-sm-6 col-6">
+                           <div class="note-text-right">
+                               <h5>Computer Engineering</h5>
+                           </div>
+                       </div>
+
+
+                       <div class="col-md-6 col-sm-6 col-6">
+                           <div class="note-text-left">
+                               <h5>Course Code:</h5>
+                           </div>
+                       </div>
+                       <div class="col-md-6 col-sm-6 col-6">
+                           <div class="note-text-right">
+                               <h5>248705</h5>
+                           </div>
+                       </div>
+
+
+                       <div class="col-md-6 col-sm-6 col-6">
+                           <div class="note-text-left">
+                               <h5>Professor:</h5>
+                           </div>
+                       </div>
+                       <div class="col-md-6 col-sm-6 col-6">
+                           <div class="note-text-right">
+                               <h5>Mr. Richard Brown</h5>
+                           </div>
+                       </div>
+
+
+                       <div class="col-md-6 col-sm-6 col-6">
+                           <div class="note-text-left">
+                               <h5>Number of Pages:</h5>
+                           </div>
+                       </div>
+                       <div class="col-md-6 col-sm-6 col-6">
+                           <div class="note-text-right">
+                               <h5>277</h5>
+                           </div>
+                       </div>
+
+                       <div class="col-md-6 col-sm-6 col-6">
+                           <div class="note-text-left">
+                               <h5>Approved Date:</h5>
+                           </div>
+                       </div>
+                       <div class="col-md-6 col-sm-6 col-6">
+                           <div class="note-text-right">
+                               <h5>November 25 2020</h5>
+                           </div>
+                       </div>
+
+                       <div class="col-md-4 col-sm-6 col-4">
+                           <div class="note-text-left">
+                               <h5>Rating:</h5>
+                           </div>
+                       </div>
+                       <div class="col-md-8 col-sm-6 col-8">
+                           <div class="note-text-right">
+
+                               <div class="rate text-center">
+                                   <i class="fas fa-star"></i>
+                                   <i class="fas fa-star"></i>
+                                   <i class="fas fa-star"></i>
+                                   <i class="fas fa-star"></i>
+                                   <i class="far fa-star"></i>
+                               </div>
+
+                               <h5>100 Reviews</h5>
+
+                           </div>
+                       </div>
+
+
+
+                       <div class="row col-md-12">
+                           <span class="col-md-12 red_text">
+                               5 Users marked this note as inappropriate
+                           </span>
+                       </div>
+
+                   </div>
+               </div>
+           </div>
+           <hr>
+       </div>
+   </section>
+    <section class="notes_details_down">
+        <div class="container">
+            <div class="row">
+                <div class="small_heading col-md-5 col-sm-12 col-12">
+                    <h4>Notes Preview</h4>
+                    <div class="col-md-12 book_left">
+                        <iframe src="../images/pdf-sample.pdf">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div class="small_heading col-md-7 col-sm-12 col-12">
+                    <h4>Customer Reviews</h4>
+
+                    <div class="col-md-12 book_right">
+                        <div class="customer_img col-md-1 col-2">
+                            <img src="../images/Notes-Details/reviewer-1.png">
+                        </div>
+                        <div class="customer col-md-11 col-12">
+                            Richard Brown
+                            <div class="del_icon" style="float: right">
+                                <a href="#" class="icon" style="color: #d1d1d1"><i class="fas fa-trash-alt"></i></a>
+                            </div>
+                            <br>
+                            <span class="down-rate">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </span><br>
+                            <p class="customer_review"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum beatae, nemo culpa</p>
+                        </div>
+                        <hr>
+                        <div class="customer_img col-md-1 col-2">
+                            <img src="../images/Notes-Details/reviewer-2.png">
+                        </div>
+                        <div class="customer col-md-11">
+                            Alice Ortiaz
+                            <div class="del_icon" style="float: right">
+                                <a href="#" class="icon" style="color: #d1d1d1"><i class="fas fa-trash-alt"></i></a>
+                            </div>
+                            <br>
+                            <span class="down-rate">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </span><br>
+                            <p class="customer_review"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum beatae, nemo culpa</p>
+                        </div>
+                        <hr>
+                        <div class="customer_img col-md-1 col-2">
+                            <img src="../images/Notes-Details/reviewer-3.png">
+                        </div>
+                        <div class="customer col-md-11">
+                            Sara Passmore
+                            <div class="del_icon" style="float: right">
+                                <a href="#" class="icon" style="color: #d1d1d1"><i class="fas fa-trash-alt"></i></a>
+                            </div>
+                            <br>
+                            <span class="down-rate">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </span><br>
+                            <p class="customer_review"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum beatae, nemo culpa</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-close">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal_img text-center">
+                        <img src="../images/Notes-Details/SUCCESS.png"><br>
+                        <span class="modal_heading text-center">Thank you for purchasing!</span>
+                    </div>
+                    <div class="modal_inside">
+                        <span class="title">Dear Smith,</span>
+                        <p class="modal_text">As this is paid notes - you need to pay to seller Rahil Shah offline. We will send him an email that you want to download this note. He may contact you further for payment process completion.</p>
+                        <p class="modal_text">In case, you have urgency,<br>
+                            Please contact us on +9195377345959.</p>
+                        <p class="modal_text">Once he receives the payment and acknowledge us - selected notes you can see over my download tab for download.</p>
+                        <p class="modal_text">Have a good day.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <hr>
+  
+    <section class="footer">
+        <div class="container">
+            
+            <div class="row">
+                <div class="col-md-6 footer_content" style="width: 30%;">
+                    <p>Version 1.1.24</p>
+                </div>
+                <div class="col-md-6 footer_social text-right" style="width: 70%;">
+                    <p>Copyright &copy; TatvaSoft All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap/bootstrap.js"></script>
+    <script type="text/javascript" src="../js/popper.min.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

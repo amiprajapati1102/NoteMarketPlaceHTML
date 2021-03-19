@@ -25,6 +25,7 @@ namespace NoteMarketPlace.DbModel
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<UserProfile> UserProfiles { get; set; }
         public virtual DbSet<UserRole> UserRoles { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }

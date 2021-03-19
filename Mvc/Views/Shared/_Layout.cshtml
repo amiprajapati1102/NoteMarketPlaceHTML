@@ -48,33 +48,30 @@
                     </li>
 
                     <li class="nav-item">
-                        @Html.ActionLink("FAQ", "FAQ", "Home", null, new { @class = "nav-link" })
+                        <a class="nav-link" href="faq.html">FAQ</a>
                     </li>
+                    
+                          @if (User.Identity.IsAuthenticated)
+                          {
+                <li class="nav-item">
+                    @Html.ActionLink("Contact Us", "Contact", "Home", new { @class = "nav-link" })
+                </li>
+                                    <li class="nav-item">
+                                        @Html.ActionLink("Logout", "Logout", "Account", null, new { @class = "btn btn-primary btn-lg btn-block btn_login ", Style = "background:#6255a5; color:#fff;" })
+                                    </li> }
+                          else
+                          {
+                                    <li class="nav-item">
+                                        @Html.ActionLink("Contact Us", "Contact", "Home", null, new { @class = "nav-link" })
+                                    </li>
+                                    <li>
+                                        @Html.ActionLink("Login", "Login", "Account", null, new { @class = "btn btn-primary btn-lg btn-block btn_login", Style = "background:#6255a5; color:#fff;" })
+                                    </li> 
 
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <li class="nav-item">
-                            @Html.ActionLink("Contact Us", "Contact", "Home", null, new { @class = "nav-link" })
-                        </li>
-                        <li class="nav-item">
-                            @Html.ActionLink("Logout", "Logout", "Account", null, new { @class = "btn btn-primary btn-lg btn-block btn_login ", Style = "background:#6255a5; color:#fff;" })
-                        </li>
- }
-                    else
-                    {
-                        <li class="nav-item">
-                            @Html.ActionLink("Contact Us", "Contact", "Home", null, new { @class = "nav-link" })
-                        </li>
-                        <li>
-                            @Html.ActionLink("Login", "Login", "Account", null, new { @class = "btn btn-primary btn-lg btn-block btn_login", Style = "background:#6255a5; color:#fff;" })
-                        </li>
-
-
-
-                    }
+                          }
 
 
-                </ul>
+                    </ul>
 
             </div>
         </nav>
@@ -82,7 +79,6 @@
     <!-- Header End -->
 
     <div>
-
         @RenderBody()
         <hr />
         <!--    footer  -->
@@ -121,7 +117,7 @@
 
     <script type="text/javascript" src="~/Scripts/js/jquery.min.js"></script>
     <script type="text/javascript" src="~/Scripts/js/bootstrap.min.js"></script>
-
+   
     <script type="text/javascript" src="~/Scripts/js/script.js"></script>
 
 </body>

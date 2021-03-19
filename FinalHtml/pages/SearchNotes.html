@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <title>Ami Prajapati - Search Notes</title>
+    <link rel="shortcut icon" href="../images/logo/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+            <a class="navbar-brand" href="home-page.html">
+                <img src="../images/logo/logo-blue.png" alt="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="SearchNotes.html">Search Notes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="AddNotes.html">Sell Your Notes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="BuyerRequest.html">Buyer Requests</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Faq.html">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ContactUs.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="user_img" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                src="../images/user/user-img.png"></a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a href="UserProfile.html"><button class="dropdown-item" type="button">My
+                                    Profile</button></a>
+                            <a href="myDownloads.html"><button class="dropdown-item" type="button">My
+                                    Downloads</button></a>
+                            <a href="MySoldNotes.html"><button class="dropdown-item" type="button">My Sold
+                                    Notes</button></a>
+                            <a href="MyRejectedNotes.html"><button class="dropdown-item" type="button">My Rejected
+                                    Notes</button></a>
+                            <a href="ChangePassword.html"><button class="dropdown-item" type="button">Change
+                                    Password</button></a>
+                            <a href="HomePage.html"><button class="dropdown-item"
+                                    type="button"><span>LOGOUT</span></button></a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="HomePage.html"><button type="button"
+                                class="btn btn-primary btn-lg btn-block btn_login">Logout</button></a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Search banner -->
+     <div class="banner-image m-t-100">
+         <div class="banner-text">
+             <h1>Search Notes</h1>
+         </div>
+     </div>
+     <!-- Search banner end -->
+    
+    <!-- search box -->
+    <section id="search-note">
+        <div class="container">
+            <div class="search-filters">
+                <h2>Search and Filter Notes</h2>
+                <div class="filter-inputs">
+                    <div class="filter-search">
+                        <img src="../images/assets/search.jpg" alt="search"><input type="search"
+                            class="form-control filters" placeholder="Search notes here...">
+                    </div>
+                    <div class="filters-other">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-2 col-6">
+                                <select class="filters-02">
+                                    <option value="">Select type</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-6">
+                                <select class="filters-02">
+                                    <option value="">Select type</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-6">
+                                <select class="filters-02">
+                                    <option value="">Select type</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-6">
+                                <select class="filters-02">
+                                    <option value="">Select type</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-6">
+                                <select class="filters-02">
+                                    <option value="">Select type</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-6">
+                                <select class="filters-02">
+                                    <option value="">Select type</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--  Notes  -->
+    <div class="search-result">
+
+        <div class="container">
+            <h2>Total <span>18</span> notes </h2>
+
+            <div class="row">
+
+                <div class="col-md-4 col-sm-12 col-12">
+
+                    <div class="notes" style="margin-bottom: 20px;">
+                        <img src="../images/search/1.jpg" alt="note image" class="note-img">
+                        <div class="details">
+                            <h4>Computer Operating System - Final Exam Book With Paper Solution</h4>
+                            <p class="note-details"><img src="../images/icons/university.png">University of California, US</p>
+                            <p class="note-details"><img src="../images/icons/pages.png">204 Pages</p>
+                            <p class="note-details"><img src="../images/icons/date.png">Thu, Nov 26 2020</p>
+                            <p class="note-details"><img src="../images/icons/flag.png">5 Users marked this note as inappropriate</p>
+                            <div class="ratings">
+                                <div class="rate">
+                                    <input type="radio" id="star1" name="rate" value="1" />
+                                    <label for="star1" title="text">1 stars</label>
+                                    <input type="radio" id="star2" name="rate" value="2" />
+                                    <label for="star2" title="text">2 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="3" />
+                                    <label for="star3" title="text">3 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="4" />
+                                    <label for="star4" title="text">4 stars</label>
+                                    <input type="radio" id="star5" name="rate" value="5" />
+                                    <label for="star5" title="text">5 star</label>
+                                </div>
+                                <p>100 reviews</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="col-md-4 col-sm-12 col-12">
+
+                    <div class="notes" style="margin-bottom: 20px;">
+                        <img src="../images/search/2.jpg" alt="note image" class="note-img">
+                        <div class="details">
+                            <h4>Computer Operating System - Final Exam Book With Paper Solution</h4>
+                            <p class="note-details"><img src="../images/icons/university.png">University of California, US</p>
+                            <p class="note-details"><img src="../images/icons/pages.png">204 Pages</p>
+                            <p class="note-details"><img src="../images/icons/date.png">Thu, Nov 26 2020</p>
+                            <p class="note-details"><img src="../images/icons/flag.png">5 Users marked this note as inappropriate</p>
+                            <div class="ratings">
+                                <div class="rate">
+                                    <input type="radio" id="star1" name="rate" value="1" />
+                                    <label for="star1" title="text">1 stars</label>
+                                    <input type="radio" id="star2" name="rate" value="2" />
+                                    <label for="star2" title="text">2 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="3" />
+                                    <label for="star3" title="text">3 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="4" />
+                                    <label for="star4" title="text">4 stars</label>
+                                    <input type="radio" id="star5" name="rate" value="5" />
+                                    <label for="star5" title="text">5 star</label>
+                                </div>
+                                <p>100 reviews</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-4 col-sm-12 col-12">
+
+                    <div class="notes" style="margin-bottom: 20px;">
+                        <img src="../images/search/3.jpg" alt="note image" class="note-img">
+                        <div class="details">
+                            <h4>Computer Operating System - Final Exam Book With Paper Solution</h4>
+                            <p class="note-details"><img src="../images/icons/university.png">University of California, US</p>
+                            <p class="note-details"><img src="../images/icons/pages.png">204 Pages</p>
+                            <p class="note-details"><img src="../images/icons/date.png">Thu, Nov 26 2020</p>
+                            <p class="note-details"><img src="../images/icons/flag.png">5 Users marked this note as inappropriate</p>
+                            <div class="ratings">
+                                <div class="rate">
+                                    <input type="radio" id="star1" name="rate" value="1" />
+                                    <label for="star1" title="text">1 stars</label>
+                                    <input type="radio" id="star2" name="rate" value="2" />
+                                    <label for="star2" title="text">2 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="3" />
+                                    <label for="star3" title="text">3 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="4" />
+                                    <label for="star4" title="text">4 stars</label>
+                                    <input type="radio" id="star5" name="rate" value="5" />
+                                    <label for="star5" title="text">5 star</label>
+                                </div>
+                                <p>100 reviews</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-4 col-sm-12 col-12">
+
+                    <div class="notes" style="margin-bottom: 20px;">
+                        <img src="../images/search/4.jpg" alt="note image" class="note-img">
+                        <div class="details">
+                            <h4>Computer Operating System - Final Exam Book With Paper Solution</h4>
+                            <p class="note-details"><img src="../images/icons/university.png">University of California, US</p>
+                            <p class="note-details"><img src="../images/icons/pages.png">204 Pages</p>
+                            <p class="note-details"><img src="../images/icons/date.png">Thu, Nov 26 2020</p>
+                            <p class="note-details"><img src="../images/icons/flag.png">5 Users marked this note as inappropriate</p>
+                            <div class="ratings">
+                                <div class="rate">
+                                    <input type="radio" id="star1" name="rate" value="1" />
+                                    <label for="star1" title="text">1 stars</label>
+                                    <input type="radio" id="star2" name="rate" value="2" />
+                                    <label for="star2" title="text">2 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="3" />
+                                    <label for="star3" title="text">3 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="4" />
+                                    <label for="star4" title="text">4 stars</label>
+                                    <input type="radio" id="star5" name="rate" value="5" />
+                                    <label for="star5" title="text">5 star</label>
+                                </div>
+                                <p>100 reviews</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-4 col-sm-12 col-12" style="margin-bottom: 20px;">
+
+                    <div class="notes">
+                        <img src="../images/search/5.jpg" alt="note image" class="note-img">
+                        <div class="details">
+                            <h4>Computer Operating System - Final Exam Book With Paper Solution</h4>
+                            <p class="note-details"><img src="../images/icons/university.png">University of California, US</p>
+                            <p class="note-details"><img src="../images/icons/pages.png">204 Pages</p>
+                            <p class="note-details"><img src="../images/icons/date.png">Thu, Nov 26 2020</p>
+                            <p class="note-details"><img src="../images/icons/flag.png">5 Users marked this note as inappropriate</p>
+                            <div class="ratings">
+                                <div class="rate">
+                                    <input type="radio" id="star1" name="rate" value="1" />
+                                    <label for="star1" title="text">1 stars</label>
+                                    <input type="radio" id="star2" name="rate" value="2" />
+                                    <label for="star2" title="text">2 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="3" />
+                                    <label for="star3" title="text">3 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="4" />
+                                    <label for="star4" title="text">4 stars</label>
+                                    <input type="radio" id="star5" name="rate" value="5" />
+                                    <label for="star5" title="text">5 star</label>
+                                </div>
+                                <p>100 reviews</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-4 col-sm-12 col-12" style="margin-bottom: 20px;">
+
+                    <div class="notes">
+                        <img src="../images/search/6.jpg" alt="note image" class="note-img">
+                        <div class="details">
+                            <h4>Computer Operating System - Final Exam Book With Paper Solution</h4>
+                            <p class="note-details"><img src="../images/icons/university.png">University of California, US</p>
+                            <p class="note-details"><img src="../images/icons/pages.png">204 Pages</p>
+                            <p class="note-details"><img src="../images/icons/date.png">Thu, Nov 26 2020</p>
+                            <p class="note-details"><img src="../images/icons/flag.png">5 Users marked this note as inappropriate</p>
+                            <div class="ratings">
+                                <div class="rate">
+                                    <input type="radio" id="star1" name="rate" value="1" />
+                                    <label for="star1" title="text">1 stars</label>
+                                    <input type="radio" id="star2" name="rate" value="2" />
+                                    <label for="star2" title="text">2 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="3" />
+                                    <label for="star3" title="text">3 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="4" />
+                                    <label for="star4" title="text">4 stars</label>
+                                    <input type="radio" id="star5" name="rate" value="5" />
+                                    <label for="star5" title="text">5 star</label>
+                                </div>
+                                <p>100 reviews</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-4 col-sm-12 col-12">
+
+                    <div class="notes" style="margin-bottom: 20px;">
+                        <img src="../images/search/1.jpg" alt="note image" class="note-img">
+                        <div class="details">
+                            <h4>Computer Operating System - Final Exam Book With Paper Solution</h4>
+                            <p class="note-details"><img src="../images/icons/university.png">University of California, US</p>
+                            <p class="note-details"><img src="../images/icons/pages.png">204 Pages</p>
+                            <p class="note-details"><img src="../images/icons/date.png">Thu, Nov 26 2020</p>
+                            <p class="note-details"><img src="../images/icons/flag.png">5 Users marked this note as inappropriate</p>
+                            <div class="ratings">
+                                <div class="rate">
+                                    <input type="radio" id="star1" name="rate" value="1" />
+                                    <label for="star1" title="text">1 stars</label>
+                                    <input type="radio" id="star2" name="rate" value="2" />
+                                    <label for="star2" title="text">2 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="3" />
+                                    <label for="star3" title="text">3 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="4" />
+                                    <label for="star4" title="text">4 stars</label>
+                                    <input type="radio" id="star5" name="rate" value="5" />
+                                    <label for="star5" title="text">5 star</label>
+                                </div>
+                                <p>100 reviews</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-4 col-sm-12 col-12">
+
+                    <div class="notes" style="margin-bottom: 20px;">
+                        <img src="../images/search/2.jpg" alt="note image" class="note-img">
+                        <div class="details">
+                            <h4>Computer Operating System - Final Exam Book With Paper Solution</h4>
+                            <p class="note-details"><img src="../../images/icons/university.png">University of California, US</p>
+                            <p class="note-details"><img src="../images/icons/pages.png">204 Pages</p>
+                            <p class="note-details"><img src="../images/icons/date.png">Thu, Nov 26 2020</p>
+                            <p class="note-details"><img src="../images/icons/flag.png">5 Users marked this note as inappropriate</p>
+                            <div class="ratings">
+                                <div class="rate">
+                                    <input type="radio" id="star1" name="rate" value="1" />
+                                    <label for="star1" title="text">1 stars</label>
+                                    <input type="radio" id="star2" name="rate" value="2" />
+                                    <label for="star2" title="text">2 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="3" />
+                                    <label for="star3" title="text">3 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="4" />
+                                    <label for="star4" title="text">4 stars</label>
+                                    <input type="radio" id="star5" name="rate" value="5" />
+                                    <label for="star5" title="text">5 star</label>
+                                </div>
+                                <p>100 reviews</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-4 col-sm-12 col-12">
+
+                    <div class="notes" style="margin-bottom: 20px;">
+                        <img src="../images/search/3.jpg" alt="note image" class="note-img">
+                        <div class="details">
+                            <h4>Computer Operating System - Final Exam Book With Paper Solution</h4>
+                            <p class="note-details"><img src="../../images/icons/university.png">University of California, US</p>
+                            <p class="note-details"><img src="../../images/icons/pages.png">204 Pages</p>
+                            <p class="note-details"><img src="../../images/icons/date.png">Thu, Nov 26 2020</p>
+                            <p class="note-details"><img src="../../images/icons/flag.png">5 Users marked this note as inappropriate</p>
+                            <div class="ratings">
+                                <div class="rate">
+                                    <input type="radio" id="star1" name="rate" value="1" />
+                                    <label for="star1" title="text">1 stars</label>
+                                    <input type="radio" id="star2" name="rate" value="2" />
+                                    <label for="star2" title="text">2 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="3" />
+                                    <label for="star3" title="text">3 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="4" />
+                                    <label for="star4" title="text">4 stars</label>
+                                    <input type="radio" id="star5" name="rate" value="5" />
+                                    <label for="star5" title="text">5 star</label>
+                                </div>
+                                <p>100 reviews</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+  
+   <section class="pages">
+       <div class="container">
+           <div class="row">
+                <ul class="pagination">
+                       <li class="page-item">
+                           <a class="page-link page-link-icon" href="#" aria-label="Previous">
+                               <i class="fa fa-chevron-left"></i>
+                           </a>
+                       </li>
+                       <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                       <li class="page-item"><a class="page-link" href="#">2</a></li>
+                       <li class="page-item"><a class="page-link" href="#">3</a></li>
+                       <li class="page-item"><a class="page-link" href="#">4</a></li>
+                       <li class="page-item"><a class="page-link" href="#">5</a></li>
+                       <li class="page-item">
+                           <a class="page-link page-link-icon" href="#" aria-label="Next">
+                               <i class="fa fa-chevron-right"></i>
+                           </a>
+                       </li>
+                   </ul>
+           </div>
+       </div>
+   </section>
+  
+   <hr>
+    <section class="footer">
+        <div class="container">
+            
+            <div class="row">
+                <div class="col-md-6 footer_content" style="width: 60%;">
+                    <p>Copyright © <a href="https://www.tatvasoft.com/">TatvaSoft</a> All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 footer_social text-right" style="width: 40%;">
+                    <ul class="social-list">
+                        <li><a href="#">
+                                <i class="fab fa-facebook-f"></i>
+                            </a></li>
+                        <li><a href="#">
+                                <i class="fab fa-twitter"></i>
+                            </a></li>
+                        <li><a href="#">
+                                <i class="fab fa-google-plus-g"></i>
+                            </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap/bootstrap.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
