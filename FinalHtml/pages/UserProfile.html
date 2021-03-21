@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
     <title>Ami Prajapati -User Profile </title>
-    
-    <link rel="shortcut icon" href="../images/logo/favicon.ico">
+    <!--Style Files-->
+    <link rel="shortcut icon" href="../img/login/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -20,8 +20,8 @@
 
     <header>
         <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-            <a class="navbar-brand" href="home-page.html">
-                <img src="../images/logo/logo-blue.png" alt="logo">
+            <a class="navbar-brand" href="HomePage.html">
+                <img src="../img/login/logo.png" alt="logo">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,7 +47,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="user_img" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-                                src="../images/user/user-img.png"></a>
+                                src="../img/User-Profile/user-img.png"></a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a href="UserProfile.html"><button class="dropdown-item" type="button">My
                                     Profile</button></a>
@@ -74,7 +74,7 @@
         </nav>
     </header>
     
-     <div class="banner-image m-t-100">
+     <div class="banner-image x-t-100">
          <div class="banner-text">
              <h1>User Profile</h1>
          </div>
@@ -143,10 +143,6 @@
                                      <option selected>+91</option>
                                      <option value="1">+95</option>
                                      <option value="2">+1</option>
-                                     <option value="3">+80</option>
-                                     <option value="4">+236</option>
-                                     <option value="5">+35</option>
-                                     <option value="6">+23</option>
                                  </select>
                              </div>
                          </div>
@@ -166,7 +162,7 @@
                      <label for="profilePic">Profile Picture</label>
                      <div class="upload-custom">
                          <button onclick="document.getElementById('profilePic').click()">
-                             <img src="../images/User-Profile/upload.png">
+                             <img src="../img/User-Profile/upload-file.svg">
                          </button>
                          <input type="file" id="profilePic" style="visibility: hidden;">
                          <p class="text-center">Upload a picture</p>
@@ -221,10 +217,7 @@
                              <option selected>Select your country</option>
                              <option value="1">India</option>
                              <option value="2">US</option>
-                             <option value="3">United Kingdom</option>
-                             <option value="4">Sydney</option>
-                             <option value="5">Melbourne</option>
-                             <option value="6">Canada</option>
+                             <option value="3">Canada</option>
                          </select>
                      </div>
                  </div>
@@ -250,11 +243,11 @@
 
              </div>
             
-            <button type="button" class="btn btn-primary m-b-20" id="submit-btn-user">SUBMIT</button> 
+            <button type="button" class="btn btn-primary x-b-20" id="submit-btn-user">SUBMIT</button> 
 
          </form>
      </div>       
-  
+  <!--Footer-->
     <section class="footer">
         <div class="container">
             
@@ -278,6 +271,7 @@
             </div>
         </div>
     </section>
+    <!--Script Files-->
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap/bootstrap.js"></script>
     <script src="../js/popper.min.js"></script>

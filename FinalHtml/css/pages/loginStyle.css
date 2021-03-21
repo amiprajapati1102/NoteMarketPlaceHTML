@@ -1,0 +1,212 @@
+/* =========================================
+                login Page
+============================================ */
+body{
+    background-image: url('../../img/login/banner-with-overlay.jpg');
+}
+.main {
+    width: 100%;
+    margin: 0 auto;
+}
+.container-login {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.container-login::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.login {
+    width: 580px;
+    border-radius: 5px;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    overflow: hidden;
+    background: transparent;
+}
+
+.login-form {
+    width: 100%;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 50px;
+
+}
+
+.top-img {
+    font-size: 15px;
+    color: #fff;
+    text-align: center;
+    display: block;
+    padding-bottom: 25px;
+}
+
+.form-group label {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #333333;
+    padding-bottom: 10px;
+}
+
+
+.form-group input {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif!important;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #000;
+    height: 50px;
+    border: 1px solid #6255a5;
+}
+
+
+.login-checkbox input{
+    border: 1px solid #d1d1d1;
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    margin-bottom: 35px;
+}
+
+.login-checkbox label {
+    padding-left: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif!important;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #333333;
+    margin-top: -60px;
+    margin-left: 20px;
+
+}
+
+#signUp {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif!important;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #333333;
+}
+
+#signUp a span {
+    color: #6255a5;
+    text-decoration: none;
+}
+
+.login-form .m-b-30{
+    margin-bottom: 30px;
+}
+
+.eye span {
+    float: right;
+    margin-left: -25px;
+    margin-top: -32px;
+    padding-right: 30px;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+
+h4 {
+    margin-bottom: 20px;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 38px;
+    color: #6255a5;
+}
+
+.heading p {
+    margin-bottom: 45px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 19px;
+    color: #333333;
+}
+
+p {   
+    font-size: 14px;
+    color: #666666;
+    margin: 0px;
+}
+
+/* =========================================
+                Signup Page
+============================================ */
+
+
+
+#signup-successfully p{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 20px;
+    color: #32a852;
+    text-align: center;
+}
+
+
+/* =========================================
+                Email Verification
+============================================ */
+
+.wrap-email {
+    width: 580px;
+    border-radius: 5px;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    overflow: hidden;
+}
+
+.wrap-email p {
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-bottom: 50px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 30px;
+    color: #333333;
+}
+
+.email-verification-form{
+    width: 100%;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 30px;
+}
+
+.email-verification-forx-title{   
+    text-align: left;
+    display: block;
+    padding-bottom: 50px;
+}
+
+.email-verification-heading h4{
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-bottom: 30px;
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 30px;
+    color: #6255a5;
+}
+
+.email-verification-heading p{
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22px;
+    color: #333333;
+}

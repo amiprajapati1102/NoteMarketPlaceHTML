@@ -1,0 +1,42 @@
+/* =========================================
+                Add Notes
+============================================ */
+
+.x-b-20{
+    margin-bottom: 20px;
+}
+
+.btn-right{
+    margin-left: 30px;
+}
+
+.add-note-image {
+    background-image: url('../../img/login/banner-with-overlay.jpg');
+    height: 250px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.container .form-row .form-group .upload-custom-add-notes{
+    border: 1px solid #ced4da;
+    width: 100%;
+    height: 82%;
+}
+
+.container .form-row .form-group .upload-custom-add-notes button {
+    border: none;
+    position: relative;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%, -0%);
+}
+
+.container .form-row .form-group .upload-custom-add-notes p {
+    position: relative;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%, -0%);
+}
+

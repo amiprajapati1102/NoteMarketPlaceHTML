@@ -7,227 +7,27 @@
 body,
 html {
     height: 100%;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.m-b-20{
+.x-b-20{
     margin-bottom: 20px;
 }
 
-.m-t-30{
+.x-t-30{
     margin-top: 30px;
 }
 
-.m-t-100{
+.x-t-100{
     margin-top: 100px;
 }
 
-.m-t-160{
+.x-t-160{
     margin-top: 160px;
 }
 
-.m-t-60{
+.x-t-60{
     margin-top: 60px;
-}
-
-/* =========================================
-                login Page
-============================================ */
-
-.main-wrap {
-    width: 100%;
-    margin: 0 auto;
-}
-
-.container-login {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-    z-index: 1;
-}
-
-.container-login::before {
-    content: "";
-    display: block;
-    position: absolute;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
-
-.wrap-login {
-    width: 580px;
-    border-radius: 5px;
-    padding-top: 30px;
-    padding-bottom: 50px;
-    overflow: hidden;
-    background: transparent;
-}
-
-.login-form {
-    width: 100%;
-    border-radius: 5px;
-    background-color: #fff;
-    padding: 50px;
-
-}
-
-.login-form-title {
-    font-size: 15px;
-    color: #fff;
-    line-height: 1.2;
-    text-align: center;
-    display: block;
-    padding-bottom: 25px;
-}
-
-.form-group label {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 20px;
-    color: #333333;
-    padding-bottom: 10px;
-}
-
-
-.form-group input {
-    font-family: Open Sans;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 20px;
-    color: #000;
-    height: 50px;
-    border: 1px solid #6255a5;
-}
-
-.form-wrap .form-group input {
-    font-family: Open Sans;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 20px;
-    color: #8a8a8a;
-    height: 50px;
-    border: 1px solid #d1d1d1;
-}
-
-.form-wrap .form-group input[type="date"] {
-    font-family: Open Sans !important;
-    font-weight: 400 !important;
-    color: #8a8a8a;
-}
-
-.form-group .input-group .custom-select option{
-    font-weight: 400 !important;
-    font-family: Open Sans !important;
-    font-size: 16px !important;
-    line-height: 20px !important;
-    color: #8a8a8a !important;
-}
-
-.form-group .input-group select{
-    font-family: Open Sans;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 20px;
-    color: #8a8a8a;
-    height: 50px;
-    border: 1px solid #d1d1d1;
-}
-    
-.form-group label span {
-    font-family: Open Sans;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 20px;
-    color: #6255a5;
-    margin-bottom: 10px;
-}
-
-.login-checkbox input{
-    border: 1px solid #d1d1d1;
-    width: 30px;
-    height: 30px;
-    border-radius: 3px;
-}
-
-.login-checkbox input {
-    border: 1px solid #d1d1d1;
-    width: 30px;
-    height: 30px;
-    border-radius: 3px;
-    margin-bottom: 35px;
-    
-}
-
-.login-checkbox label {
-    padding-left: 20px;
-    font-family: Open Sans;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 20px;
-    color: #333333;
-    margin-top: -60px;
-    margin-left: 20px;
-
-}
-
-#not-account {
-    font-family: Open Sans;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 20px;
-    color: #333333;
-}
-
-#not-account span {
-    color: #6255a5;
-}
-
-.login-form .m-b-30{
-    margin-bottom: 30px;
-}
-
-.inputContainer span {
-    float: right;
-    margin-left: -25px;
-    margin-top: -32px;
-    padding-right: 30px;
-    position: relative;
-    z-index: 2;
-    cursor: pointer;
-}
-
-h4 {
-    margin-bottom: 20px;
-    font-size: 34px;
-    font-weight: 600;
-    line-height: 38px;
-    color: #6255a5;
-}
-
-.heading p {
-    margin-bottom: 45px;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 19px;
-    color: #333333;
-}
-
-p {   
-    font-size: 14px;
-    line-height: 1.7;
-    color: #666666;
-    margin: 0px;
 }
 
 
@@ -239,7 +39,7 @@ p {
     background: #6255a5;
     border-radius: 3px;
     text-decoration-color: #fff;
-    font-style: Open Sans;
+    font-style:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px;
     line-height: 22px;
 }
@@ -248,7 +48,7 @@ p {
     background: #6255a5;
     border-radius: 3px;
     text-decoration-color: #fff;
-    font-style: Open Sans;
+    font-style:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px;
     line-height: 22px; 
 }
@@ -259,36 +59,24 @@ p {
     height: 40px;
     border-radius: 3px;
     text-decoration-color: #fff;
-    font-style: Open Sans;
+    font-style:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px;
     line-height: 22px; 
+    display:inline;
 }
 
 #submit-btn-email-verify{
     background: #6255a5;
     border-radius: 3px;
     text-decoration-color: #fff;
-    font-style: Open Sans;
+    font-style:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px;
     line-height: 22px; 
 }
 
-
-
-/*---------------------Sign up Page------------------------*/
-
-.signup-heading p{
-    font-family: Open Sans;
-    margin-bottom: 25px;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 19px;
-    color: #333333;
-}
-
 /*---------------------------------------------*/
 input {
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 20px;
@@ -300,9 +88,9 @@ label {
     display: block;
 }
 
-#error-password span {
+#error span {
     margin-bottom: 20px;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 13px;
     font-weight: 300;
     line-height: 20px;
@@ -310,40 +98,9 @@ label {
 
 }
 
-/* =========================================
-                Forgot Page
-============================================ */
-
-
-
-/* =========================================
-                Signup Page
-============================================ */
-
-.signup-heading p{
-    font-family: Open Sans;
-    margin-bottom: 25px;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 19px;
-    color: #333333;
-}
-
-#signup-successfully p{
-    font-family: Open Sans;
-    font-size: 13px;
-    font-weight: 300;
-    line-height: 20px;
-    color: #32a852;
-    text-align: center;
-}
-
-/* =========================================
-                User Profile
-============================================ */
 
 .banner-image {
-    background-image: url(../images/User-Profile/banner-with-overlay.jpg);
+    background-image: url('../img/login/banner-with-overlay.jpg');
     height: 250px;
     background-position: center;
     background-repeat: no-repeat;
@@ -361,7 +118,7 @@ label {
 }
 
 .banner-text h1{
-    font-family: Open Sans;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 48px;
     font-weight: 600;
     line-height: 52px;
@@ -370,7 +127,7 @@ label {
 /* User form */
 
 .form-heading h3{
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 34px;
     font-weight: 600;
     line-height: 38px; 
@@ -403,101 +160,37 @@ label {
 
 
 
-/* =========================================
-                Email Verification
-============================================ */
 
-.wrap-email {
-    width: 580px;
-    border-radius: 5px;
-    padding-top: 30px;
-    padding-bottom: 50px;
-    overflow: hidden;
-}
-
-.wrap-email p {
-    font-family: Open Sans;
-    margin-bottom: 50px;
+.form-group input {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif!important;
     font-size: 16px;
     font-weight: 400;
-    line-height: 30px;
-    color: #333333;
+    line-height: 20px;
+    color: #8a8a8a;
+    height: 50px;
+    border: 1px solid #d1d1d1;
 }
 
-.email-verification-form{
-    width: 100%;
-    border-radius: 5px;
-    background-color: #fff;
-    padding: 30px;
-}
 
-.email-verification-form-title{   
-    text-align: left;
-    display: block;
-    padding-bottom: 50px;
+.form-group .input-group select{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif!important;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #8a8a8a;
+    height: 50px;
+    border: 1px solid #d1d1d1;
 }
-
-.email-verification-heading h4{
-    font-family: Open Sans;
-    margin-bottom: 30px;
-    font-size: 26px;
-    font-weight: 600;
-    line-height: 30px;
+    
+.form-group label span {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif!important;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
     color: #6255a5;
+    margin-bottom: 10px;
+    text-decoration: none;
 }
-
-.email-verification-heading p{
-    font-family: Open Sans;
-    margin-bottom: 20px;
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 22px;
-    color: #333333;
-}
-
-/* =========================================
-                Add Notes
-============================================ */
-
-.m-b-60{
-    margin-bottom: 60px;
-}
-
-.btn-right{
-    margin-left: 30px;
-}
-
-.add-note-image {
-    background-image: url(../images/Add-notes/banner-with-overlay.jpg);
-    height: 250px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-}
-
-.container .form-row .form-group .upload-custom-add-notes{
-    border: 1px solid #ced4da;
-    width: 100%;
-    height: 82%;
-}
-
-.container .form-row .form-group .upload-custom-add-notes button {
-    border: none;
-    position: relative;
-    left: 50%;
-    top: 25%;
-    transform: translate(-50%, -0%);
-}
-
-.container .form-row .form-group .upload-custom-add-notes p {
-    position: relative;
-    left: 50%;
-    top: 25%;
-    transform: translate(-50%, -0%);
-}
-
-/*--------------------------------*/
 input[type=radio] {
     box-sizing: border-box;
     padding: 0;
@@ -507,89 +200,11 @@ input[type=radio] {
 }
 
 /* =========================================
-                FAQs
-============================================ */
-
-#faq .contact-text h4 {
-    font-size: 34px;
-    font-weight: 600;
-    line-height: 38px;
-    color: #6255a5;
-}
-
-#faq .content-box-lg {
-    padding-bottom: 0;
-}
-
-
-
-.q {
-    margin-top: 15px;
-}
-
-.accordion-toggle:after {
-    /* symbol for "opening" panels */
-    font-family: 'FontAwesome';
-    font-size: 16px;
-    font-weight: 0;
-    content: "\f068";
-    float: right;
-    color: #b1b1b1;
-}
-
-.collapsed .accordion-toggle:after {
-    /* symbol for "collapsed" panels */
-    content: "\f067";
-}
-
-.q .collapsed .faq-qstn {
-    height: 60px;
-    background-color: #f1f1f1;
-    border: none;
-}
-
-.q .faq-qstn {
-    color: #333333;
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 22px;
-    height: 60px;
-    margin: 0;
-    padding: 20px;
-    border: 1px solid #d1d1d1;
-    border-bottom: none;
-    background-color: #fff;
-}
-
-.faq-ans {
-    color: #333333;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 22px;
-    padding-left: 20px;
-    padding-right: 40px;
-    border: 1px solid #d1d1d1;
-    border-top: none;
-    padding-bottom: 15px;
-    text-align: justify;
-}
-
-.faq-heading h3{
-    font-family: Open Sans;
-    font-size: 34px;
-    font-weight: 600;
-    line-height: 38px; 
-    color: #6255a5;
-    padding: 60px 0 30px 0;
-    margin: 0;
-}
-
-/* =========================================
                 Contact Us
 ============================================ */
 
 .contact-heading h3{
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 34px;
     font-weight: 600;
     line-height: 38px; 
@@ -599,7 +214,7 @@ input[type=radio] {
 }
 
 .contact-heading p{
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px;
     font-weight: 400;
     line-height: 38px; 
@@ -617,7 +232,7 @@ input[type=radio] {
 }
 
 .home_img{
-    background-image: url(../images/banner-with-overlay.jpg);
+    background-image: url('../img/login/banner-with-overlay.jpg');
     height: 620px;
     background-position: center;
     background-repeat: no-repeat;
@@ -657,7 +272,7 @@ input[type=radio] {
                home Navigation
 ============================================ */
 .home_navbar .navbar {
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
     font-weight: 600;
     line-height: 20px;
@@ -674,7 +289,7 @@ input[type=radio] {
 }
 .home_navbar .navbar .nav-item a{
     margin-right: 20px;
-    font-family: Open sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: #fff;
 }
 .home_navbar .navbar .nav-item a:hover{
@@ -684,7 +299,7 @@ input[type=radio] {
 }
 .sticky-nav .navbar .nav-item a{
     margin-right: 20px;
-    font-family: Open sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: #333333;
 }
 .sticky-nav .navbar .nav-item a:hover{
@@ -698,7 +313,7 @@ input[type=radio] {
     color: #6255a5;
     background-color: #fff;
     border-radius: 3px;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
     line-height: 22px;
     padding: 0;
@@ -720,7 +335,7 @@ input[type=radio] {
     color: #fff;
     background-color: #6255a5;
     border-radius: 3px;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
     line-height: 22px;
     padding: 0;
@@ -747,7 +362,7 @@ input[type=radio] {
     color: #fff;
 }
 .home_overlay .heading{
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 50px;
     font-weight:700;
     line-height: 54px;
@@ -755,7 +370,7 @@ input[type=radio] {
 }
 .home_overlay p{
     padding-top: 30px;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 30px;
@@ -766,7 +381,7 @@ input[type=radio] {
     width: 172px;
     height: 30px;
     border-radius: 3px;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 600;
     font-size: 18px;
     line-height: 22px;
@@ -777,14 +392,14 @@ input[type=radio] {
     padding-bottom: 60px;
 }
 .about_heading{
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 34px;
     font-weight: 600;
     line-height: 38px;
     color: #6255a5;
 }
 .about_text{
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px;
     font-weight: 400;
     line-height: 22px;
@@ -805,7 +420,7 @@ input[type=radio] {
     padding-bottom: 60px;
 }
 .work_heading{
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 34px;
     font-weight: 600;
     line-height: 38px;
@@ -825,7 +440,7 @@ input[type=radio] {
     border-radius: 50%;
 }
 .work .sub_heading{
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 24px;
     font-weight: 600;
     line-height: 28px;
@@ -835,7 +450,7 @@ input[type=radio] {
     margin-bottom: 20px;
 }
 .work .work_text{
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px;
     font-weight: 400;
     line-height: 22px;
@@ -847,7 +462,7 @@ input[type=radio] {
     margin-top: 20px;
 }
 .work .work_btn button{
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 600;
     font-size: 18px;
     color: #fff;
@@ -877,9 +492,9 @@ input[type=radio] {
 .testimonial_heading{
     margin-bottom: 60px;
     text-align: center;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 34px;
-    font-weight: 600px;
+    font-weight: 600;
     line-height: 38px;
     color: #6255a5;
 }
@@ -910,7 +525,7 @@ input[type=radio] {
 }
 .team .team_name{
     margin-left: 20px;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 24px;
     font-weight: 600;
     line-height: 36px;
@@ -919,7 +534,7 @@ input[type=radio] {
 .team .team_job{
     margin-left: 20px;
     margin-top: 15px;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 30px;
@@ -929,7 +544,7 @@ input[type=radio] {
 .testimonial .team p{
     margin-top: 15px;
     margin-bottom: 40px;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px;
     font-weight: 400;
     font-style: italic;
@@ -956,7 +571,7 @@ input[type=radio] {
 .navbar-light .navbar-nav .nav-link {
     padding-top: 20px;
     color: #333333;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
     font-weight: 600;
     line-height: 20px;
@@ -986,7 +601,7 @@ input[type=radio] {
     color: #fff;
     background-color: #6255a5;
     border-radius: 3px;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
     line-height: 22px;
     padding: 0;
@@ -1010,7 +625,7 @@ input[type=radio] {
 
 .navbar .nav-item .dropdown-menu .dropdown-item {
     padding-top: 10px;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 20px;
@@ -1037,6 +652,7 @@ input[type=radio] {
     background: #6255a5;
     color: #fff;
 }
+
 
 /* =========================================
                 search book page
@@ -1250,7 +866,7 @@ input[type=radio] {
 }
 
 .modal .modal-content .modal-body .modal_img span {
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 26px;
     font-weight: 600;
     line-height: 30px;
@@ -1268,7 +884,7 @@ input[type=radio] {
 }
 
 .modal .modal-content .modal-body .modal_inside span {
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px;
     font-weight: 600;
     line-height: 22px;
@@ -1276,7 +892,7 @@ input[type=radio] {
 }
 
 .modal .modal-content .modal-body .modal_inside .modal_text {
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 22px;
@@ -1362,7 +978,7 @@ input[type=radio] {
     width: 34px;
     height: 34px;
     color: #333333;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-style: 400;
     font-size: 16px;
     line-height: 20px;
@@ -1376,7 +992,7 @@ input[type=radio] {
     height: 34px;
     background: #6255a5;
     color: #fff;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-style: 400;
     font-size: 16px;
     line-height: 20px;
@@ -1388,7 +1004,8 @@ input[type=radio] {
 .pagination li .page-link-icon {
     font-size: 15px;
     margin-right: 35px;
-    margin-left: 35px border: none;
+    margin-left: 35px;
+     border: none;
     width: 8px;
     height: 15px;
     color: #333333;
@@ -1413,7 +1030,7 @@ input[type=radio] {
 .notes_details .small_heading {
     padding-top: 30px;
     padding-bottom: 20px;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 24px;
     font-weight: 600;
     line-height: 28px;
@@ -1435,7 +1052,7 @@ input[type=radio] {
 }
 
 .book_left h2{
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 34px;
     font-weight: 600;
     line-height: 38px;
@@ -1444,7 +1061,7 @@ input[type=radio] {
 }
 
 .book_left h5{
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px;
     font-weight: 400;
     line-height: 26px;
@@ -1453,7 +1070,7 @@ input[type=radio] {
 }
 
 .book_left p {
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
@@ -1467,13 +1084,13 @@ input[type=radio] {
     height: 50px;
     border-radius: 3px;
     color: #fff;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px;
     line-height: 22px;
 }
 
 .book_right .note-text-left h5{
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px;
     font-weight: 400;
     line-height: 36px;
@@ -1483,7 +1100,7 @@ input[type=radio] {
 
 .book_right .note-text-right h5{
     text-align: right;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px;
     font-weight: 600;
     line-height: 36px;
@@ -1504,7 +1121,7 @@ input[type=radio] {
     text-align: left;
     width: 250px;
     padding-top: 1px;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px;
     font-weight: 600;
     line-height: 36px;
@@ -1512,7 +1129,7 @@ input[type=radio] {
 }
 
 .book_right .red_text {
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 18px;
@@ -1539,7 +1156,7 @@ input[type=radio] {
 
 .notes_details_down .small_heading {
     padding-top: 30px;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 24px;
     font-weight: 600;
     line-height: 28px;
@@ -1579,7 +1196,7 @@ input[type=radio] {
     padding-right: 0;
     padding-left: 83px;
     padding-top: 10px;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px;
     font-weight: 600;
     line-height: 24px;
@@ -1587,7 +1204,7 @@ input[type=radio] {
 }
 
 .notes_details_down .book_right .customer p {
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
@@ -1627,7 +1244,7 @@ input[type=radio] {
     border: 1px solid #6255a5;
     border-radius: 3px;
     color: #fff;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px;
     line-height: 22px;
     font-weight: 700;
@@ -1635,6 +1252,7 @@ input[type=radio] {
     -webkit-transition: all 0.6s;
     transition: all 0.6s;
     float: right;
+    margin-left: 10px;
 }
 
 .search_button button:hover {
@@ -1643,277 +1261,6 @@ input[type=radio] {
 }
 
 
-
-
-
-.dashboard_top {
-    margin-top: 160px;
-}
-
-.dashboard_top .main_heading {
-    padding: 0;
-    font-family: Open Sans;
-    font-size: 34px;
-    font-weight: 600;
-    line-height: 38px;
-    color: #6255a5;
-}
-
-.dashboard_top .add_btn {
-    text-align: right;
-    padding: 0;
-}
-
-.dashboard_top .add_btn button {
-    background: #6255a5;
-    width: 150px;
-    height: 40px;
-    border: 1px solid #6255a5;
-    border-radius: 3px;
-    color: #fff;
-    font-family: Open Sans;
-    font-size: 18px;
-    line-height: 22px;
-    font-weight: 700;
-    text-transform: uppercase;
-    -webkit-transition: all 0.6s;
-    transition: all 0.6s;
-}
-
-.dashboard_top .add_btn button:hover {
-    color: #6255a5;
-    background: #fff;
-}
-
-.dashboard_top .boxes {
-    padding: 0;
-    margin-top: 20px;
-}
-
-.dashboard_top .boxes .heading {
-    font-family: Open Sans;
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 34px;
-    color: #6255a5;
-}
-
-.dashboard_top .boxes .sub_heading {
-    font-family: Open Sans;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 22px;
-    color: #333333;
-}
-
-.dashboard_top .earning_box {
-    height: 120px;
-    padding: 0;
-    border: 1px solid #d1d1d1;
-}
-
-.dashboard_top .earning_box img {
-    padding-top: 25px;
-}
-
-.dashboard_top .sold_box {
-    padding-top: 25px !important;
-    height: 120px;
-    padding: 0;
-    border: 1px solid #d1d1d1;
-}
-
-.dashboard_top .sold_box .sold {
-    float: left;
-    text-align: center;
-    padding: 0;
-}
-
-.dashboard_top .sold_box .myearning {
-    padding: 0;
-    text-align: center;
-}
-
-.dashboard_top .download_box {
-    text-align: center;
-    height: 120px;
-    padding: 0;
-    padding-top: 25px;
-    border: 1px solid #d1d1d1;
-}
-
-.dashboard_top .reject_box {
-    text-align: center;
-    height: 120px;
-    padding: 0;
-    padding-top: 25px;
-    border: 1px solid #d1d1d1;
-}
-
-.dashboard_top .request_box {
-    text-align: center;
-    height: 120px;
-    padding: 0;
-    padding-top: 25px;
-    border: 1px solid #d1d1d1;
-}
-/*--  admin code start  --*/
-.dashboard_top .new_downloaded_box {
-    text-align: center;
-    height: 120px;
-    padding: 0;
-    padding-top: 25px;
-    border: 1px solid #d1d1d1;
-}
-
-.dashboard_top .new_downloaded_box-admin{
-    text-align: center;
-    height: 120px;
-    padding: 0;
-    padding-top: 25px;
-    border: 1px solid #d1d1d1;
-}
-
-.dashboard_top .new_registration_box {
-    text-align: center;
-    height: 120px;
-    padding: 0;
-    padding-top: 25px;
-    border: 1px solid #d1d1d1;
-}
-.dashboard_top .for_publish_box{
-    text-align: center;
-    height: 120px;
-    padding: 0;
-    padding-top: 25px;
-    border: 1px solid #d1d1d1;
-}
-/*--  admin code end  --*/
-
-.dashboard_table .heading {
-    padding: 0;
-    font-family: Open Sans;
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 28px;
-    color: #6255a5;
-}
-
-.dashboard_table .searchbar {
-    float: left;
-    margin-left: 120px;
-    width: 320px;
-    height: 40px;
-    border: 1px solid #d1d1d1;
-    border-radius: 3px;
-}
-
-.dashboard_table .searchbar .search_box img {
-    /*    padding-top: 10px;*/
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.dashboard_table .searchbar .search_box input {
-    margin-top: 8px;
-    width: 86%;
-    border: none;
-    font-family: Open Sans;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 20px;
-    color: #8a8a8a;
-}
-
-.dashboard_table .search .search_button button {
-    background: #6255a5;
-    width: 117px;
-    height: 40px;
-    border: 1px solid #6255a5;
-    border-radius: 3px;
-    color: #fff;
-    font-family: Open Sans;
-    font-size: 18px;
-    line-height: 22px;
-    font-weight: 700;
-    text-transform: uppercase;
-    -webkit-transition: all 0.6s;
-    transition: all 0.6s;
-}
-
-.dashboard_table .search .search_button button:hover {
-    color: #6255a5;
-    background: #fff;
-}
-
-/*-- admin code start  --*/
-.dashboard_table .admin_button{
-    padding-left: 0;
-}
-.dashboard_table .admin_button button {
-    background: #6255a5;
-    height: 40px;
-    border: 1px solid #6255a5;
-    border-radius: 3px;
-    color: #fff;
-    font-family: Open Sans;
-    font-size: 18px;
-    line-height: 22px;
-    font-weight: 700;
-    text-transform: uppercase;
-    -webkit-transition: all 0.6s;
-    transition: all 0.6s;
-}
-
-.dashboard_table .admin_button button:hover {
-    color: #6255a5;
-    background: #fff;
-}
-/*--  admin code end  --*/
-
-.dashboard_table .booktable {
-    margin-top: 20px;
-    border: 1px solid #d1d1d1;
-}
-
-.dashboard_table .booktable .table tr {
-    height: 60px;
-}
-
-.dashboard_table .booktable .table tr:hover {
-    background: none;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
-}
-
-.dashboard_table .booktable .table thead:hover tr {
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-}
-
-.dashboard_table .booktable .table thead {
-    font-family: Open Sans;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 20px;
-    color: #333333;
-    text-transform: uppercase;
-}
-
-.dashboard_table .booktable .table tbody td {
-    font-family: Open Sans;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 20px;
-    color: #333333;
-}
-
-.dashboard_table .booktable .table .icon {
-    font-family: Open Sans;
-    font-size: 16px;
-    font-weight: 100;
-    line-height: 20px;
-    color: #aaaaaa;
-    padding-left: 10px;
-}
 
 .table thead th {
     vertical-align: middle;
@@ -1935,11 +1282,12 @@ input[type=radio] {
 ============================================ */
 .dashboard_table .download_heading {
     padding: 0;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 34px;
     font-weight: 600;
     line-height: 38px;
     color: #6255a5;
+   
 }
 /*--  review modal  --*/
 .review_modal .modal_head .modal_heading {
@@ -1974,7 +1322,7 @@ input[type=radio] {
     border: 1px solid #6255a5;
     border-radius: 3px;
     color: #fff;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px;
     line-height: 22px;
     text-transform: uppercase;
@@ -1991,7 +1339,7 @@ input[type=radio] {
 ============================================ */
 .dropdown-menu .dropdown-item {
     padding-top: 10px;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 20px;
@@ -2007,7 +1355,7 @@ input[type=radio] {
 .member_details .member_heading{
     padding: 0;
     margin-top: 60px;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 34px;
     font-weight: 600;
     line-height: 38px;
@@ -2040,7 +1388,7 @@ input[type=radio] {
 }
 .member_info{
     padding-left: 30px;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
@@ -2048,7 +1396,7 @@ input[type=radio] {
 }
 .member_info_dark{
     padding-left: 10px;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
     font-weight: 600;
     line-height: 24px;
@@ -2061,7 +1409,7 @@ input[type=radio] {
     margin-top: 15px;
     margin-bottom: -20px;
     padding-left: 0;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 20px;
@@ -2074,7 +1422,7 @@ input[type=radio] {
     border: 1px solid #28a745;
     border-radius: 3px;
     color: #fff;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 600;
     font-size: 18px;
     line-height: 22px;
@@ -2091,7 +1439,7 @@ input[type=radio] {
     border: 1px solid #ff3636;
     border-radius: 3px;
     color: #fff;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 600;
     font-size: 18px;
     line-height: 22px;
@@ -2108,7 +1456,7 @@ input[type=radio] {
     border: 1px solid #cccccc;
     border-radius: 3px;
     color: #fff;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 600;
     font-size: 18px;
     line-height: 22px;
@@ -2152,7 +1500,7 @@ input[type=radio] {
     border: 1px solid #ff3636;
     border-radius: 3px;
     color: #fff;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 600;
     font-size: 18px;
     line-height: 22px;
@@ -2169,7 +1517,7 @@ input[type=radio] {
     border: 1px solid #cccccc;
     border-radius: 3px;
     color: #fff;
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 600;
     font-size: 18px;
     line-height: 22px;
@@ -2188,7 +1536,7 @@ input[type=radio] {
 }
 
 .footer p {
-    font-family: Open Sans;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 14px;
     line-height: 18px;
     color: #333333;

@@ -1,3 +1,4 @@
+
 @media(min-width: 992px) {
     .navbar {
         height: 100px;
@@ -8,7 +9,7 @@
     .navbar-light .navbar-nav .nav-link {
         padding-top: 25PX;
         color: #333333;
-        font-family: Open Sans;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, '-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;', 'Helvetica Neue', sans-serif;
         font-size: 16px;
         font-weight: 600;
         line-height: 20px;
@@ -143,11 +144,11 @@
 /* Small Devices */
 @media(min-width: 768px) and (max-width: 991px) {
     
-    .m-t-100{
+    .x-t-100{
         margin-top: 70px;
     }
     
-    .m-t-160{
+    .x-t-160{
         margin-top: 80px;
     }
 
@@ -168,11 +169,11 @@
     }
 
     /* Add notes */
-    .container .form-row .form-group .upload-custom-add-notes p {
+    .container .forx-row .forx-group .upload-custox-add-notes p {
         top: -2%;
     }
 
-    .container .form-row .form-group .upload-custom p {
+    .container .forx-row .forx-group .upload-custom p {
         top: -10%;
     }
 
@@ -256,6 +257,7 @@
     }
     
     .dashboard_top .main_heading {
+        margin-left: 50px;
         font-size: 26px;
     }
 
@@ -297,11 +299,11 @@
 
 
     /* Add notes */
-    .container .form-row .form-group .upload-custom-add-notes p {
+    .container .forx-row .forx-group .upload-custox-add-notes p {
         top: -2%;
     }
 
-    .container .form-row .form-group .upload-custom p {
+    .container .forx-row .forx-group .upload-custom p {
         top: -10%;
     }
 
@@ -374,7 +376,7 @@
 
     .member_info {
         padding-left: 10%;
-        font-family: Open Sans;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;;
         font-size: 13px;
         font-weight: 400;
         line-height: 18px;
@@ -383,7 +385,7 @@
 
     .member_info_dark {
         padding-left: 10px;
-        font-family: Open Sans;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;;
         font-size: 13px;
         font-weight: 600;
         line-height: 18px;
@@ -395,11 +397,11 @@
 /* Extra Small Devices */
 @media(max-width: 767px) {
     
-    .m-t-100{
+    .x-t-100{
         margin-top: 70px;
     }
     
-    .m-t-160{
+    .x-t-160{
         margin-top: 80px;
     }
 
@@ -410,12 +412,12 @@
     }
 
     .vertical-center h1 {
-        font-size: 25px;
+        font-size: 34px;
         line-height: 35px;
     }
 
     .vertical-center p {
-        font-size: 14px;
+        font-size: 24px;
         line-height: 22px;
     }
     
@@ -424,9 +426,22 @@
     }
 
     .about_heading {
+        font-size: 28px;
         margin-bottom: 30px;
     }
+    .work_heading{
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+    .testimonial_heading{
+        font-size: 28px;
+        text-align: center;
+        font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-weight: 600;
+        color: #6255a5;
+        margin-bottom: 30px;
 
+    }
     .testimonial .team {
         padding: 20px;
     }
@@ -504,6 +519,7 @@
     }
     
     .dashboard_top .main_heading {
+        margin-left: 30px;
         font-size: 26px;
     }
 
@@ -524,24 +540,41 @@
     /* Searchbar */
     .dashboard_table .download_heading {
         padding-top: 0;
+        margin-left: 15px;
         font-size: 26px;
+    }
+    .dashboard_table .heading {
+        padding-top: 0;
+        margin-left: 15px;
+        font-size: 26px;
+    }
+    .dashboard_table .search .search_button button {
+        width: 70px;
+        font-size: 14px;
     }
 
     .search-note {
+        margin-top: 15px;
         padding-top: 0px;
         float: none;
     }
+   
 
     .search-note .search_button button {
         width: 80px;
         font-size: 14px;
     }
-
+    .dashboard_table .admin_button button{
+        margin-left: 15px;
+    }
+    .form-heading h3{
+        margin-left: 15px;
+    }
 
 
 
     /* Add Notes */
-    .container .form-row .form-group .upload-custom-add-notes {
+    .container .forx-row .forx-group .upload-custox-add-notes {
         height: 125px;
     }
 
@@ -586,7 +619,7 @@
 
     .member_info {
         padding-left: 10%;
-        font-family: Open Sans;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;;
         font-size: 13px;
         font-weight: 400;
         line-height: 18px;
@@ -595,7 +628,7 @@
 
     .member_info_dark {
         padding-left: 10px;
-        font-family: Open Sans;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;;
         font-size: 13px;
         font-weight: 600;
         line-height: 18px;
@@ -615,12 +648,12 @@
     }
 
     .vertical-center h1 {
-        font-size: 20px;
+        font-size: 25px;
         line-height: 26px;
     }
 
     .vertical-center p {
-        font-size: 12px;
+        font-size: 18px;
         line-height: 18px;
     }
 
@@ -629,10 +662,23 @@
     }
 
     .about_heading {
+        font-size: 28px;
         margin-bottom: 30px;
     }
 
+    .work_heading{
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+    .testimonial_heading{
+        font-size: 28px;
+        text-align: center;
+        font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-weight: 600;
+        color: #6255a5;
+        margin-bottom: 30px;
 
+    }
     .team .team_name {
         font-size: 22px;
     }
@@ -712,7 +758,7 @@
         padding: 50px 30px;
     }
 
-    #not-account {
+    #signUp {
         font-size: 14px;
     }
 
@@ -737,6 +783,7 @@
 
     /* Dasboard */
     .dashboard_top .main_heading {
+        margin-left: 20px;
         font-size: 26px;
     }
 
@@ -755,16 +802,24 @@
 
     /* Searchbar */
     .dashboard_table .download_heading {
-        padding-top: 20px;
+        padding-top: 10px;
     }
-
+    .dashboard_table .heading {
+        padding-top: 0;
+        margin-left: 15px;
+        font-size: 26px;
+    }
     .search-note {
         padding-top: 30px;
         float: none;
     }
+    .dashboard_table .admin_button button{
+        margin-left: 15px;
+    }
 
     .search-note .search_button button {
-        width: 100px;
+        width: 70px;
+        height: 38px;
         float: right;
         margin: 0;
         padding: 0;
@@ -854,11 +909,11 @@
 
 @media(min-width:319px) and (max-width:400px) {
     
-    .m-t-100{
+    .x-t-100{
         margin-top: 57px;
     }
     
-    .m-t-160{
+    .x-t-160{
         margin-top: 80px;
     }
     
@@ -879,9 +934,22 @@
     /* Home */
 
     .about_heading {
+        font-size: 28px;
         margin-bottom: 30px;
     }
+    .work_heading{
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+    .testimonial_heading{
+        font-size: 28px;
+        text-align: center;
+        font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-weight: 600;
+        color: #6255a5;
+        margin-bottom: 30px;
 
+    }
     .work .work_btn #btn1 {
         margin-bottom: 30px;
     }
@@ -972,6 +1040,7 @@
 
     /* Dasboard */
     .dashboard_top .main_heading {
+        margin-left: 15px;
         font-size: 26px;
     }
 
@@ -994,6 +1063,7 @@
 
     /* Searchbar */
     .dashboard_table .download_heading {
+        margin-left: 15px;
         padding-top: 20px;
     }
 
@@ -1009,18 +1079,27 @@
     .dashboard_table .admin-dash button {
         font-size: 12px !important;
     }
+    .dashboard_table .admin_button button{
+        margin-left: 15px;
+    }
+    .form-heading h3 {
+        margin-left: 15px;
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 28px;
+    }
 
 
     /* Add notes */
-    .container .form-row .form-group .upload-custom-add-notes p {
+    .container .forx-row .forx-group .upload-custox-add-notes p {
         top: -10%;
     }
 
-    .container .form-row .form-group .upload-custom-add-notes {
+    .container .forx-row .forx-group .upload-custox-add-notes {
         height: 125px;
     }
 
-    .container .form-row .form-group .upload-custom p {
+    .container .forx-row .forx-group .upload-custom p {
         top: -10%;
     }
 
@@ -1032,7 +1111,7 @@
         padding-left: 5%;
         padding-right: 0;
         margin-right: -6%;
-        font-family: Open Sans;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;;
         font-size: 13px;
         font-weight: 400;
         line-height: 18px;
@@ -1042,7 +1121,7 @@
     .member_info_dark {
         padding: 0;
         margin: 0;
-        font-family: Open Sans;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;;
         font-size: 13px;
         font-weight: 600;
         line-height: 18px;
@@ -1052,7 +1131,17 @@
 
 /* Extra Small Devices */
 @media(max-width: 320px) {
-
+    /* Login */
+    .heading h4{
+        font-size: 30px;
+    }
+    .navbar-brand img{
+        padding-top: 10px;
+        width: 200px;
+    }
+    .top-img img{
+        width: 200px;
+    }
     /* Home */
     .home-text {
         top: 2%;
@@ -1060,7 +1149,7 @@
     }
 
     .vertical-center h1 {
-        font-size: 22px;
+        font-size: 25px;
         line-height: 34px;
     }
 
@@ -1121,7 +1210,7 @@
         padding: 50px 30px;
     }
 
-    #not-account {
+    #signUp {
         font-size: 14px;
     }
 
@@ -1195,7 +1284,9 @@
         font-size: 14px;
         margin-bottom: 20px;
     }
-
+    .dashboard_top{
+        margin-top: 160px;
+    }
     .dashboard_top .sold_box {
         padding-top: 0 !important;
     }
@@ -1207,9 +1298,12 @@
 
     /* Dasboard */
     .dashboard_top .main_heading {
+        margin-left: 15px;
         font-size: 26px;
     }
-
+    .dashboard_table .admin_button button{
+        margin-left: 15px;
+    }
     .dashboard_top .add_btn button {
         width: 100px;
         font-size: 14px;
@@ -1222,10 +1316,17 @@
     .dashboard_top .sold_box {
         padding-top: 0 !important;
     }
+    .form-heading h3 {
+        margin-left: 15px;
+        font-size: 25px;
+        font-weight: 600;
+        line-height: 28px;
+    }
 
     /* Searchbar */
     .dashboard_table .download_heading {
-        padding-top: 20px;
+        padding-top: 10px;
+        margin-left: 12px;
     }
 
     .search-note {
@@ -1235,6 +1336,7 @@
     .search_button button {
         width: 100px;
     }
+   
 
     /* Admin-Download */
     .dashboard_table .admin-dash button {
@@ -1245,16 +1347,17 @@
 
     /* Add notes */
 
-    .container .form-row .form-group .upload-custom-add-notes {
+    .container .forx-row .forx-group .upload-custox-add-notes {
         height: 125px;
     }
 
-    .container .form-row .form-group .upload-custom-add-notes p,
-    .container .form-row .form-group .upload-custom p {
+    .container .forx-row .forx-group .upload-custox-add-notes p,
+    .container .forx-row .forx-group .upload-custom p {
         top: -10%;
     }
 
     #submit-btn-user {
+        display: inline;
         width: 120px;
     }
 
@@ -1263,5 +1366,34 @@
     .q .faq-qstn {
         font-size: 14px;
     }
+    .banner-text h1{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 38px;
+    font-weight: 400;
+    line-height: 42px;
+    }
+    .form-heading h3{
+        font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 38px; 
+        color: #6255a5;
+        padding: 60px 0 40px 0;
+        margin-left: 15px;
+    }
+    .home_navbar .navbar {
+        font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 20px;
+        background-color: #fff !important;
+        position: fixed;
+        width: 100%;
+        z-index:999;
+        transition: all .3s;
+        -webkit-transition: all .3s;
+    }
+   
+    
 
 }

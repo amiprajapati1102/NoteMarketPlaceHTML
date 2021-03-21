@@ -1,24 +1,24 @@
 
 function sticky_header() {
-    var header_height = jQuery('.home_navbar').innerHeight() / 2;
-    var scrollTop = jQuery(window).scrollTop();;
+    var header_height = $('.home_navbar').innerHeight() / 4;
+    var scrollTop = $(window).scrollTop();;
     if (scrollTop > header_height) {
-        jQuery('body').addClass('sticky-nav')
-        $(".home_navbar .navbar img").attr("src", "../images/logo/logo-blue.png");
+        $('body').addClass('sticky-nav')
+        $(".home_navbar .navbar img").attr("src", "../img/login/logo.png");
     } else {
-        jQuery('body').removeClass('sticky-nav')
-        $(".home_navbar .navbar img").attr("src", "../images/logo/logo-white.png");
+        $('body').removeClass('sticky-nav')
+        $(".home_navbar .navbar img").attr("src", "../img/login/top-logo.png");
     }
 }
 
-jQuery(document).ready(function () {
+$(document).ready(function () {
   sticky_header();
 });
 
-jQuery(window).scroll(function () {
+$(window).scroll(function () {
   sticky_header();  
 });
-jQuery(window).resize(function () {
+$(window).resize(function () {
   sticky_header();
 });
 
@@ -36,18 +36,3 @@ $(".toggle-password").click(function() {
 
 
 
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-  
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.display === "block") {
-      panel.style.display = "none";
-    } else {
-      panel.style.display = "block";
-    }
-  });
-}

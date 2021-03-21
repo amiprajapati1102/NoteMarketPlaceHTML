@@ -5,73 +5,67 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
-    <title>AmiPrajapati - Login Page</title>
+    <title>Ami Prajapati - Login Page</title>
+    <link rel="shortcut icon" href="../img/login/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages/loginStyle.css">
     <link rel="stylesheet" href="../css/responsive.css">
 </head>
 
+
 <body>
-
-    <div class="main-wrap">
-        <div class="container-login" style="background-image: url('../images/background/banner-with-overlay.jpg');">
-
-            <div class="wrap-login">
-
-                <span class="login-form-title">
-                    <img src="../images/logo/logo-white.png" alt="Logo">
+    <!-- Login Page-->
+    <section class="main">
+        <div class="container-login">
+            <div class="login">
+                <span class="top-img">
+                    <img src="../img/login/top-logo.png" alt="Logo">
                 </span>
-
                 <form class="login-form">
-
                     <div class="heading">
                         <h4 class="text-center">Login</h4>
-                        <p class="text-center">Enter your email address and passwod to login</p>
+                        <p class="text-center">Enter your email address and password to login</p>
                     </div>
-
-                    <div class="form-group m-b-30">
-                        <label for="login-email">Email</label>
-                        <input type="email" class="form-control" id="login-email" aria-describedby="emailHelp" placeholder="Enter email">
+                    <div class="form-group x-b-30">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter Your Email">
 
                     </div>
-
                     <div class="form-group">
-
                         <div class="row">
                             <div class="col-md-6" style="width: 30%;">
-                                <label for="login-password" style="display: inline-block;">Password</label>
+                                <label for="password" style="display: inline-block;">Password</label>
                             </div>
                             <div class="col-md-6" style="width: 70%;">
-                                <label for="login-password" style="margin-top: 0; text-align: right;"><span>Forgot Password?</span></label>
+                                <label for="password" style="margin-top: 0; text-align: right;">
+                                    <a href="ForgotPassword.html"><span>Forgot Password?</span></a></label>
                             </div>
                         </div>
-
-                        <div class="inputContainer">
-
-                            <input type="password" id="login-password" class="form-control" placeholder="Password" name="password">
-                            <span toggle="#login-password" class="fa fa-fw fa-eye field-icon toggle-password">
+                        <div class="eye">
+                            <input type="password" id="password" class="form-control" placeholder="Password"
+                                name="password">
+                            <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password">
                             </span>
                         </div>
-
-                        <small id="error-password" class="form-text text-muted"><span>The password that you've enter is incorrect.</span></small>
+                        <small id="error" class="form-text"><span>The password that you've enter is not
+                                correct.</span></small>
                     </div>
-
                     <div class="form-group login-checkbox">
                         <input type="checkbox" id="login-check">
                         <label for="login-check">Remember Me</label>
                     </div>
-
-                    <button type="button" class="btn btn-primary btn-lg btn-block m-b-20" id="login-btn">LOGIN</button>
-
-                    <p class="text-center" id="not-account">Don't have an account? <span>Sign Up</span></p>
+                    <button type="button" class="btn btn-primary btn-lg btn-block x-b-20" id="login-btn">LOGIN</button>
+                    <p class="text-center" id="signUp">Don't have an account?  <a href="SignUp.html"><span>Sign Up</span></a></p>
 
                 </form>
             </div>
         </div>
-    </div>
+    </section>
+    <!--Scripts-->
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap/bootstrap.js"></script>
     <script src="../js/popper.min.js"></script>

@@ -6,27 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
     <title>Ami Prajapati -Add Notes </title>
-    <link rel="shortcut icon" href="../images/logo/favicon.ico">
+    <!--Style Files-->
+    <link rel="shortcut icon" href="../img/login/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages/AddNotes.css">
     <link rel="stylesheet" href="../css/responsive.css">
 </head>
 
 <body>
+    <!--Header NavBar-->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light fixed-top">
             <a class="navbar-brand" href="HomePage.html">
-                <img src="../images/logo/logo-blue.png" alt="logo">
+                <img src="../img/login/logo.png" alt="logo">
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#target"
+                aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse" id="target">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="SearchNotes.html">Search Notes</a>
@@ -45,7 +47,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="user_img" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-                                src="../images/user/user-img.png"></a>
+                                src="../img/User-Profile/user-img.png"></a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a href="UserProfile.html"><button class="dropdown-item" type="button">My
                                     Profile</button></a>
@@ -71,15 +73,14 @@
             </div>
         </nav>
     </header>
-    <div class="banner-image m-t-100">
+    <div class="banner-image x-t-100">
         <div class="banner-text">
             <h1>Add Notes</h1>
         </div>
     </div>
-    <div class="container form-wrap">
-
+    <!--Form For Add Notes-->
+    <section class="container form-wrap">
         <form>
-
             <div class="form-heading">
                 <h3>Basic Note Details</h3>
             </div>
@@ -97,8 +98,8 @@
 
                         <select class="custom-select" id="category">
                             <option selected>Select your category</option>
-                            <option value="1">category-1</option>
-                            <option value="2">category-2</option>
+                            <option value="1">category 1</option>
+                            <option value="2">category 2</option>
                         </select>
                     </div>
                 </div>
@@ -106,12 +107,11 @@
             </div>
 
             <div class="form-row">
-
                 <div class="form-group col-md-6">
                     <label for="exampleInputfname">Display Picture</label>
                     <div class="upload-custom">
                         <button onclick="document.getElementById('getFile').click()">
-                            <img src="../images/User-Profile/upload.png">
+                            <img src="../img/User-Profile/upload-file.png">
                         </button>
                         <input type="file" id="getFile" style="visibility: hidden;">
                         <p class="text-center">Upload a picture</p>
@@ -122,7 +122,7 @@
                     <label for="getNote">Upload notes *</label>
                     <div class="upload-custom">
                         <button onclick="document.getElementById('getNote').click()">
-                            <img src="../images/User-Profile/upload.png">
+                            <img src="../img/User-Profile/upload-note.png">
                         </button>
                         <input type="file" id="getNote" style="visibility: hidden;">
                         <p class="text-center">Upload your notes</p>
@@ -155,7 +155,7 @@
 
             <div class="form-row">
 
-                <div class="form-group col-md-12">
+                <div class="form-group col-md-6">
 
                     <label for="discription">Description *</label>
                     <textarea class="form-control" id="discription" placeholder="Enter your notes title"
@@ -249,7 +249,7 @@
                     <label for="getPreview">Note Preview</label>
                     <div class="upload-custom-add-notes">
                         <button onclick="document.getElementById('getPreview').click()">
-                            <img src="../images/User-Profile/upload.png">
+                            <img src="../img/User-Profile/upload-note.png">
                         </button>
                         <input type="file" id="getPreview" style="visibility: hidden;">
                         <p class="text-center">Upload a file</p>
@@ -257,12 +257,14 @@
                 </div>
 
             </div>
-
-            <button type="button" class="btn btn-primary m-b-60" id="submit-btn-user">SAVE</button>
-            <button type="button" class="btn btn-primary btn-right m-b-60" id="submit-btn-user">PUBLISH</button>
-
+            <div class="row">
+            <div class="col-md-2"> <button type="button" class="btn btn-primary x-b-20" id="submit-btn-user">SAVE</button></div>
+           
+            <div class="col-md-2">  <button type="button" class="btn btn-primary x-b-20" id="submit-btn-user">PUBLISH</button></div>
+        </div>
         </form>
-    </div>
+    </section>
+    <!--Footer-->
     <section class="footer">
         <div class="container">
 
@@ -286,7 +288,7 @@
             </div>
         </div>
     </section>
-
+    <!--Script Files-->
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap/bootstrap.js"></script>
     <script src="../js/script.js"></script>

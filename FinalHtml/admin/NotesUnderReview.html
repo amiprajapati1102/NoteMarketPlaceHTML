@@ -6,30 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
     <title>Ami Prajapati - Notes under review</title>
+    <!--Style Files-->
     <link rel="shortcut icon" href="../images/logo/favicon.ico">
-   
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  
     <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    
     <link rel="stylesheet" href="../css/style.css">
-    
+    <link rel="stylesheet" href="../css/pages/AddNotes.css">
+    <link rel="stylesheet" href="../css/pages/Dashbord.css">
     <link rel="stylesheet" href="../css/responsive.css">
-    
-    
+
+
 </head>
 
 <body>
+    <!--Header-->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light fixed-top">
             <a class="navbar-brand" href="dashboard.html">
-                <img src="../images/logo/logo-blue.png" alt="logo">
+                <img src="../img/login/logo.png" alt="logo">
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -39,48 +38,66 @@
                         <a class="nav-link" href="dashboard.html">Dashboard</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="notes">Notes</a>
+                        <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            id="notes">Notes</a>
                         <div class="dropdown-menu">
-                            <a href="NotesUnderReview.html"><button class="dropdown-item" type="button">Notes Under Review</button></a>
-                            <a href="PublishedNotes.html"><button class="dropdown-item" type="button">Published Notes</button></a>
-                            <a href="DownloadedNotes.html"><button class="dropdown-item" type="button">Downloaded Notes</button></a>
-                            <a href="RejectedNotes.html"><button class="dropdown-item" type="button">Rejected Notes</button></a>
+                            <a href="NotesUnderReview.html"><button class="dropdown-item" type="button">Notes Under
+                                    Review</button></a>
+                            <a href="PublishedNotes.html"><button class="dropdown-item" type="button">Published
+                                    Notes</button></a>
+                            <a href="DownloadedNotes.html"><button class="dropdown-item" type="button">Downloaded
+                                    Notes</button></a>
+                            <a href="RejectedNotes.html"><button class="dropdown-item" type="button">Rejected
+                                    Notes</button></a>
                         </div>
                     </li>
                     <li class="nav-item">
-                         <a class="nav-link" href="Members.html">Members</a>
-                     </li>
-                    
+                        <a class="nav-link" href="Members.html">Members</a>
+                    </li>
+
                     <li class="nav-item dropdown">
-                        <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="report">Reports</a>
+                        <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            id="report">Reports</a>
                         <div class="dropdown-menu">
-                            <a href="SpamReports.html"><button class="dropdown-item" type="button">Spam Report</button></a>
+                            <a href="SpamReports.html"><button class="dropdown-item" type="button">Spam
+                                    Report</button></a>
                         </div>
                     </li>
-                    
+
                     <li class="nav-item dropdown">
-                        <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="settings">Settings</a>
+                        <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            id="settings">Settings</a>
                         <div class="dropdown-menu">
-                            <a href="SystemConfiguration.html"><button class="dropdown-item" type="button">Manage System Configuration</button></a>
-                            <a href="ManageAdmin.html"><button class="dropdown-item" type="button">Manage Administrator</button></a>
-                            <a href="ManageCategory.html"><button class="dropdown-item" type="button">Manage Category</button></a>
-                            <a href="ManageType.html"><button class="dropdown-item" type="button">Manage Typer</button></a>
-                            <a href="ManageCountry.html"><button class="dropdown-item" type="button">Manage Countries</button></a>
+                            <a href="SystemConfiguration.html"><button class="dropdown-item" type="button">Manage System
+                                    Configuration</button></a>
+                            <a href="ManageAdmin.html"><button class="dropdown-item" type="button">Manage
+                                    Administrator</button></a>
+                            <a href="ManageCategory.html"><button class="dropdown-item" type="button">Manage
+                                    Category</button></a>
+                            <a href="ManageType.html"><button class="dropdown-item" type="button">Manage
+                                    Typer</button></a>
+                            <a href="ManageCountry.html"><button class="dropdown-item" type="button">Manage
+                                    Countries</button></a>
                         </div>
                     </li>
-                    
-                    
+
+
                     <li class="nav-item dropdown">
-                        <a class="user_img" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../images/user/user-img.png"></a>
+                        <a class="user_img" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                src="../img/User-Profile/user-img.png"></a>
                         <div class="dropdown-menu">
-                            <a href="Profile.html"><button class="dropdown-item" type="button">Update Profile</button></a>
-                            <a href="#"><button class="dropdown-item" type="button">Change Password</button></a>
-                            <a href="../pages/HomePage.html"><button class="dropdown-item" type="button"><span>LOGOUT</span></button></a>
+                            <a href="Profile.html"><button class="dropdown-item" type="button">Update
+                                    Profile</button></a>
+                            <a href="../Pages/ChangePassword.html"><button class="dropdown-item" type="button">Change
+                                    Password</button></a>
+                            <a href="../pages/HomePage.html"><button class="dropdown-item"
+                                    type="button"><span>LOGOUT</span></button></a>
                         </div>
                     </li>
-                     
+
                     <li class="nav-item">
-                        <a href="../pages/HomePage.html"><button type="button" class="btn btn-primary btn-lg btn-block btn_login">Logout</button></a>
+                        <a href="../pages/HomePage.html"><button type="button"
+                                class="btn btn-primary btn-lg btn-block btn_login">Logout</button></a>
                     </li>
 
                 </ul>
@@ -88,177 +105,192 @@
             </div>
         </nav>
     </header>
-     
-   <section class="dashboard_table m-t-100">
-       <div class="container">
-           <div class="row">
-               <div class="form-heading col-md-6"><h3>Notes Under Review</h3></div>
-           </div>
-           <div class="row">
-               <div class="small_text col-md-12">seller</div>
-               <div class="seller_drop col-md-4 col-sm-6 col-12" style="padding-top: 20px; padding-left: 0;">
-                   <div class="btn-group">
-                       <button type="button" class="btn btn-light dropdown-toggle" id="dropdown_button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="height: 40px; font-size: 16px; line-height: 20px; text-align: left; text-transform: capitalize">
-                           Khyati
-                       </button>
-                       <div class="dropdown-menu dropdown-menu-right">
-                           <button class="dropdown-item" type="button">Rahul</button>
-                           <button class="dropdown-item" type="button">Suman</button>
-                           <button class="dropdown-item" type="button">Raj</button>
-                           <button class="dropdown-item" type="button">Niya</button>
-                       </div>
-                   </div>
-               </div>
 
-               <div class="col-md-8 col-sm-6 col-12">
-                   <div class="search-note">
+    <section class="dashboard_table x-t-100">
+        <div class="container">
+            <div class="row">
+                <div class="form-heading col-md-6">
+                    <h3>Notes Under Review</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small_text col-md-12">seller</div>
+                <div class="seller_drop col-md-4 col-sm-6 col-12" style="padding-top: 20px; padding-left: 0;">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-light dropdown-toggle" id="dropdown_button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            style="height: 40px; font-size: 16px; line-height: 20px; text-align: left; text-transform: capitalize">
+                            Khyati
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <button class="dropdown-item" type="button">Rahul</button>
+                            <button class="dropdown-item" type="button">Suman</button>
+                            <button class="dropdown-item" type="button">Raj</button>
+                            <button class="dropdown-item" type="button">Niya</button>
+                        </div>
+                    </div>
+                </div>
 
-                       <div class="row">
-                           <div class="col-md-8 col-sm-8 col-8">
-                               <div class="search">
-                                   <img src="../images/assets/search.jpg">
-                                   <input type="search" class="form-control" placeholder="Search">
-                               </div>
-                           </div>
+                <div class="col-md-8 col-sm-6 col-12">
+                    <div class="search-note">
 
-                           <div class="col-md-4 col-sm-4 col-4 search_button">
-                               <button type="button" class="btn btn-primary searc_btn">Search</button>
-                           </div>
-                       </div>
+                        <div class="row">
+                            <div class="col-md-8 col-sm-8 col-8">
+                                <div class="search">
+                                    <img src="../img/Search/search.jpg">
+                                    <input type="search" class="form-control" placeholder="Search">
+                                </div>
+                            </div>
 
-                   </div>
-               </div>
+                            <div class="col-md-4 col-sm-4 col-4 search_button">
+                                <button type="button" class="btn btn-primary searc_btn">Search</button>
+                            </div>
+                        </div>
 
-           </div>
-           <div class="row booktable">
-               <table class="table table-hover table-responsive">
-                   <thead>
-                       <tr>
-                           <th scope="col" style="width: 5%;">sr no.</th>
-                           <th scope="col" style="width: 40%;">note title</th>
-                           <th scope="col" style="width: 5%;">category</th>
-                           <th scope="col" style="width: 15%;">seller</th>
-                           <th scope="col" style="width: 5%;"></th>
-                           <th scope="col" style="width: 30%;">date added</th>
-                           <th scope="col" style="width: 15%;">status</th>
-                           <th scope="col" style="width: 5%;"></th>
-                           <th scope="col" style="width: 5%;">action</th>
-                           <th scope="col" style="width: 5%;"></th>
-                           <th scope="col" style="width: 5%;"></th>
-                       </tr>
-                   </thead>
-                   <tbody>
-                       <tr>
-                           <td>1</td>
-                           <td class="purple_text">Software Engineer</td>
-                           <td>IT</td>
-                           <td>Khyati Patel</td>
-                           <td><img src="../images/logo/eye.png"></td>
-                           <td>09-10-2020, 10:10</td>
-                           <td>InReview</td>
-                           <td><button type="button" class="btn btn-primary green_btn">Approve</button></td>
-                           <td><button type="button" class="btn btn-primary red_btn" data-toggle="modal" data-target="#rejectmodal">Reject</button></td>
-                           <td><button type="button" class="btn btn-primary gray_btn">InReview</button></td>
-                           <td>
-                               <a href="#" class="icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
-                               <div class="dropdown-menu dropdown-menu-right">
-                                   <button class="dropdown-item" type="button">Download Notes</button>
-                                   <button class="dropdown-item" type="button">View More Details</button>
-                                   <button class="dropdown-item" type="button">Unpublish</button>
-                               </div>
+                    </div>
+                </div>
 
-                           </td>
-                       </tr>
-                       <tr>
-                           <td>2</td>
-                           <td class="purple_text">Computer Basic</td>
-                           <td>Computer</td>
-                           <td>Khyati Patel</td>
-                           <td><img src="../images/logo/eye.png"></td>
-                           <td>10-10-2020, 11:25</td>
-                           <td>Submitted For Review</td>
-                           <td><button type="button" class="btn btn-primary green_btn">Approve</button></td>
-                           <td><button type="button" class="btn btn-primary red_btn" data-toggle="modal" data-target="#rejectmodal">Reject</button></td>
-                           <td><button type="button" class="btn btn-primary gray_btn">InReview</button></td>
-                           <td>
-                               <a href="#" class="icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
-                               <div class="dropdown-menu dropdown-menu-right">
-                                   <button class="dropdown-item" type="button">Download Notes</button>
-                                   <button class="dropdown-item" type="button">View More Details</button>
-                                   <button class="dropdown-item" type="button">Unpublish</button>
-                               </div>
+            </div>
+            <div class="row booktable">
+                <table class="table table-hover table-responsive">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 5%;">sr no.</th>
+                            <th scope="col" style="width: 40%;">note title</th>
+                            <th scope="col" style="width: 5%;">category</th>
+                            <th scope="col" style="width: 15%;">seller</th>
+                            <th scope="col" style="width: 5%;"></th>
+                            <th scope="col" style="width: 30%;">date added</th>
+                            <th scope="col" style="width: 15%;">status</th>
+                            <th scope="col" style="width: 5%;"></th>
+                            <th scope="col" style="width: 5%;">action</th>
+                            <th scope="col" style="width: 5%;"></th>
+                            <th scope="col" style="width: 5%;"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="purple_text">Software Engineer</td>
+                            <td>IT</td>
+                            <td>Khyati Patel</td>
+                            <td><img src="../img/Dashboard/eye.png"></td>
+                            <td>1-1-2021, 10:10</td>
+                            <td>InReview</td>
+                            <td><button type="button" class="btn btn-primary green_btn">Approve</button></td>
+                            <td><button type="button" class="btn btn-primary red_btn" data-toggle="modal"
+                                    data-target="#rejectmodal">Reject</button></td>
+                            <td><button type="button" class="btn btn-primary gray_btn">InReview</button></td>
+                            <td>
+                                <a href="#" class="icon" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <button class="dropdown-item" type="button">Download Notes</button>
+                                    <button class="dropdown-item" type="button">View More Details</button>
+                                    <button class="dropdown-item" type="button">Unpublish</button>
+                                </div>
 
-                           </td>
-                       </tr>
-                       <tr>
-                           <td>3</td>
-                           <td class="purple_text">Human Body</td>
-                           <td>Science</td>
-                           <td>Khyati Patel</td>
-                           <td><img src="../images/logo/eye.png"></td>
-                           <td>11-10-2020, 01:00</td>
-                           <td>InReview</td>
-                           <td><button type="button" class="btn btn-primary green_btn">Approve</button></td>
-                           <td><button type="button" class="btn btn-primary red_btn" data-toggle="modal" data-target="#rejectmodal">Reject</button></td>
-                           <td><button type="button" class="btn btn-primary gray_btn">InReview</button></td>
-                           <td>
-                               <a href="#" class="icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
-                               <div class="dropdown-menu dropdown-menu-right">
-                                   <button class="dropdown-item" type="button">Download Notes</button>
-                                   <button class="dropdown-item" type="button">View More Details</button>
-                                   <button class="dropdown-item" type="button">Unpublish</button>
-                               </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="purple_text">Computer Basic</td>
+                            <td>Computer</td>
+                            <td>Khyati Patel</td>
+                            <td><img src="../img/Dashboard/eye.png"></td>
+                            <td>1-1-2021, 10:10</td>
+                            <td>Submitted For Review</td>
+                            <td><button type="button" class="btn btn-primary green_btn">Approve</button></td>
+                            <td><button type="button" class="btn btn-primary red_btn" data-toggle="modal"
+                                    data-target="#rejectmodal">Reject</button></td>
+                            <td><button type="button" class="btn btn-primary gray_btn">InReview</button></td>
+                            <td>
+                                <a href="#" class="icon" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <button class="dropdown-item" type="button">Download Notes</button>
+                                    <button class="dropdown-item" type="button">View More Details</button>
+                                    <button class="dropdown-item" type="button">Unpublish</button>
+                                </div>
 
-                           </td>
-                       </tr>
-                       <tr>
-                           <td>4</td>
-                           <td class="purple_text">World War 2</td>
-                           <td>History</td>
-                           <td>Khyati Patel</td>
-                           <td><img src="../images/logo/eye.png"></td>
-                           <td>12-10-2020, 10:10</td>
-                           <td>InReview</td>
-                           <td><button type="button" class="btn btn-primary green_btn">Approve</button></td>
-                           <td><button type="button" class="btn btn-primary red_btn" data-toggle="modal" data-target="#rejectmodal">Reject</button></td>
-                           <td><button type="button" class="btn btn-primary gray_btn">InReview</button></td>
-                           <td>
-                               <a href="#" class="icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
-                               <div class="dropdown-menu dropdown-menu-right">
-                                   <button class="dropdown-item" type="button">Download Notes</button>
-                                   <button class="dropdown-item" type="button">View More Details</button>
-                                   <button class="dropdown-item" type="button">Unpublish</button>
-                               </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="purple_text">Human Body</td>
+                            <td>Science</td>
+                            <td>Khyati Patel</td>
+                            <td><img src="../img/Dashboard/eye.png"></td>
+                            <td>1-1-2021, 10:10</td>
+                            <td>InReview</td>
+                            <td><button type="button" class="btn btn-primary green_btn">Approve</button></td>
+                            <td><button type="button" class="btn btn-primary red_btn" data-toggle="modal"
+                                    data-target="#rejectmodal">Reject</button></td>
+                            <td><button type="button" class="btn btn-primary gray_btn">InReview</button></td>
+                            <td>
+                                <a href="#" class="icon" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <button class="dropdown-item" type="button">Download Notes</button>
+                                    <button class="dropdown-item" type="button">View More Details</button>
+                                    <button class="dropdown-item" type="button">Unpublish</button>
+                                </div>
 
-                           </td>
-                       </tr>
-                       <tr>
-                           <td>5</td>
-                           <td class="purple_text">Accounting</td>
-                           <td>Account</td>
-                           <td>Khyati Patel</td>
-                           <td><img src="../images/logo/eye.png"></td>
-                           <td>13-10-2020, 11:25</td>
-                           <td>InReview</td>
-                           <td><button type="button" class="btn btn-primary green_btn">Approve</button></td>
-                           <td><button type="button" class="btn btn-primary red_btn" data-toggle="modal" data-target="#rejectmodal">Reject</button></td>
-                           <td><button type="button" class="btn btn-primary gray_btn">InReview</button></td>
-                           <td>
-                               <a href="#" class="icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
-                               <div class="dropdown-menu dropdown-menu-right">
-                                   <button class="dropdown-item" type="button">Download Notes</button>
-                                   <button class="dropdown-item" type="button">View More Details</button>
-                                   <button class="dropdown-item" type="button">Unpublish</button>
-                               </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="purple_text">World War 2</td>
+                            <td>History</td>
+                            <td>Khyati Patel</td>
+                            <td><img src="../img/Dashboard/eye.png"></td>
+                            <td>1-1-2021, 10:10</td>
+                            <td>InReview</td>
+                            <td><button type="button" class="btn btn-primary green_btn">Approve</button></td>
+                            <td><button type="button" class="btn btn-primary red_btn" data-toggle="modal"
+                                    data-target="#rejectmodal">Reject</button></td>
+                            <td><button type="button" class="btn btn-primary gray_btn">InReview</button></td>
+                            <td>
+                                <a href="#" class="icon" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <button class="dropdown-item" type="button">Download Notes</button>
+                                    <button class="dropdown-item" type="button">View More Details</button>
+                                    <button class="dropdown-item" type="button">Unpublish</button>
+                                </div>
 
-                           </td>
-                       </tr>
-                   </tbody>
-               </table>
-           </div>
-       </div>
-   </section>
-    <div class="modal fade reject_modal" id="rejectmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="purple_text">Accounting</td>
+                            <td>Account</td>
+                            <td>Khyati Patel</td>
+                            <td><img src="../img/Dashboard/eye.png"></td>
+                            <td>1-1-2021, 10:10</td>
+                            <td>InReview</td>
+                            <td><button type="button" class="btn btn-primary green_btn">Approve</button></td>
+                            <td><button type="button" class="btn btn-primary red_btn" data-toggle="modal"
+                                    data-target="#rejectmodal">Reject</button></td>
+                            <td><button type="button" class="btn btn-primary gray_btn">InReview</button></td>
+                            <td>
+                                <a href="#" class="icon" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <button class="dropdown-item" type="button">Download Notes</button>
+                                    <button class="dropdown-item" type="button">View More Details</button>
+                                    <button class="dropdown-item" type="button">Unpublish</button>
+                                </div>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <div class="modal fade reject_modal" id="rejectmodal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal_head col-md-12">
@@ -277,7 +309,8 @@
 
                         <div class="comment-box">
                             <label for="exampleInputfname">Remarks</label>
-                            <textarea class="form-control" id="exampleInputfname" placeholder="Write remarks" rows="5"></textarea>
+                            <textarea class="form-control" id="exampleInputfname" placeholder="Write remarks"
+                                rows="5"></textarea>
                         </div>
                         <div class="modal_button text-right">
                             <button type="button" class="btn btn-primary red_btn">Reject</button>
@@ -288,32 +321,34 @@
             </div>
         </div>
     </div>
-   <section class="pages">
-       <div class="container">
-           <div class="row">
-               <ul class="pagination">
-                   <li class="page-item">
-                       <a class="page-link page-link-icon" href="#" aria-label="Previous">
-                           <i class="fa fa-chevron-left"></i>
-                       </a>
-                   </li>
-                   <li class="page-item"><a class="page-link active" href="#">1</a></li>
-                   <li class="page-item"><a class="page-link" href="#">2</a></li>
-                   <li class="page-item"><a class="page-link" href="#">3</a></li>
-                   <li class="page-item"><a class="page-link" href="#">4</a></li>
-                   <li class="page-item"><a class="page-link" href="#">5</a></li>
-                   <li class="page-item">
-                       <a class="page-link page-link-icon" href="#" aria-label="Next">
-                           <i class="fa fa-chevron-right"></i>
-                       </a>
-                   </li>
-               </ul>
-           </div>
-       </div>
-   </section>
+    <!--Pagination-->
+    <section class="pages">
+        <div class="container">
+            <div class="row">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link page-link-icon" href="#" aria-label="Previous">
+                            <i class="fa fa-chevron-left"></i>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                    <li class="page-item">
+                        <a class="page-link page-link-icon" href="#" aria-label="Next">
+                            <i class="fa fa-chevron-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--Footer-->
     <section class="footer">
         <div class="container">
-            
+
             <div class="row">
                 <div class="col-md-6 footer_content" style="width: 30%;">
                     <p>Version 1.1.24</p>
@@ -324,6 +359,7 @@
             </div>
         </div>
     </section>
+    <!--Script Files-->
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap/bootstrap.js"></script>
     <script type="text/javascript" src="../js/popper.min.js"></script>

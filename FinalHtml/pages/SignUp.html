@@ -5,50 +5,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
-    <title>Sign Up Page</title>
-    
-    <link rel="shortcut icon" href="../images/logo/favicon.ico">
+    <title>Ami Prajapati Sign Up</title>
+    <!--Style Files-->
+    <link rel="shortcut icon" href="../img/login/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages/loginStyle.css">
     <link rel="stylesheet" href="../css/responsive.css">
 </head>
 
 <body>
-    
-    <!-- Sign-up page --> 
-    <div class="main-wrap">
-        <div class="container-login" style="background-image: url('../images/background/banner-with-overlay.jpg');">
-
-            <div class="wrap-login">
-
-                <span class="login-form-title">
-                    <img src="../images/logo/logo-white.png">
+    <!-- Sign page -->
+    <section class="main">
+        <div class="container-login">
+            <div class="login">
+                <span class="top-img">
+                    <img src="../img/login/top-logo.png">
                 </span>
-
                 <form class="login-form">
-
-                    <div class="signup-heading">
+                    <div class="heading">
                         <h4 class="text-center">Create an Account</h4>
                         <p class="text-center">Enter your details to signup</p>
-                         <small id="signup-successfully" class="form-text text-muted text-center"><p>Your account has been successfully created.</p></small>
+                        <small id="signup-successfully" class="form-text text-muted text-center">
+                            <p>Your account has been successfully created.</p>
+                        </small>
                     </div>
 
                     <div class="form-group">
                         <label for="first-name">First Name *</label>
-                        <input type="text" class="form-control" id="first-name" placeholder="Enter your first name">
+                        <input type="text" class="form-control" id="firstName" placeholder="Enter your first name">
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="last-name">Last Name *</label>
-                        <input type="text" class="form-control" id="last-name" placeholder="Enter your last name">
+                        <input type="text" class="form-control" id="lastName" placeholder="Enter your last name">
                     </div>
-                    
-                      <div class="form-group">
+
+                    <div class="form-group">
                         <label for="email">Email *</label>
-                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter your email address">
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email address">
                     </div>
 
                     <div class="form-group">
@@ -56,47 +54,51 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="password">Password</label>
-                            </div>      
+                            </div>
                         </div>
 
-                        <div class="inputContainer">
+                        <div class="eye">
 
-                            <input type="password" id="password" class="form-control" placeholder="Enter your password" name="password">
+                            <input type="password" id="password" class="form-control" placeholder="Enter your password"
+                                name="password">
                             <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password">
                             </span>
                         </div>
 
                     </div>
-                    
-                    <div class="form-group m-b-30">
+
+                    <div class="form-group x-b-30">
 
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="confirm-password">Confirm Password</label>
-                            </div>      
+                            </div>
                         </div>
 
-                        <div class="inputContainer">
+                        <div class="eye">
 
-                            <input type="password" id="confirm-password" class="form-control" placeholder="Re-enter your Password" name="password">
+                            <input type="password" id="confirm-password" class="form-control"
+                                placeholder="Re-enter your Password" name="password">
                             <span toggle="#confirm-password" class="fa fa-fw fa-eye field-icon toggle-password">
                             </span>
                         </div>
 
                     </div>
-   
-                    <button type="button" class="btn btn-primary btn-lg btn-block m-b-20" id="login-btn">SIGN UP</button>
 
-                    <p class="text-center" id="not-account">Already have an account? <span>Login</span></p>
+                    <button type="button" class="btn btn-primary btn-lg btn-block x-b-20" id="login-btn">SIGN
+                        UP</button>
+                    <p class="text-center" id="signUp">Already have an account? <a
+                            href="Login.html"><span>Login</span></a></p>
 
                 </form>
             </div>
         </div>
-    </div>
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap/bootstrap.js"></script>
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/script.js"></script>
+        </div>
+        <!--Script Files-->
+        <script src="../js/jquery.js"></script>
+        <script src="../js/bootstrap/bootstrap.js"></script>
+        <script src="../js/popper.min.js"></script>
+        <script src="../js/script.js"></script>
 </body>
 
 </html>
