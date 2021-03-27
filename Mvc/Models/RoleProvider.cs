@@ -1,11 +1,11 @@
-﻿using NoteMarketPlace.DbModel;
+﻿using NoteMarketPlaceHtml.DbModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
 
-namespace NoteMarketPlace.Models
+namespace NoteMarketPlaceHtml.Models
 {
     public class DataRoleProvider : RoleProvider
     {
@@ -38,11 +38,11 @@ namespace NoteMarketPlace.Models
 
         public override string[] GetRolesForUser(string EmailId)
         {
-            using (var context = new NoteMarketPlaceHtmlEntities())
+            using (var context = new NoteMarketPlaceEntities())
             {
                 var result = (from name in context.Users
-                              join role in context.UserRoles on name.RoleID equals role.ID
-                              where name.EmailID == EmailId
+                              join role in context.UserRoles on name.RoleId equals role.ID
+                              where name.EmailId == EmailId
                               select role.Name).ToArray();
                 return result;
             }

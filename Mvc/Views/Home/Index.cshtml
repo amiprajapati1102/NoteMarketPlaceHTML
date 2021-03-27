@@ -1,9 +1,9 @@
 ﻿
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
-<!-- home banner -->
 <section class="home">
     <div class="home_img">
 
@@ -25,7 +25,7 @@
     </div>
 
 </section>
-<!-- home banner end-->
+
 <!-- about -->
 <section class="about">
     <div class="container">
@@ -43,6 +43,8 @@
     </div>
 </section>
 
+
+<!--  work  -->
 <section class="work">
     <div class="container">
         <div class="row">
@@ -51,7 +53,8 @@
             </div>
             <div class="col-md-6 work_content">
                 <div class="logo">
-                    <img src="~/Content/images/logo/download.png">
+                   
+                    <img src="~/Content/img/User-Profile/Download.PNG" />
                 </div>
                 <div class="sub_heading">
                     <span>Download Free/Paid Notes</span>
@@ -60,15 +63,13 @@
                     <span>Get Material For your <br>Cource etc.</span>
                 </div>
                 <div class="work_btn">
-                   
-                     @Html.ActionLink("DOWNLOAD", "Login", "Account", null, new { @class = "btn btn-primary work_btn",id="btn1",Style = "background:#6255a5; color:#fff;" }) 
-</div>
+                    <a href="#"><button type="button" class="btn btn-primary work_btn" id="btn1"><span>Download</span></button></a>
+                </div>
             </div>
             <div class="col-md-6 work_content">
                 <div class="logo">
-                    <img src="~/Content/images/logo/seller.png" />
-
-                   
+                    <img src="~/Content/img/User-Profile/Seller.PNG" />
+                    
                 </div>
                 <div class="sub_heading">
                     <span>Seller</span>
@@ -77,7 +78,7 @@
                     <span>Upload and Download Cource <br> and Materials etc.</span>
                 </div>
                 <div class="work_btn">
-                    @Html.ActionLink("Sell BOOKS", "Login", "Account", null, new { @class = "btn btn-primary work_btn", id = "btn1", Style = "background:#6255a5; color:#fff;" })
+                    <a href="#"><button type="button" class="btn btn-primary work_btn" id="btn2"><span>Sell Book</span></button></a>
                 </div>
             </div>
         </div>
@@ -94,8 +95,8 @@
             <div class="col-md-6 team" id="team1">
                 <div class="team1">
                     <div class="team_img col-md-6">
-                       
-                        <img src="~/Content/images/user/customer-1.png" />
+                      
+                        <img src="~/Content/img/User-Profile/customer-1.png" />
                     </div>
                     <div class="team_intro">
                         <span class="team_name">Walter Meller</span><br>
@@ -109,8 +110,8 @@
             <div class="col-md-6 team" id="team2">
                 <div class="team2">
                     <div class="team_img col-md-6">
-                       
-                        <img src="~/Content/images/user/customer-2.png" />
+                        <img src="~/Content/img/User-Profile/customer-2.png" />
+                        
                     </div>
                     <div class="team_intro">
                         <span class="team_name">Jonnie Riley</span><br>
@@ -125,7 +126,7 @@
                 <div class="team3">
                     <div class="team_img col-md-6">
                        
-                        <img src="~/Content/images/user/customer-3.png" />
+                        <img src="~/Content/img/User-Profile/customer-3.png" />
                     </div>
                     <div class="team_intro">
                         <span class="team_name">Amilia Luna</span><br>
@@ -139,9 +140,8 @@
             <div class="col-md-6 team" id="team4">
                 <div class="team4">
                     <div class="team_img col-md-6">
-                      
-
-                        <img src="~/Content/images/user/customer-4.png" />
+                       
+                        <img src="~/Content/img/User-Profile/customer-4.png" />
                     </div>
                     <div class="team_intro">
                         <span class="team_name">Daniel Cardos</span><br>
@@ -155,4 +155,3 @@
         </div>
     </div>
 </section>
-<!-- testimonial end -->

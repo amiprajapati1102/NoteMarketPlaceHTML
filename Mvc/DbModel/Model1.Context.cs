@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NoteMarketPlace.DbModel
+namespace NoteMarketPlaceHtml.DbModel
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class NoteMarketPlaceHtmlEntities : DbContext
+    public partial class NoteMarketPlaceEntities : DbContext
     {
-        public NoteMarketPlaceHtmlEntities()
-            : base("name=NoteMarketPlaceHtmlEntities")
+        public NoteMarketPlaceEntities()
+            : base("name=NoteMarketPlaceEntities")
         {
         }
     
@@ -25,8 +25,19 @@ namespace NoteMarketPlace.DbModel
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<UserProfile> UserProfiles { get; set; }
+        public virtual DbSet<AddAdmin> AddAdmins { get; set; }
+        public virtual DbSet<Country> Countries { get; set; }
+        public virtual DbSet<NoteCategory> NoteCategories { get; set; }
+        public virtual DbSet<NoteType> NoteTypes { get; set; }
+        public virtual DbSet<SystemConfiguration> SystemConfigurations { get; set; }
         public virtual DbSet<UserRole> UserRoles { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Download> Downloads { get; set; }
+        public virtual DbSet<ReferenceData> ReferenceDatas { get; set; }
+        public virtual DbSet<SellerNote> SellerNotes { get; set; }
+        public virtual DbSet<SellerNotesAttachement> SellerNotesAttachements { get; set; }
+        public virtual DbSet<SellerNotesReportedIssue> SellerNotesReportedIssues { get; set; }
+        public virtual DbSet<SellerNotesReview> SellerNotesReviews { get; set; }
+        public virtual DbSet<UserProfile> UserProfiles { get; set; }
     }
 }

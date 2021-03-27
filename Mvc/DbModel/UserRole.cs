@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NoteMarketPlace.DbModel
+namespace NoteMarketPlaceHtml.DbModel
 {
     using System;
     using System.Collections.Generic;

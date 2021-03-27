@@ -1,0 +1,253 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+<!-- dashboard -->
+<section class="dashboard_top">
+    <div class="container">
+        <div class="row">
+            <div class="main_heading col-md-4 col-sm-6 col-12 ">Dashboard</div>
+            <div class="add_btn col-md-8 col-sm-6 col-12">
+                <a href="@Url.Action("AddNote","User")"><button type="button" class="btn btn-primary add_note_btn">ADD Note</button></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="boxes col-md-2">
+                <div class="earning_box">
+                    <div class="earning_img text-center">
+                        <img src="~/Content/img/Dashboard/earning-icon.svg" />
+                        <br>
+                        <span class="heading">My Earning</span>
+                    </div>
+                </div>
+            </div>
+            <div class="boxes col-md-4">
+                <div class="sold_box">
+                    <div class="col-md-6 sold">
+                        <span class="heading">@ViewBag.TotalSoldNotes</span><br>
+                        <span class="sub_heading">Numbers of Notes Sold</span>
+                    </div>
+                    <div class="myearning">
+                        <span class="heading">@ViewBag.TotalEarning</span><br>
+                        <span class="sub_heading">Money Earned</span>
+                    </div>
+                </div>
+            </div>
+            <div class="boxes col-md-2">
+                <div class="download_box">
+                    <span class="heading">@ViewBag.TotalDownloadNotes</span><br>
+                    <span class="sub_heading">My Downloads</span>
+                </div>
+            </div>
+            <div class="boxes col-md-2">
+                <div class="reject_box">
+                    <span class="heading">@ViewBag.TotalRejectedNotes</span><br>
+                    <span class="sub_heading">My Rejected Notes</span>
+                </div>
+            </div>
+            <div class="boxes col-md-2">
+                <div class="request_box">
+                    <span class="heading">@ViewBag.TotalBuyerRequest</span><br>
+                    <span class="sub_heading">Buyer Requests</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="dashboard_table x-t-30">
+    <div class="container">
+        <div class="row">
+            <div class="heading col-md-4 col-sm-6 col-12 ">In Progress Notes</div>
+
+            <div class="col-md-8 col-sm-6 col-12">
+                <div class="search-note">
+
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8 col-8">
+                            <div class="search">
+
+                                <img src="~/Content/img/Dashboard/search-icon.svg" />
+                                <input type="search" class="form-control" placeholder="Search" id="searchbox">
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4 col-4 search_button">
+                            <button type="button" class="btn btn-primary searc_btn">Search</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<div class="row">
+    <div class="container">
+        <table class="table table-hover table-responsive" id="inProgresstbl">
+            <thead>
+                <tr>
+                    <th scope="col" style="width: 10%">Added date</th>
+                    <th scope="col" style="width: 30%">title</th>
+                    <th scope="col" style="width: 20%">category</th>
+                    <th scope="col" style="width: 20%">status</th>
+                    <th scope="col" style="width: 20%">actions</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @{ if (ViewBag.ProgressNotes.Count == 0)
+                    {
+                        <tr>
+                            <td colspan="5" style="text-align: center">No Data Available</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        foreach (var data in ViewBag.ProgressNotes)
+                        {
+                            if (data.Status == "Draft")
+                            {
+                                <tr>
+                                    <td>@data.CreatedDate</td>
+                                    <td>@data.Title</td>
+                                    <td>@data.Category</td>
+                                    <td>@data.Status</td>
+                                    <td>
+                                        <div class="table-icon-edit">
+                                            <img src="~/Content/img/Dashboard/edit.png" onclick="Edit(@data.Id)" />
+                                            <img src="~/Content/img/Search/delete.png" onclick="Delete(@data.Id)" />
+
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td>@data.CreatedDate</td>
+                                    <td>@data.Title</td>
+                                    <td>@data.Category</td>
+                                    <td>@data.Status</td>
+                                    <td>
+                                        <div class="table-icon-view">
+                                            <img src="~/Content/img/Search/eye.png" onclick="View(@data.Id)" />
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    } }
+
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<section class="dashboard_table x-t-30">
+    <div class="container">
+        <div class="row">
+            <div class="heading col-md-4 col-sm-6 col-12">Published Notes</div>
+
+            <div class="col-md-8 col-sm-6 col-12">
+                <div class="search-note">
+
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8 col-7">
+                            <div class="search">
+                                <img src="~/Content/img/Dashboard/search-icon.svg" />
+                                <input type="search" class="form-control" placeholder="Search" id="search_publish_box">
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4 col-5 search_button">
+                            <button type="button" class="btn btn-primary searc_btn search_publish_btn">Search</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="row">
+    <div class="container">
+        <table class="table table-hover table-responsive" id="inPublishtbl">
+            <thead>
+                <tr>
+                    <th scope="col" style="width: 10%">Added date</th>
+                    <th scope="col" style="width: 30%">title</th>
+                    <th scope="col" style="width: 20%">category</th>
+                    <th scope="col" style="width: 20%">sell type</th>
+                    <th scope="col" style="width: 20%">price</th>
+                    <th scope="col" style="width: 20%">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+               
+
+                @{ if (ViewBag.PublishNotes.Count == 0)
+                                {
+                    <tr>
+                        <td colspan="6" style="text-align:center">No Data Available</td>
+                    </tr> }
+                                else
+                                {
+                                    foreach (var data in ViewBag.PublishNotes)
+                                    {
+                    <tr>
+                        <td>@data.CreatedDate</td>
+                        <td>@data.Title</td>
+                        <td>@data.Category</td>
+                        <td>@data.SellType</td>
+                        <td>@data.Price</td>
+                        <td>
+                            <div class="table-icon-view">
+                                <img src="~/Content/images/icons/eye.png" alt="view" onclick="View(@data.Id)" />
+                            </div>
+                        </td>
+                    </tr> }
+                                } }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    function View(id) {
+        loaction.href = "../AddNote/" + id + "?ReadOnly=true";
+    }
+
+    function Edit(id) {
+        location.href = "../User/AddNote?edit=" + id;
+    }
+
+    function Delete(id) {
+        if (confirm("Are you sure, you want to delete this note?")) {
+            $.ajax({
+                method: 'POST',
+                url: 'delete',
+                data: { id: id },
+                success: function (data) {
+                    //loaction.href = data;
+                    location.reload();
+                },
+                error: function () {
+                    alert('Note not deleted');
+                }
+
+            })
+        }
+    }
+</script>

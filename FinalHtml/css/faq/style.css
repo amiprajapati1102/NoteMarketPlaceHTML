@@ -33,7 +33,12 @@
   /* symbol for "collapsed" panels */
   content: "\f067";
 }
-
+i.more-less.glyphicon.glyphicon-plus {
+  float: right;
+  color: red;
+  
+  z-index: 1;
+}
 .q .collapsed .faq-qstn {
   height: 60px;
   background-color: #f1f1f1;

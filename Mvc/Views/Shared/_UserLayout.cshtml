@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <title>@ViewBag.Title</title>
+
+    <link rel="shortcut icon" href="~/Content/img/login/favicon.ico" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="~/Content//css/bootstrap.min.css">
+    <link href="~/Content/css/pages/datatables.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/css/style.css">
+    <link href="~/Content/css/pages/AddNotes.css" rel="stylesheet" />
+    <link href="~/Content/css/pages/Dashbord.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/css/faq/style.css">
+    <link rel="stylesheet" href="~/Content/css/responsive.css">
+
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+            <a class="navbar-brand" href="@Url.Action("Dashboard","User")">
+                <img src="~/Content/img/login/logo.png" alt=" logo" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("SearchNotes","User")">Search Notes</a>
+                    </li>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            @Html.ActionLink("Sell Your Notes", "Dashboard", "User", null, new { @class = "nav-link" })
+
+
+
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Buyer Requests", "Dashboard", "User", null, new { @class = "nav-link" })
+
+
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            @Html.ActionLink("Sell Your Notes", "Login", "Account", null, new { @class = "nav-link" })
+                        </li>
+
+                    }
+
+
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Faq","Home")">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Contact","Account")">Contact Us</a>
+                    </li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+                        <li class="nav-item dropdown">
+                            <a class="user_img" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="@Url.Content(@ViewBag.UserProfile)" height="45" width="45" />
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="@Url.Action("UserProfile","User")"><button class="dropdown-item" type="button">My Profile</button></a>
+                                <a href="myDownloads.html"><button class="dropdown-item" type="button">My Downloads</button></a>
+                                <a href="my_sold_notes.html"><button class="dropdown-item" type="button">My Sold Notes</button></a>
+                                <a href="my_rejected_notes.html"><button class="dropdown-item" type="button">My Rejected Notes</button></a>
+                                <a href="change_pwd.html"><button class="dropdown-item" type="button">Change Password</button></a>
+                                <a href="home-page.html"><button class="dropdown-item" type="button"><span>LOGOUT</span></button></a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            @Html.ActionLink("Logout", "Logout", "Account", null, new { @class = "btn btn-primary btn-lg btn-block btn_login ", Style = "background:#6255a5; color:#fff;" })
+                        </li>
+                    }
+                    else
+                    {
+
+                        <li>
+                            @Html.ActionLink("Login", "Login", "Account", null, new { @class = "btn btn-primary btn-lg btn-block btn_login", Style = "background:#6255a5; color:#fff;" })
+                        </li>
+
+
+
+                    }
+
+
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+    <!-- Header End -->
+
+    <div>
+        @RenderBody()
+        <hr />
+        <!--    footer  -->
+        <section class="footer">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-6 footer_content" style="width: 60%;">
+                        <p>Copyright © <a href="https://www.tatvasoft.com/">TatvaSoft</a> All Rights Reserved.</p>
+                    </div>
+                    <div class="col-md-6 footer_social text-right" style="width: 40%;">
+                        <ul class="social-list">
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-google-plus-g"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- footer end -->
+    </div>
+
+
+
+    <script src="~/Scripts/js/jquery.min.js"></script>
+
+    <script src="~/Scripts/js/pages/datatables.min.js"></script>
+    <script src="~/Scripts/js/bootstrap/bootstrap.js"></script>
+ 
+
+    <script src="~/Scripts/js/script.js"></script>
+</body>
+</html>

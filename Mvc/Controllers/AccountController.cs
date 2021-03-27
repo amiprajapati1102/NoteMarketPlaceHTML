@@ -1,57 +1,85 @@
-﻿using System;
+﻿
+using NoteMarketPlaceHtml.DbModel;
+using NoteMarketPlaceHtml.Models;
+using System;
 using System.Collections.Generic;
-using System.Data.Entity.Infrastructure;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using System.Web.Security;
-using NoteMarketPlace.DbModel;
-using NoteMarketPlace.Models;
 
-namespace WebApplication1_NoteMarketPlace.Controllers
+namespace NoteMarketPlaceHtml.Controllers
 {
     public class AccountController : Controller
     {
-        NoteMarketPlaceHtmlEntities db = new NoteMarketPlaceHtmlEntities();
 
         // GET: Account
+        NoteMarketPlaceEntities db = new NoteMarketPlaceEntities();
+        protected override void Initialize(RequestContext requestContext)
+        {
+            base.Initialize(requestContext);
+            if (User.Identity.IsAuthenticated)
+            {
+                using (var db_1 = new NoteMarketPlaceEntities())
+                {
+                    //current user profile img
+                    // set default image
+                    var img = (from Details in db_1.AddAdmins
+                               join Users in db_1.Users on Details.UserId equals Users.Id
+                               where Users.EmailId == requestContext.HttpContext.User.Identity.Name
+                               select Details.ProfilePicture).FirstOrDefault();
+
+                    if (img == null)
+                    {
+                        // set default image
+                        var defaultImg = db_1.SystemConfigurations.FirstOrDefault(m => m.KeyData == "DefaultMemberDisplayPicture").ValueData;
+                        ViewBag.UserProfile = defaultImg;
+                    }
+                    else
+                    {
+                        ViewBag.UserProfile = img;
+                        TempData["oldprofile"] = img;
+                    }
+
+
+                }
+            }
+
+        }
         public ActionResult Index()
         {
             return View();
         }
-
-        public ActionResult Signup()
+        [AllowAnonymous]
+        public ActionResult RegisterUser()
         {
-            UserModel objUserModel = new UserModel();
-            return View(objUserModel);
+            RegisterUserViewModel model = new RegisterUserViewModel();
+            return View();
         }
-
         [HttpPost]
-        public ActionResult Signup(UserModel user)
+        public ActionResult RegisterUser(RegisterUserViewModel user)
         {
+
             if (ModelState.IsValid)
             {
-                if (!db.Users.Any(model => model.EmailID == user.EmailID))
+                if (!db.Users.Any(model => model.EmailId == user.EmailID))
                 {
                     User use = new User();
                     use.FirstName = user.FirstName;
-                    use.EmailID = user.EmailID;
+                    use.EmailId = user.EmailID;
                     use.LastName = user.LastName;
                     use.Password = user.Password;
-                    use.RoleID = 3;
+                    use.RoleId = 3;
                     use.Code = Guid.NewGuid();
                     use.CreatedDate = DateTime.Now;
                     db.Users.Add(use);
                     db.SaveChanges();
-                  
-                        SendActivationEmail(use);
-                        ViewBag.Success = "Your account is Created  Verify Email.";
-                    
-
-
+                    SendActivationEmail(use);
+                    ViewBag.Success = "Your account is Created  Verify Email.";
                     return View(user);
                 }
                 else
@@ -63,9 +91,9 @@ namespace WebApplication1_NoteMarketPlace.Controllers
             return View();
         }
 
-        private void SendActivationEmail(User objUserModel)
+        private void SendActivationEmail(User model)
         {
-            using (MailMessage mm = new MailMessage("email@gmail.com", objUserModel.EmailID))
+            using (MailMessage mm = new MailMessage("email@gmail.com", model.EmailId))
             {
                 mm.Subject = "Note MarketPlace Email Verification";
 
@@ -75,10 +103,10 @@ namespace WebApplication1_NoteMarketPlace.Controllers
                     body = reader.ReadToEnd();
                 }
 
-            
-                var confirmationLink = Url.Action("ConfirmEmail", "Account", new { userId = objUserModel.EmailID, pass = objUserModel.Password , activationCode =objUserModel.Code}, protocol: Request.Url.Scheme);
 
-                body = body.Replace("{Username}", objUserModel.FirstName);
+                var confirmationLink = Url.Action("ConfirmEmail", "Account", new { userId = model.EmailId, pass = model.Password, activationCode = model.Code }, protocol: Request.Url.Scheme);
+
+                body = body.Replace("{Username}", model.FirstName);
                 body = body.Replace("{ConfirmationLink}", confirmationLink);
 
                 mm.Body = body;
@@ -86,7 +114,7 @@ namespace WebApplication1_NoteMarketPlace.Controllers
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
                 smtp.EnableSsl = true;
-                NetworkCredential NetworkCred = new NetworkCredential("email.com", "password");
+                NetworkCredential NetworkCred = new NetworkCredential("email@gmail.com", "pass");
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = NetworkCred;
                 smtp.Port = 587;
@@ -97,16 +125,16 @@ namespace WebApplication1_NoteMarketPlace.Controllers
         [Route("Account/ConfirmEmail")]
         public ActionResult ConfirmEmail(string userId, string pass, string activationCode)
         {
-            var check = db.Users.Where(model => model.EmailID == userId && model.Code == new Guid(activationCode)).FirstOrDefault();
+            var check = db.Users.Where(model => model.EmailId == userId && model.Code == new Guid(activationCode)).FirstOrDefault();
 
             if (check != null)
             {
                 if (check.Password.Equals(pass))
                 {
-                    check.IsEmailVerified = true;
+                    check.IsVerified = true;
 
                     db.SaveChanges();
-                  
+
 
                     return RedirectToAction("Login", "Account");
                 }
@@ -118,28 +146,28 @@ namespace WebApplication1_NoteMarketPlace.Controllers
 
             return Content(" Credentials are Invalid");
         }
-
-
-
         public ActionResult Login()
         {
-            LoginModel objLoginModel = new LoginModel();
-            return View(objLoginModel);
+            LoginViewModel model = new LoginViewModel();
+            return View(model);
         }
-
         [HttpPost]
-        public ActionResult Login(LoginModel objLoginModel,string returnUrl)
+        public ActionResult Login(LoginViewModel objLoginModel, string returnUrl)
         {
             if (ModelState.IsValid)
             {
-                var result = db.Users.Where(model => model.EmailID == objLoginModel.EmailID && model.Password == objLoginModel.Password).FirstOrDefault();
+                var result = db.Users.Where(model => model.EmailId == objLoginModel.EmailID && model.Password == objLoginModel.Password).FirstOrDefault();
+                
+
 
                 if (result == null)
                 {
+
                     ModelState.AddModelError("Error", "Email or password  is Incorrect");
                     return View();
                 }
-                else if (result.IsEmailVerified == true)
+             
+                else if (result.IsVerified == true && result.RoleId==3)
                 {
 
                     FormsAuthentication.SetAuthCookie(objLoginModel.EmailID, false);
@@ -148,7 +176,15 @@ namespace WebApplication1_NoteMarketPlace.Controllers
                         return Redirect(returnUrl);
                     }
                     Session["EmailID"] = objLoginModel.EmailID;
-                    return RedirectToAction("Index", "Home");
+                    
+                    return RedirectToAction("SearchNotes", "User");
+                }
+                else if (result.IsVerified == true && (result.RoleId == 1  ||result.RoleId==2))
+                {
+                    Session["EmailID"] = objLoginModel.EmailID;
+
+                    return RedirectToAction("Contact", "Home");
+                   
                 }
                 else
                 {
@@ -159,6 +195,7 @@ namespace WebApplication1_NoteMarketPlace.Controllers
             }
             return View();
         }
+
 
         public ActionResult Logout()
         {
@@ -174,7 +211,7 @@ namespace WebApplication1_NoteMarketPlace.Controllers
         [HttpPost]
         public ActionResult ForgotPassword(ForgotPasswordModel pass)
         {
-            if (db.Users.Any(model => model.EmailID == pass.EmailID))
+            if (db.Users.Any(model => model.EmailId == pass.EmailID))
             {
 
                 SendForgotPasswordEmail(pass);
@@ -189,9 +226,9 @@ namespace WebApplication1_NoteMarketPlace.Controllers
         }
         private void SendForgotPasswordEmail(ForgotPasswordModel model)
         {
-            var check = db.Users.Where(x => x.EmailID == model.EmailID).FirstOrDefault();
-
-            using (MailMessage mm = new MailMessage("email@gmail.com", model.EmailID))
+            var check = db.Users.Where(x => x.EmailId == model.EmailID).FirstOrDefault();
+            var defaultmail = db.SystemConfigurations.FirstOrDefault(m => m.KeyData == "EmailAddresssesForNotify").ValueData;
+            using (MailMessage mm = new MailMessage(defaultmail, model.EmailID))
             {
                 mm.Subject = "New Temporary Password has been created for you";
 
@@ -207,14 +244,14 @@ namespace WebApplication1_NoteMarketPlace.Controllers
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
                 smtp.EnableSsl = true;
-                NetworkCredential NetworkCred = new NetworkCredential("email@gmail.com", "password");
+                NetworkCredential NetworkCred = new NetworkCredential("email@gmail.com", "pass");
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = NetworkCred;
                 smtp.Port = 587;
                 smtp.Send(mm);
                 if (strNewPassword != null)
                 {
-                    var change = db.Users.Where(x => x.EmailID == model.EmailID).FirstOrDefault();
+                    var change = db.Users.Where(x => x.EmailId == model.EmailID).FirstOrDefault();
                     if (change != null)
                     {
 
@@ -253,6 +290,63 @@ namespace WebApplication1_NoteMarketPlace.Controllers
             }
             return NewPassword;
         }
+       
+        public ActionResult Contact()
+        {
+
+            if (User.Identity.IsAuthenticated)
+            {
+                string userId = User.Identity.Name;
+                User currentUser = db.Users.FirstOrDefault(x => x.EmailId == userId);
+                ContactModel model = new ContactModel();
+                model.Name = currentUser.FirstName;
+                model.EmailID = currentUser.EmailId;
+                return View(model);
+            }
+            else
+            {
+                ContactModel model = new ContactModel();
+                return View(model);
+            }
+
+
+
+        }
+        [HttpPost]
+        public ActionResult Contact(ContactModel model)
+        {
+            if (db.Users.Any(x => x.EmailId == model.EmailID))
+            {
+                var defaultmail = db.SystemConfigurations.FirstOrDefault(m => m.KeyData == "EmailAddresssesForNotify").ValueData;
+                using (MailMessage mm = new MailMessage( model.EmailID,defaultmail))
+                {
+                    mm.Subject = model.Name + " " + model.Comments;
+
+                    string body = string.Empty;
+                    using (StreamReader reader = new StreamReader(Server.MapPath("~/EmailTemplate/ContactUs.html")))
+                    {
+                        body = reader.ReadToEnd();
+                    }
+
+                    body = body.Replace("{Comments}", model.Comments);
+                    body = body.Replace("{Name}", model.Name);
+                    mm.Body = body;
+                    mm.IsBodyHtml = true;
+                    SmtpClient smtp = new SmtpClient();
+                    smtp.Host = "smtp.gmail.com";
+                    smtp.EnableSsl = true;
+                    NetworkCredential NetworkCred = new NetworkCredential("email@gmail.com", "pass");
+                    smtp.UseDefaultCredentials = true;
+                    smtp.Credentials = NetworkCred;
+                    smtp.Port = 587;
+                    smtp.Send(mm);
+
+                }
+            }
+            return View();
+
+        }
+
 
     }
 }

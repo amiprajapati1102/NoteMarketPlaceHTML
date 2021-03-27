@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <title>Ami Prajapati </title>
+    <!--Style Files-->
+
+    <link rel="shortcut icon" href="~/Content/img/login/favicon.ico" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="~/Content/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="~/Content/css/pages/AddNotes.css" rel="stylesheet" />
+    <link href="~/Content/css/pages/Dashbord.css" rel="stylesheet" />
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <link href="~/Content/css/responsive.css" rel="stylesheet" />
+
+
+
+
+</head>
+
+<body>
+    <!--Header-->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+            <a class="navbar-brand" href="@Url.Action("Dashboard","User")">
+                <img src="~/Content/img/login/logo.png" alt=" logo" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                           id="notes">Notes</a>
+                        <div class="dropdown-menu">
+                            <a href="NotesUnderReview.html">
+                                <button class="dropdown-item" type="button">
+                                    Notes Under
+                                    Review
+                                </button>
+                            </a>
+                            <a href="PublishedNotes.html">
+                                <button class="dropdown-item" type="button">
+                                    Published
+                                    Notes
+                                </button>
+                            </a>
+                            <a href="DownloadedNotes.html">
+                                <button class="dropdown-item" type="button">
+                                    Downloaded
+                                    Notes
+                                </button>
+                            </a>
+                            <a href="RejectedNotes.html">
+                                <button class="dropdown-item" type="button">
+                                    Rejected
+                                    Notes
+                                </button>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Members.html">Members</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                           id="report">Reports</a>
+                        <div class="dropdown-menu">
+                            <a href="SpamReports.html">
+                                <button class="dropdown-item" type="button">
+                                    Spam
+                                    Report
+                                </button>
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                           id="settings">Settings</a>
+                        <div class="dropdown-menu">
+                            <a href="SystemConfiguration.html">
+                                <button class="dropdown-item" type="button">
+                                    Manage System
+                                    Configuration
+                                </button>
+                            </a>
+
+                            @Html.ActionLink("Manage Administrator", "AddAdmin", "Admin", null, new { @class = "dropdown-item " })
+                            @Html.ActionLink("Manage Category", "Category", "Admin", null, new { @class = "dropdown-item " })
+                            @Html.ActionLink("Manage Type", "Type", "Admin", null, new { @class = "dropdown-item " })
+                            @Html.ActionLink("Manage Countries", "Country", "Admin", null, new { @class = "dropdown-item " })
+                        </div>
+                    </li>
+
+
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+                        <li class="nav-item dropdown">
+                            <a class="user_img" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="@Url.Content(@ViewBag.UserProfile)" height="45" width="45" />
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="Profile.html">
+                                    <button class="dropdown-item" type="button">
+                                        Update
+                                        Profile
+                                    </button>
+                                </a>
+                                <a href="../Pages/ChangePassword.html">
+                                    <button class="dropdown-item" type="button">
+                                        Change
+                                        Password
+                                    </button>
+                                </a>
+                                <a href="../pages/HomePage.html">
+                                    <button class="dropdown-item"
+                                            type="button">
+                                        <span>LOGOUT</span>
+                                    </button>
+                                </a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            @Html.ActionLink("Logout", "Logout", "Account", null, new { @class = "btn btn-primary btn-lg btn-block btn_login ", Style = "background:#6255a5; color:#fff;" })
+                        </li>
+                    }
+                    else
+                    {
+
+                        <li>
+                            @Html.ActionLink("Login", "Login", "Account", null, new { @class = "btn btn-primary btn-lg btn-block btn_login", Style = "background:#6255a5; color:#fff;" })
+                        </li>
+
+
+
+                    }
+
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+
+
+    @RenderBody()
+    <!--Footer-->
+    <section class="footer">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-6 footer_content" style="width: 30%;">
+                    <p>Version 1.1.24</p>
+                </div>
+                <div class="col-md-6 footer_social text-right" style="width: 70%;">
+                    <p>Copyright &copy; TatvaSoft All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Script Files-->
+
+    <script src="~/Scripts/js/jquery.js"></script>
+    <script src="~/Scripts/js/bootstrap/bootstrap.js"></script>
+    <script src="~/Scripts/js/script.js"></script>
+
+</body>
+
+</html>

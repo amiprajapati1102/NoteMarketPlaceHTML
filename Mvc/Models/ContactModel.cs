@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace NoteMarketPlace.Models
+namespace NoteMarketPlaceHtml.Models
 { 
     public class ContactModel
     {

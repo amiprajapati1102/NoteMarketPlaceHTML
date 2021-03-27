@@ -1,84 +1,65 @@
-﻿
+﻿using NoteMarketPlaceHtml.DbModel;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Net;
-using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
-using NoteMarketPlace.DbModel;
-using NoteMarketPlace.Models;
-namespace NoteMarketPlace.Controllers
+using System.Web.Routing;
+
+namespace NoteMarketPlaceHtml.Controllers
 {
     public class HomeController : Controller
     {
-        NoteMarketPlaceHtmlEntities db = new NoteMarketPlaceHtmlEntities();
-
-      // GET: Home
-      public ActionResult Index()
+        NoteMarketPlaceEntities db = new NoteMarketPlaceEntities();
+        protected override void Initialize(RequestContext requestContext)
         {
-            return View();
-        }
-        [Authorize(Roles = "admin")]
-        public ActionResult Contact()
-        {
-
+            base.Initialize(requestContext);
             if (User.Identity.IsAuthenticated)
             {
-                string userId = User.Identity.Name;
-                User currentUser = db.Users.FirstOrDefault(x => x.EmailID == userId);
-                ContactModel model = new ContactModel();
-                model.Name = currentUser.FirstName;
-                model.EmailID = currentUser.EmailID;
-                return View(model);
-            }
-            else
-            {
-                ContactModel model = new ContactModel();
-                return View(model);
-            }
-
-            
-            
-        }
-        [HttpPost]
-        public ActionResult Contact(ContactModel model)
-        {
-            if (db.Users.Any(x => x.EmailID == model.EmailID))
-            {
-
-                using (MailMessage mm = new MailMessage("email@gmail.com", model.EmailID))
+                using (var db_1 = new NoteMarketPlaceEntities())
                 {
-                    mm.Subject = model.Name+" "+model.Comments;
+                    //current user profile img
+                    // set default image
+                    var img = (from Details in db_1.AddAdmins
+                               join Users in db_1.Users on Details.UserId equals Users.Id
+                               where Users.EmailId == requestContext.HttpContext.User.Identity.Name
+                               select Details.ProfilePicture).FirstOrDefault();
 
-                    string body = string.Empty;
-                    using (StreamReader reader = new StreamReader(Server.MapPath("~/EmailTemplate/ContactUs.html")))
+                    if (img == null)
                     {
-                        body = reader.ReadToEnd();
+                        // set default image
+                        var defaultImg = db_1.SystemConfigurations.FirstOrDefault(m => m.KeyData == "DefaultMemberDisplayPicture").ValueData;
+                        ViewBag.UserProfile = defaultImg;
                     }
-                   
-                    body = body.Replace("{Comments}", model.Comments);
-                    body = body.Replace("{Name}", model.Name);
-                    mm.Body = body;
-                    mm.IsBodyHtml = true;
-                    SmtpClient smtp = new SmtpClient();
-                    smtp.Host = "smtp.gmail.com";
-                    smtp.EnableSsl = true;
-                    NetworkCredential NetworkCred = new NetworkCredential("email@gmail.com", "password");
-                    smtp.UseDefaultCredentials = true;
-                    smtp.Credentials = NetworkCred;
-                    smtp.Port = 587;
-                    smtp.Send(mm);
-                    
+                    else
+                    {
+                        ViewBag.UserProfile = img;
+                    }
+
+
                 }
             }
-            return View();
-           
+
         }
 
+        [AllowAnonymous]
+        public ActionResult Index()
+        {
+            return View();
+        }
+        
+        public ActionResult Faq()
+        {
+            ViewBag.Message = "Your application description page.";
 
+            return View();
+        }
+        [AllowAnonymous]
+        public ActionResult Contact()
+        {
+            ViewBag.Message = "Your contact page.";
 
-
+            return View();
+        }
     }
 }
