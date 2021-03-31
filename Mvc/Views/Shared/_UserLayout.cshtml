@@ -21,7 +21,7 @@
 </head>
 <body>
     <!-- Header -->
-    <header>
+    <header >
         <nav class="navbar navbar-expand-lg navbar-light fixed-top">
             <a class="navbar-brand" href="@Url.Action("Dashboard","User")">
                 <img src="~/Content/img/login/logo.png" alt=" logo" />
@@ -75,11 +75,11 @@
                                 <img src="@Url.Content(@ViewBag.UserProfile)" height="45" width="45" />
                             </a>
                             <div class="dropdown-menu">
-                                <a href="@Url.Action("UserProfile","User")"><button class="dropdown-item" type="button">My Profile</button></a>
+                                @Html.ActionLink("My Profile", "MyProfile", "User", null, new { @class = "dropdown-item " })
                                 <a href="myDownloads.html"><button class="dropdown-item" type="button">My Downloads</button></a>
                                 <a href="my_sold_notes.html"><button class="dropdown-item" type="button">My Sold Notes</button></a>
                                 <a href="my_rejected_notes.html"><button class="dropdown-item" type="button">My Rejected Notes</button></a>
-                                <a href="change_pwd.html"><button class="dropdown-item" type="button">Change Password</button></a>
+                                @Html.ActionLink("Change Password", "ChangePassword", "Account", null, new { @class = "dropdown-item " })
                                 <a href="home-page.html"><button class="dropdown-item" type="button"><span>LOGOUT</span></button></a>
                             </div>
                         </li>

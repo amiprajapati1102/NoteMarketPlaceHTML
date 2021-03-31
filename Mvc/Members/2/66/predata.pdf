@@ -1,0 +1,571 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0051)http://117.239.83.200:2020/frmUniversityResult.aspx -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="Head1"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>
+	University Result
+</title>
+    <style type="text/css">
+        .mainTbl
+        {
+            margin: 5px 5px 5px 5px;
+            border: Solid 2px #009f3c;
+        }
+        td
+        {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 8.5pt;
+            font-weight: bold;
+            text-align: left;
+            border: Solid 1px #19AA8A;
+        }
+        .style2
+        {
+            font-size: 18pt;
+            color: #BA393E;
+            text-align: center;
+            width: auto;
+        }
+        .HeaderDiv
+        {
+            border-bottom: Solid 2px #BA393E;
+            margin-left: 5px;
+        }
+        .HdrCell
+        {
+            border: Solid 0px;
+            text-align: center;
+        }
+        .style16
+        {
+            color: #000000;
+            font-weight: bold;
+            font-size: 10pt;
+        }
+        .style18
+        {
+            color: #000033;
+            font-weight: bold;
+            font-size: 10pt;
+        }
+        .style19
+        {
+            font-size: 10pt;
+            font-weight: bold;
+        }
+        .style21
+        {
+            color: #003399;
+            font-weight: bold;
+            text-align: center;
+        }
+        .lbl
+        {
+            text-align: center;
+            float: left;
+            width: 100%;
+        }
+        .grd
+        {
+            color: #003399;
+            font-weight: bold;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 8.5pt;
+            border: Solid 2px #19AA8A;
+            text-align: center;
+        }
+        .GrdCell
+        {
+            height: 17px;
+            text-align: center;
+        }
+        .noteStyle td
+        {
+            font-weight:normal;
+            border:none;
+        }
+        #print-button
+        {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form name="form1" method="post" action="http://117.239.83.200:2020/frmUniversityResult.aspx" id="form1">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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">
+</div>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="F859A3E9">
+</div>
+    <div align="center">
+        
+                <div style="text-align: left">
+                    
+<style type="text/css">
+    td
+    {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 8.5pt;
+        font-weight: bold;
+        text-align: left;
+        border: Solid 1px black;
+    }
+    .Newtd
+    {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 8.5pt;
+        font-weight: bold;
+        text-align: left;
+        border: Solid 1px white;
+    }
+    .GrdCel
+    {
+        text-align: center;
+    }
+    .PedagogyCel
+    {
+        text-align: right;
+    }
+    .cellClass
+    {
+        border-bottom-color: White;
+    }
+</style>
+<div style="width: 100%; height: 100%;">
+    <table style="width: 22cm;">
+        <tbody><tr>
+            <td id="uclGrd1_tdImage1" class="HdrCell" style="text-align: left;" valign="top">
+                <img id="uclGrd1_ImgLogo1" alt="" src="./University Result_files/New_logo_inner.png" style="height:70px;width:200px;border-width:0px;vertical-align: middle;">
+            </td>
+
+            <td id="uclGrd1_tdclient1" class="HdrCell" style="width: 70%; font-size: larger;" valign="top">
+                <b>
+                    <br>
+                    <span id="uclGrd1_lblUniName" style="font-size: 17px;">CHAROTAR UNIVERSITY SCIENCE &amp; TECHNOLOGY</span></b>
+                <br>
+                <b>
+                    <span id="uclGrd1_lblSemGrade" style="font-size: 16px;">SEMESTER  GRADE  REPORT</span></b>
+                <br>
+                <b>
+                    <span id="uclGrd1_lblFacultyName" style="font-size: 14px;">FACULTY OF TECHNOLOGY AND ENGINEERING</span></b>
+                <br>
+                <b>
+                    <span id="uclGrd1_lblSubTitle" style="font-size: 14px;"></span></b>
+                <br>
+            </td>
+
+            <td class="HdrCell" style="width: 10%;">
+            </td>
+        </tr>
+    </tbody></table>
+    <table width="100%" style="margin-left: 15px; margin-right: 50px; width: 82%; display: none;">
+        <tbody><tr>
+            <td width="9%" class="Newtd">
+                <span id="uclGrd1_lblGCardNo" style="font-size:Medium;">No.  :</span>
+            </td>
+            <td class="Newtd">
+                <span id="uclGrd1_lblGradeCardNo" style="font-size:Medium;">O7913</span>
+            </td>
+        </tr>
+    </tbody></table>
+    <table width="100%" style="margin-left: 15px; margin-right: 50px; width: 82%;" cellpadding="2" cellspacing="0">
+        <tbody><tr>
+            <td width="15%" class="Newtd">
+                Name
+            </td>
+            <td class="Newtd">
+                :
+            </td>
+            <td width="50%" class="Newtd">
+                <span id="uclGrd1_lblStudentName">PRAJAPATI AMIKUMARI RAJESHBHAI</span>
+            </td>
+            <td width="12%" class="Newtd">
+                ID. No.
+            </td>
+            <td class="Newtd">
+                :
+            </td>
+            <td class="Newtd">
+                <span id="uclGrd1_lblExamNo">17IT085</span>
+            </td>
+        </tr>
+        <tr>
+            <td width="15%" class="Newtd">
+                Programme
+            </td>
+            <td class="Newtd">
+                :
+            </td>
+            <td colspan="4" class="Newtd">
+                <span id="uclGrd1_lblProgramme">B.TECH. (INFORMATION TECHNOLOGY)</span>
+            </td>
+        </tr>
+        <tr>
+            <td width="15%" class="Newtd">
+                Month &amp; Year
+            </td>
+            <td class="Newtd">
+                :
+            </td>
+            <td width="50%" class="Newtd">
+                <span id="uclGrd1_lblMnthYr">April 2020</span>
+            </td>
+            <td width="12%" class="Newtd">
+                Semester
+            </td>
+            <td class="Newtd">
+                :
+            </td>
+            <td class="Newtd">
+                <span id="uclGrd1_lblSemester">6</span>
+            </td>
+        </tr>
+    </tbody></table>
+    <br>
+    <div>
+	<table cellspacing="0" rules="all" border="2" id="uclGrd1_grdResult" style="border-color:Black;border-width:2px;border-style:solid;border-collapse:collapse;margin-left: 15px; margin-right: 50px;
+        width: 78%;">
+		<tbody><tr style="border-color:Black;border-width:3px;border-style:solid;">
+			<th align="center" scope="col" style="background-color:#E8F0F6;">Course</th><th align="center" scope="col" style="background-color:#E8F0F6;width:10%;">Credit (C)</th><th align="center" scope="col" style="background-color:#E8F0F6;width:10%;">Grade</th>
+		</tr><tr style="font-size:8.5pt;">
+			<td>
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                        <tbody><tr>
+                            <td class="Newtd" width="15%">
+                                <span id="uclGrd1_grdResult_ctl02_lblSubjectCode" style="padding-left: 20px;">HS134 A</span>
+                            </td>
+                            <td class="Newtd" width="70%">
+                                <span id="uclGrd1_grdResult_ctl02_lblSubjectName">CONTRIBUTOR PERSONALITY DEVELOPMENT</span>
+                            </td>
+                            <td class="Newtd" style="text-align: left;" width="15%">
+                                <span id="uclGrd1_grdResult_ctl02_lblPadagoggy" class="PedagogyCel">PRACTICAL</span>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td><td class="GrdCel">
+                    <span id="uclGrd1_grdResult_ctl02_lblCredit">2.00</span>
+                </td><td class="GrdCel">
+                    <span id="uclGrd1_grdResult_ctl02_lblGrade">AB</span>
+                </td>
+		</tr><tr style="font-size:8.5pt;">
+			<td class="cellClass">
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                        <tbody><tr>
+                            <td class="Newtd" width="15%">
+                                <span id="uclGrd1_grdResult_ctl03_lblSubjectCode" style="padding-left: 20px;">IT347</span>
+                            </td>
+                            <td class="Newtd" width="70%">
+                                <span id="uclGrd1_grdResult_ctl03_lblSubjectName">SOFTWARE ENGINEERING</span>
+                            </td>
+                            <td class="Newtd" style="text-align: left;" width="15%">
+                                <span id="uclGrd1_grdResult_ctl03_lblPadagoggy" class="PedagogyCel">THEORY</span>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td><td class="GrdCel">
+                    <span id="uclGrd1_grdResult_ctl03_lblCredit">4.00</span>
+                </td><td class="GrdCel">
+                    <span id="uclGrd1_grdResult_ctl03_lblGrade">AA</span>
+                </td>
+		</tr><tr style="font-size:8.5pt;">
+			<td>
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                        <tbody><tr>
+                            <td class="Newtd" width="15%">
+                                <span id="uclGrd1_grdResult_ctl04_lblSubjectCode" style="padding-left: 20px;"></span>
+                            </td>
+                            <td class="Newtd" width="70%">
+                                <span id="uclGrd1_grdResult_ctl04_lblSubjectName"></span>
+                            </td>
+                            <td class="Newtd" style="text-align: left;" width="15%">
+                                <span id="uclGrd1_grdResult_ctl04_lblPadagoggy" class="PedagogyCel">PRACTICAL</span>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td><td class="GrdCel">
+                    <span id="uclGrd1_grdResult_ctl04_lblCredit">1.00</span>
+                </td><td class="GrdCel">
+                    <span id="uclGrd1_grdResult_ctl04_lblGrade">AA</span>
+                </td>
+		</tr><tr style="font-size:8.5pt;">
+			<td class="cellClass">
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                        <tbody><tr>
+                            <td class="Newtd" width="15%">
+                                <span id="uclGrd1_grdResult_ctl05_lblSubjectCode" style="padding-left: 20px;">IT348</span>
+                            </td>
+                            <td class="Newtd" width="70%">
+                                <span id="uclGrd1_grdResult_ctl05_lblSubjectName">CRYPTOGRAPHY &amp; NETWORK SECURITY</span>
+                            </td>
+                            <td class="Newtd" style="text-align: left;" width="15%">
+                                <span id="uclGrd1_grdResult_ctl05_lblPadagoggy" class="PedagogyCel">THEORY</span>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td><td class="GrdCel">
+                    <span id="uclGrd1_grdResult_ctl05_lblCredit">4.00</span>
+                </td><td class="GrdCel">
+                    <span id="uclGrd1_grdResult_ctl05_lblGrade">BB</span>
+                </td>
+		</tr><tr style="font-size:8.5pt;">
+			<td>
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                        <tbody><tr>
+                            <td class="Newtd" width="15%">
+                                <span id="uclGrd1_grdResult_ctl06_lblSubjectCode" style="padding-left: 20px;"></span>
+                            </td>
+                            <td class="Newtd" width="70%">
+                                <span id="uclGrd1_grdResult_ctl06_lblSubjectName"></span>
+                            </td>
+                            <td class="Newtd" style="text-align: left;" width="15%">
+                                <span id="uclGrd1_grdResult_ctl06_lblPadagoggy" class="PedagogyCel">PRACTICAL</span>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td><td class="GrdCel">
+                    <span id="uclGrd1_grdResult_ctl06_lblCredit">1.00</span>
+                </td><td class="GrdCel">
+                    <span id="uclGrd1_grdResult_ctl06_lblGrade">AB</span>
+                </td>
+		</tr><tr style="font-size:8.5pt;">
+			<td class="cellClass">
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                        <tbody><tr>
+                            <td class="Newtd" width="15%">
+                                <span id="uclGrd1_grdResult_ctl07_lblSubjectCode" style="padding-left: 20px;">IT349</span>
+                            </td>
+                            <td class="Newtd" width="70%">
+                                <span id="uclGrd1_grdResult_ctl07_lblSubjectName">WIRELESS COMMUNICATION &amp; MOBILE COMPUTING</span>
+                            </td>
+                            <td class="Newtd" style="text-align: left;" width="15%">
+                                <span id="uclGrd1_grdResult_ctl07_lblPadagoggy" class="PedagogyCel">THEORY</span>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td><td class="GrdCel">
+                    <span id="uclGrd1_grdResult_ctl07_lblCredit">4.00</span>
+                </td><td class="GrdCel">
+                    <span id="uclGrd1_grdResult_ctl07_lblGrade">AA</span>
+                </td>
+		</tr><tr style="font-size:8.5pt;">
+			<td>
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                        <tbody><tr>
+                            <td class="Newtd" width="15%">
+                                <span id="uclGrd1_grdResult_ctl08_lblSubjectCode" style="padding-left: 20px;"></span>
+                            </td>
+                            <td class="Newtd" width="70%">
+                                <span id="uclGrd1_grdResult_ctl08_lblSubjectName"></span>
+                            </td>
+                            <td class="Newtd" style="text-align: left;" width="15%">
+                                <span id="uclGrd1_grdResult_ctl08_lblPadagoggy" class="PedagogyCel">PRACTICAL</span>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td><td class="GrdCel">
+                    <span id="uclGrd1_grdResult_ctl08_lblCredit">2.00</span>
+                </td><td class="GrdCel">
+                    <span id="uclGrd1_grdResult_ctl08_lblGrade">AA</span>
+                </td>
+		</tr><tr style="font-size:8.5pt;">
+			<td>
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                        <tbody><tr>
+                            <td class="Newtd" width="15%">
+                                <span id="uclGrd1_grdResult_ctl09_lblSubjectCode" style="padding-left: 20px;">IT350</span>
+                            </td>
+                            <td class="Newtd" width="70%">
+                                <span id="uclGrd1_grdResult_ctl09_lblSubjectName">SOFTWARE GROUP PROJECT-III</span>
+                            </td>
+                            <td class="Newtd" style="text-align: left;" width="15%">
+                                <span id="uclGrd1_grdResult_ctl09_lblPadagoggy" class="PedagogyCel">PRACTICAL</span>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td><td class="GrdCel">
+                    <span id="uclGrd1_grdResult_ctl09_lblCredit">2.00</span>
+                </td><td class="GrdCel">
+                    <span id="uclGrd1_grdResult_ctl09_lblGrade">AB</span>
+                </td>
+		</tr><tr style="font-size:8.5pt;">
+			<td class="cellClass">
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                        <tbody><tr>
+                            <td class="Newtd" width="15%">
+                                <span id="uclGrd1_grdResult_ctl10_lblSubjectCode" style="padding-left: 20px;">IT377</span>
+                            </td>
+                            <td class="Newtd" width="70%">
+                                <span id="uclGrd1_grdResult_ctl10_lblSubjectName">MACHINE LEARNING &amp; APPLICATIONS</span>
+                            </td>
+                            <td class="Newtd" style="text-align: left;" width="15%">
+                                <span id="uclGrd1_grdResult_ctl10_lblPadagoggy" class="PedagogyCel">THEORY</span>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td><td class="GrdCel">
+                    <span id="uclGrd1_grdResult_ctl10_lblCredit">4.00</span>
+                </td><td class="GrdCel">
+                    <span id="uclGrd1_grdResult_ctl10_lblGrade">AB</span>
+                </td>
+		</tr><tr style="font-size:8.5pt;">
+			<td>
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                        <tbody><tr>
+                            <td class="Newtd" width="15%">
+                                <span id="uclGrd1_grdResult_ctl11_lblSubjectCode" style="padding-left: 20px;"></span>
+                            </td>
+                            <td class="Newtd" width="70%">
+                                <span id="uclGrd1_grdResult_ctl11_lblSubjectName"></span>
+                            </td>
+                            <td class="Newtd" style="text-align: left;" width="15%">
+                                <span id="uclGrd1_grdResult_ctl11_lblPadagoggy" class="PedagogyCel">PRACTICAL</span>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td><td class="GrdCel">
+                    <span id="uclGrd1_grdResult_ctl11_lblCredit">1.00</span>
+                </td><td class="GrdCel">
+                    <span id="uclGrd1_grdResult_ctl11_lblGrade">AA</span>
+                </td>
+		</tr>
+	</tbody></table>
+</div>
+    <br>
+    <table border="1" cellpadding="3" cellspacing="0" bordercolor="black" style="margin-left: 15px;
+        margin-right: 50px; width: 78%;">
+        <tbody><tr style="background-color: #e8f0f6">
+            <td rowspan="2" width="25%" style="text-align: center; background-color: White">
+                <span>Semester Performance</span>
+            </td>
+            <td width="25%" style="text-align: center">
+                <span>Total Credits</span>
+            </td>
+            <td width="25%" style="text-align: center">
+                <span>Credits Earned </span>
+            </td>
+            <td width="25%" style="text-align: center">
+                <span style="text-align: center">SGPA</span>
+            </td>
+        </tr>
+        <tr>
+            <td width="25%" style="text-align: center">
+                <span id="uclGrd1_lblTotCredit">25.00</span>
+            </td>
+            <td width="25%" style="text-align: center">
+                <span id="uclGrd1_lblCreditEarn">25.00</span>
+            </td>
+            <td width="25%" style="text-align: center">
+                <span id="uclGrd1_lblSGPA">9.32</span>
+            </td>
+        </tr>
+    </tbody></table>
+    <br>
+    <table id="uclGrd1_tblCumulative" border="1" cellpadding="3" cellspacing="0" bordercolor="black" style="margin-left:15px;margin-right:50px;width:78%;display:inline-table;">
+	<tbody><tr style="background-color: #e8f0f6">
+		<td width="25%" rowspan="2" style="text-align: center; background-color: White">
+                <span>Cumulative Performance</span>
+            </td>
+		<td width="25%" style="text-align: center">
+                <span>Total Credits</span>
+            </td>
+		<td width="25%" style="text-align: center">
+                <span>Credits Earned</span>
+            </td>
+		<td width="25%" style="text-align: center">
+                <span>CGPA</span>
+            </td>
+	</tr>
+	<tr>
+		<td width="25%" style="text-align: center">
+                <span id="uclGrd1_lblCTotCredit">149.00</span>
+            </td>
+		<td width="25%" style="text-align: center">
+                <span id="uclGrd1_lblCCreditEarn">149.00</span>
+            </td>
+		<td width="25%" style="text-align: center">
+                <span id="uclGrd1_lblCGPA">8.88</span>
+            </td>
+	</tr>
+</tbody></table>
+
+    <br>
+    <br>
+    <table id="uclGrd1_tblClass" border="1" cellpadding="3" cellspacing="0" bordercolor="black" style="margin-left:15px;margin-right:50px;width:78%;display:inline-table;">
+	<tbody><tr style="background-color: #e8f0f6">
+		<td width="25%" style="text-align: center; background-color: White">
+                <span>Class</span>
+            </td>
+		<td width="75%" style="text-align: center; background-color: White">
+                <span id="uclGrd1_lblClass">---</span>
+            </td>
+	</tr>
+</tbody></table>
+
+    <br>
+    <table id="uclGrd1_tblBackLog" style="margin-left:15px;margin-right:50px;width:78%;display:inline-table;">
+	<tbody><tr>
+		<td width="30%" class="Newtd">
+                Previous SGPA :
+                <span id="uclGrd1_lblPreviousSGPA">8.69</span>
+            </td>
+		<td width="30%" class="Newtd">
+                Previous CGPA :
+                <span id="uclGrd1_lblPreviousCGPA">8.79</span>
+            </td>
+		<td width="30%" class="Newtd">
+                No. of BackLog :
+                <span id="uclGrd1_lblNoofBackLog">0</span>
+            </td>
+	</tr>
+</tbody></table>
+
+    <br><br>
+    <table id="uclGrd1_Table1" style="margin-left: 15px; margin-right: 50px; width: 78%;">
+	<tbody><tr>
+		<td width="55%" class="Newtd">
+                Notification No :
+                <span id="uclGrd1_lblNotificationNo">EX/REG/IT/NT/6/20/386</span>
+            </td>
+		<td width="45%" class="Newtd" style="float:right;">
+                Notification Date :
+                <span id="uclGrd1_lblNotificationDate">21/07/2020</span>
+            </td>
+	</tr>
+</tbody></table>
+
+</div>
+
+                </div>
+                <br> 
+                <div style="text-align: left">               
+                <table style="margin-left: 15px; margin-right: 50px; width: 78%;" class="noteStyle">
+	<tbody><tr>
+		<td style="font-size:15px;font-weight:600;">Note:</td>
+	</tr>
+	<tr>
+		<td>1) For KYA, student has to apply and pay KYA fees within Eight (08) days after date of the notification of the Result</td>
+	</tr>
+	<tr>
+		<td>2) Application for KYA will be accepted for any courses in a particular semester</td>
+	</tr>
+	<tr>
+		<td>3) Fee is not refundable</td>
+	</tr>
+	<tr>
+		<td></td>
+	</tr>
+	<tr>
+		<td style="float:right;"><input type="submit" name="btnBack1" value=" Back " id="btnBack1" title="Go Back"></td>
+	</tr>
+</tbody></table>
+
+                </div>
+                <br>                
+                
+            
+    </div>
+    </form>
+
+
+<div id="uvpn_rate_us" style="display: none;">            <div class="uvpn_wrap">                <div class="uvpn_logo-ext">                    <div class="uvpn_logo-wrap">                        <img src="chrome-extension://jaoafpkngncfpfggjefnekilbkcpjdgp/img/128.png">                    </div>                </div>                <div class="uvpn_title">                    Don’t Forget to Rate Us                </div>                <div class="uvpn_desc">                    If you enjoy our product, give us 5 stars. It helps so much!                </div>                <div class="stars">                    <svg xmlns="http://www.w3.org/2000/svg" width="1235" height="1175" viewBox="0 0 1235 1175">                        <path fill="#cf6218" d="M0,449h1235l-999,726 382-1175 382,1175z"></path>                    </svg>                    <svg xmlns="http://www.w3.org/2000/svg" width="1235" height="1175" viewBox="0 0 1235 1175">                        <path fill="#cf6218" d="M0,449h1235l-999,726 382-1175 382,1175z"></path>                    </svg>                    <svg xmlns="http://www.w3.org/2000/svg" width="1235" height="1175" viewBox="0 0 1235 1175">                        <path fill="#cf6218" d="M0,449h1235l-999,726 382-1175 382,1175z"></path>                    </svg>                    <svg xmlns="http://www.w3.org/2000/svg" width="1235" height="1175" viewBox="0 0 1235 1175">                        <path fill="#cf6218" d="M0,449h1235l-999,726 382-1175 382,1175z"></path>                    </svg>                    <svg xmlns="http://www.w3.org/2000/svg" width="1235" height="1175" viewBox="0 0 1235 1175">                        <path fill="#cf6218" d="M0,449h1235l-999,726 382-1175 382,1175z"></path>                    </svg>                </div>                <a target="_blank" href="https://chrome.google.com/webstore/detail/uvpn-free-and-unlimited-v/jaoafpkngncfpfggjefnekilbkcpjdgp/reviews" id="rate_btn_rateus" class="uvpn_rate-btn uvpn_btn">                    Rate Us                </a>                <div id="close_btn_rateus" class="uvpn_later-btn uvpn_btn">                    Not Now                </div>            </div>        </div></body></html>

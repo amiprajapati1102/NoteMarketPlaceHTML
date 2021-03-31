@@ -32,7 +32,7 @@
 
                 <div class="form-group col-md-6">
                     <label for="Title">Title *</label>
-                    @Html.TextBoxFor(model => model.Title, new { @class = "form-control", placeholder = "Enter your note title", required = "required" })
+                    @Html.TextBoxFor(model => model.Title, new { @class = "form-control", placeholder = "Enter your note title"})
                     @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
                 </div>
 
@@ -67,7 +67,7 @@
                     <label for="profilePic">Upload Notes *</label>
                     <div class="upload-input">
 
-                        @Html.TextBoxFor(model => model.UploadNotes, new { @class = "form-control", type = "file", accept = "application/pdf", required = "required" })
+                        @Html.TextBoxFor(model => model.UploadNotes, new { @class = "form-control", type = "file", accept = "application/pdf" })
 
                         <div class="upload-img" id="upload_notes">
                             <img src="~/Content/img/Search/upload-note.png" alt="upload" />
@@ -208,9 +208,9 @@
 
             </div>
             <div class="row">
-                <div class="col-md-2"> <button type="submit" formaction="@(ViewBag.Edit == true ? "Save?id=" + Model.Id : "AddNote")" class="btn btn-primary x-b-20" id="submit-btn-user">SAVE</button></div>
+                <div class="col-md-2"> <button type="submit" formaction="@(ViewBag.Edit == true ? "AddNote?id=" + Model.Id : "AddNote")" class="btn btn-primary x-b-20" id="submit-btn-user" name="submitdata1">SAVE</button></div>
 
-                <div class="col-md-2">  <button type="submit" formaction="@(ViewBag.Edit == true ? "Publish?id=" + Model.Id : "Publish")" class="btn btn-primary x-b-20" id="submit-btn-user">PUBLISH</button></div>
+                <div class="col-md-2">  <button type="submit" formaction="@(ViewBag.Edit == true ? "AddNote?id=" + Model.Id : "AddNote")" class="btn btn-primary x-b-20" id="submit-btn-user" name="submitdata2">PUBLISH</button></div>
             </div>
 
 

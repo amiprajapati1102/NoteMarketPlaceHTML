@@ -1,6 +1,7 @@
 ﻿using NoteMarketPlaceHtml.DbModel;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -10,7 +11,7 @@ namespace NoteMarketPlaceHtml.Models
     public class AddNoteModel
     {
         public int Id { get; set; }
-
+        [Required(AllowEmptyStrings = false, ErrorMessage = "First Name is Required.")]
         public string Title { get; set; }
 
         public int Category { get; set; }

@@ -93,7 +93,7 @@ namespace NoteMarketPlaceHtml.Controllers
 
         private void SendActivationEmail(User model)
         {
-            using (MailMessage mm = new MailMessage("email@gmail.com", model.EmailId))
+            using (MailMessage mm = new MailMessage("email.com", model.EmailId))
             {
                 mm.Subject = "Note MarketPlace Email Verification";
 
@@ -114,7 +114,7 @@ namespace NoteMarketPlaceHtml.Controllers
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
                 smtp.EnableSsl = true;
-                NetworkCredential NetworkCred = new NetworkCredential("email@gmail.com", "pass");
+                NetworkCredential NetworkCred = new NetworkCredential("email.com", "pass");
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = NetworkCred;
                 smtp.Port = 587;
@@ -244,7 +244,7 @@ namespace NoteMarketPlaceHtml.Controllers
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
                 smtp.EnableSsl = true;
-                NetworkCredential NetworkCred = new NetworkCredential("email@gmail.com", "pass");
+                NetworkCredential NetworkCred = new NetworkCredential("email.com", "pass");
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = NetworkCred;
                 smtp.Port = 587;
@@ -290,8 +290,55 @@ namespace NoteMarketPlaceHtml.Controllers
             }
             return NewPassword;
         }
-       
-        public ActionResult Contact()
+        public ActionResult ChangePassword()
+        {
+            ChangePasswordViewModel model = new ChangePasswordViewModel();
+            return View(model);
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        
+        public ActionResult ChangePassword(ChangePasswordViewModel model)
+        {
+
+            if (ModelState.IsValid)
+            {
+                using (var _Context = new NoteMarketPlaceEntities())
+                {
+                    // get current user
+                    var currentUser = _Context.Users.FirstOrDefault(m => m.EmailId == User.Identity.Name);
+
+                    // old password not match
+                    if (!currentUser.Password.Equals(model.OldPassword))
+                    {
+                       
+                        return View();
+                    }
+
+                    if (currentUser.Password == model.ConfirmPassword)
+                    {
+                        TempData["OldpwdSame"] = "1";
+                        return View();
+                    }
+
+                    // update password
+                    currentUser.Password = model.ConfirmPassword;
+                    currentUser.ModifiedDate = DateTime.Now;
+                    currentUser.ModifiedBy = currentUser.Id;
+                    _Context.SaveChanges();
+
+                    FormsAuthentication.SignOut();
+
+                    return RedirectToAction("Login", "Account");
+                }
+
+            }
+            return View();
+        }
+
+
+            public ActionResult Contact()
         {
 
             if (User.Identity.IsAuthenticated)
@@ -329,7 +376,7 @@ namespace NoteMarketPlaceHtml.Controllers
                     }
 
                     body = body.Replace("{Comments}", model.Comments);
-                    body = body.Replace("{Name}", model.Name);
+                    body = body.Replace("{Name}", model.EmailID);
                     mm.Body = body;
                     mm.IsBodyHtml = true;
                     SmtpClient smtp = new SmtpClient();
