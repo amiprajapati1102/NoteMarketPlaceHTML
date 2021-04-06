@@ -1,8 +1,22 @@
 ﻿
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_UserLayout.cshtml";
-}
+@{ ViewBag.Title = "Index";
+    if (!User.Identity.IsAuthenticated)
+    {
+        Layout = "~/Views/Shared/_UserLayout.cshtml";
+    }
+    else
+    {
+        if (User.IsInRole("Member"))
+        {
+            Layout = "~/Views/Shared/_UserLayout.cshtml";
+        }
+        if (User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
+        {
+            Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+        }
+    } }
+
 
 <section class="home">
     <div class="home_img">
@@ -53,7 +67,7 @@
             </div>
             <div class="col-md-6 work_content">
                 <div class="logo">
-                   
+
                     <img src="~/Content/img/User-Profile/Download.PNG" />
                 </div>
                 <div class="sub_heading">
@@ -69,7 +83,7 @@
             <div class="col-md-6 work_content">
                 <div class="logo">
                     <img src="~/Content/img/User-Profile/Seller.PNG" />
-                    
+
                 </div>
                 <div class="sub_heading">
                     <span>Seller</span>
@@ -95,7 +109,7 @@
             <div class="col-md-6 team" id="team1">
                 <div class="team1">
                     <div class="team_img col-md-6">
-                      
+
                         <img src="~/Content/img/User-Profile/customer-1.png" />
                     </div>
                     <div class="team_intro">
@@ -111,7 +125,7 @@
                 <div class="team2">
                     <div class="team_img col-md-6">
                         <img src="~/Content/img/User-Profile/customer-2.png" />
-                        
+
                     </div>
                     <div class="team_intro">
                         <span class="team_name">Jonnie Riley</span><br>
@@ -125,7 +139,7 @@
             <div class="col-md-6 team" id="team3">
                 <div class="team3">
                     <div class="team_img col-md-6">
-                       
+
                         <img src="~/Content/img/User-Profile/customer-3.png" />
                     </div>
                     <div class="team_intro">
@@ -140,7 +154,7 @@
             <div class="col-md-6 team" id="team4">
                 <div class="team4">
                     <div class="team_img col-md-6">
-                       
+
                         <img src="~/Content/img/User-Profile/customer-4.png" />
                     </div>
                     <div class="team_intro">

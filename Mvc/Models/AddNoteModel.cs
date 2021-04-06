@@ -1,4 +1,5 @@
-﻿using NoteMarketPlaceHtml.DbModel;
+﻿using ExpressiveAnnotations.Attributes;
+using NoteMarketPlaceHtml.DbModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -17,7 +18,7 @@ namespace NoteMarketPlaceHtml.Models
         public int Category { get; set; }
 
         public string DisplayPicture { get; set; }
-
+        
         public string UploadNotes { get; set; }
 
         public int NoteType { get; set; }
@@ -42,22 +43,6 @@ namespace NoteMarketPlaceHtml.Models
 
         public string NotePreview { get; set; }
 
-        public void MaptoModel(SellerNote note, SellerNotesAttachement attachment)
-        {
-            note.Title = Title;
-            note.Category = Category;
-            note.DisplayPicture = DisplayPicture;
-            note.NoteType = NoteType;
-            note.NumberofPages = NumberofPages;
-            note.Description = Description;
-            note.UniversityName = UniversityName;
-            note.Country = Country;
-            note.Course = Course;
-            note.CourseCode = CourseCode;
-            note.Professor = Professor;
-            note.SellingPrice = SellingPrice;
-            note.NotesPreview = NotePreview;
-            attachment.FileName = UploadNotes;
-        }
+       
     }
 }

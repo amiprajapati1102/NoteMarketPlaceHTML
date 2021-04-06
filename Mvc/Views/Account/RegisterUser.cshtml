@@ -12,77 +12,77 @@
 
                 <img src="~/Content/img/login/top-logo.png" alt="Logo" />
             </span>
-                    @using (Html.BeginForm("RegisterUser", "Account", FormMethod.Post))
-                    {
-                        @Html.AntiForgeryToken()
+            @using (Html.BeginForm("RegisterUser", "Account", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
 
-        <div class="login-form">
-            <div class="heading">
-                <h4 class="text-center">Create an Account</h4>
-                <p class="text-center">Enter your details to signup</p>
-                <p><small id="signup-successfully" class="form-text text-muted text-center">@ViewBag.Success</small></p>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model=>model.FirstName, htmlAttributes: new { @class = "control-label " })
-                @Html.TextBoxFor(model => model.FirstName, htmlAttributes: new { @class = "form-control", @placeholder = "Enter your first name" })
-                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label " })
-                @Html.TextBoxFor(model => model.LastName, htmlAttributes: new { @class = "form-control", @placeholder = "Enter your last name" })
-                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.EmailID, htmlAttributes: new { @class = "control-label " })
-                @Html.TextBoxFor(model => model.EmailID, htmlAttributes: new { @class = "form-control", @placeholder = "Enter your email address" })
-                @Html.ValidationMessageFor(model => model.EmailID, "", new { @class = "text-danger" })
-                @Html.ValidationMessage("Error", null, new { @class = "text-danger" })
-
-            </div>
-
-            <div class="form-group">
-
-                <div class="row">
-                    <div class="col-md-6">
-                        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label " })
+                <div class="login-form">
+                    <div class="heading">
+                        <h4 class="text-center">Create an Account</h4>
+                        <p class="text-center">Enter your details to signup</p>
+                        <p><small id="signup-successfully" class="form-text text-muted text-center">@ViewBag.Success</small></p>
                     </div>
-                </div>
-
-                <div class="eye">
-                    @Html.PasswordFor(model => model.Password, htmlAttributes: new { @class = "form-control", @placeholder = "Enter your password" })
-                    <span toggle="#Password" class="fa fa-fw fa-eye field-icon toggle-password">
-                    </span>
-
-                </div>
-                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-
-            </div>
-
-            <div class="form-group x-b-30">
-
-                <div class="row">
-                    <div class="col-md-6">
-                        @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "control-label " })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label " })
+                        @Html.TextBoxFor(model => model.FirstName, htmlAttributes: new { @class = "form-control", @placeholder = "Enter your first name" })
+                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
                     </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label " })
+                        @Html.TextBoxFor(model => model.LastName, htmlAttributes: new { @class = "form-control", @placeholder = "Enter your last name" })
+                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.EmailID, htmlAttributes: new { @class = "control-label " })
+                        @Html.TextBoxFor(model => model.EmailID, htmlAttributes: new { @class = "form-control", @placeholder = "Enter your email address" })
+                        @Html.ValidationMessageFor(model => model.EmailID, "", new { @class = "text-danger" })
+                        @Html.ValidationMessage("Error", null, new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label " })
+                            </div>
+                        </div>
+
+                        <div class="eye">
+                            @Html.PasswordFor(model => model.Password, htmlAttributes: new { @class = "form-control", @placeholder = "Enter your password" })
+                            <span toggle="#Password" class="fa fa-fw fa-eye field-icon toggle-password">
+                            </span>
+
+                        </div>
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group x-b-30">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "control-label " })
+                            </div>
+                        </div>
+
+                        <div class="eye">
+                            @Html.PasswordFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "form-control", @placeholder = "Re-enter your Password" })
+                            <span toggle="#ConfirmPassword" class="fa fa-fw fa-eye field-icon toggle-password">
+                            </span>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg btn-block x-b-20" id="login-btn" value="Signup">SIGN UP</button>
+
+                    <p class="text-center" id="signUp">Already have an account? <a href="Login"><span>Login</span></a></p>
+
+
+
+
                 </div>
-
-                <div class="eye">
-                    @Html.PasswordFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "form-control", @placeholder = "Re-enter your Password" })
-                    <span toggle="#ConfirmPassword" class="fa fa-fw fa-eye field-icon toggle-password">
-                    </span>
-                </div>
-                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-lg btn-block x-b-20" id="login-btn" value="Signup">SIGN UP</button>
-
-            <p class="text-center" id="signUp">Already have an account? <a href="Login"><span>Login</span></a></p>
-
-
-
-
+            }
         </div>
-                      }
-                </div>
-            </div>
+    </div>
 </section>

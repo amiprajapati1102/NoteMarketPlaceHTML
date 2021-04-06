@@ -10,8 +10,7 @@
         <h1>Add Notes</h1>
     </div>
 </div>
-<!-- Add Notes end -->
-<!-- Add Notes Form -->
+
 <div class="container form-wrap">
 
     <div>
@@ -24,15 +23,12 @@
                 <h3>Basic Note Details</h3>
             </div>
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            if (ViewBag.ErrorTitle != null)
-            {
-               <h1>ViewBag.Error</h1>
-            }
+
             <div class="form-row">
 
                 <div class="form-group col-md-6">
                     <label for="Title">Title *</label>
-                    @Html.TextBoxFor(model => model.Title, new { @class = "form-control", placeholder = "Enter your note title"})
+                    @Html.TextBoxFor(model => model.Title, new { @class = "form-control", placeholder = "Enter your note title" })
                     @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
                 </div>
 
@@ -52,7 +48,7 @@
                     <label for="profilePic">Display Picture</label>
                     <div class="upload-input">
 
-                        @Html.TextBoxFor(model => model.DisplayPicture, new { @class = "form-control", type = "file", accept = "image/jpeg, image/jpg, image/png", required = "required" })
+                        @Html.TextBoxFor(model => model.DisplayPicture, ViewBag.Edit == true ? (object)new { @class = "form-control", type = "file", accept = "image/jpeg, image/jpg, image/png" } : new { @class = "form-control", required = "required", type = "file", accept = "image/jpeg, image/jpg, image/png" })
                         @Html.ValidationMessageFor(model => model.DisplayPicture, "", new { @class = "text-danger" })
                         <div class="upload-img" id="upload_dp">
 
@@ -67,8 +63,7 @@
                     <label for="profilePic">Upload Notes *</label>
                     <div class="upload-input">
 
-                        @Html.TextBoxFor(model => model.UploadNotes, new { @class = "form-control", type = "file", accept = "application/pdf" })
-
+                        @Html.TextBoxFor(model => model.UploadNotes, ViewBag.Edit == true ? (object)new { @class = "form-control", type = "file", accept = "application/pdf" } : new { @class = "form-control", required = "required", type = "file", accept = "application/pdf" })
                         <div class="upload-img" id="upload_notes">
                             <img src="~/Content/img/Search/upload-note.png" alt="upload" />
 
@@ -78,6 +73,7 @@
 
                     </div>
                     @Html.ValidationMessageFor(model => model.UploadNotes, "", new { @class = "text-danger" })
+
                 </div>
 
             </div>
@@ -88,7 +84,7 @@
                     <label for="getNote">Type</label>
                     <div class="input-group mb-3">
 
-                        @Html.DropDownListFor(model => model.NoteType, new SelectList(ViewBag.NoteTypeList, dataValueField: "ID", dataTextField: "Name"), "Select your note type", new { @class = "form-control", required = "required" })
+                        @Html.DropDownListFor(model => model.NoteType, new SelectList(ViewBag.NoteTypeList, dataValueField: "ID", dataTextField: "Name"), "Select your note type", new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.NoteType, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -106,7 +102,7 @@
                 <div class="form-group col-md-6">
 
                     <label for="discription">Description *</label>
-                    @Html.TextAreaFor(model => model.Description, new { @class = "form-control", placeholder = "Enter your decription", required = "required" })
+                    @Html.TextAreaFor(model => model.Description, new { @class = "form-control", placeholder = "Enter your decription" })
                     @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
 
                 </div>
@@ -175,7 +171,7 @@
                     <div class="form-group">
                         <label for="exampleInputfname">Sell For*</label>
                         <div class="form-check form-check-inline">
-                            @Html.RadioButtonFor(model => model.SellType, "Free", new { onclick = " disable()", @check = "checked" })
+                            @Html.RadioButtonFor(model => model.SellType, "Free", new { onclick = " disable()", @checked = "checked" })
                             <label class="form-check-label" for="inlineRadio1" style="margin-left: 10px;">Free</label>
                         </div>
                         <div class="form-check form-check-inline">
@@ -208,9 +204,9 @@
 
             </div>
             <div class="row">
-                <div class="col-md-2"> <button type="submit" formaction="@(ViewBag.Edit == true ? "AddNote?id=" + Model.Id : "AddNote")" class="btn btn-primary x-b-20" id="submit-btn-user" name="submitdata1">SAVE</button></div>
+                <div class="col-md-2"> <button type="submit" formaction="@(ViewBag.Edit == true ? "Save?id=" + Model.Id : "Save")" class="btn btn-primary x-b-20" id="submit-btn-user"  value="save">SAVE</button></div>
 
-                <div class="col-md-2">  <button type="submit" formaction="@(ViewBag.Edit == true ? "AddNote?id=" + Model.Id : "AddNote")" class="btn btn-primary x-b-20" id="submit-btn-user" name="submitdata2">PUBLISH</button></div>
+                <div class="col-md-2">  <button type="submit" formaction="@(ViewBag.Edit == true ? "Save?id=" + Model.Id : "Save")" class="btn btn-primary x-b-20" id="submit-btn-user" value="Publish">PUBLISH</button></div>
             </div>
 
 
@@ -219,4 +215,3 @@
     </div>
 </div>
 <!-- Add Notes Form end-->
-

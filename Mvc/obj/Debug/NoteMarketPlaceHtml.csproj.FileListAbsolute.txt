@@ -136,6 +136,8 @@ C:\Users\amipr\source\repos\NoteMarketPlaceHtml\bin\roslyn\VBCSCompiler.exe.conf
 C:\Users\amipr\source\repos\NoteMarketPlaceHtml\bin\Antlr3.Runtime.dll
 C:\Users\amipr\source\repos\NoteMarketPlaceHtml\bin\EntityFramework.dll
 C:\Users\amipr\source\repos\NoteMarketPlaceHtml\bin\EntityFramework.SqlServer.dll
+C:\Users\amipr\source\repos\NoteMarketPlaceHtml\bin\ExpressiveAnnotations.dll
+C:\Users\amipr\source\repos\NoteMarketPlaceHtml\bin\ExpressiveAnnotations.MvcUnobtrusive.dll
 C:\Users\amipr\source\repos\NoteMarketPlaceHtml\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\amipr\source\repos\NoteMarketPlaceHtml\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\amipr\source\repos\NoteMarketPlaceHtml\bin\Newtonsoft.Json.dll
@@ -151,6 +153,8 @@ C:\Users\amipr\source\repos\NoteMarketPlaceHtml\bin\System.Web.WebPages.Razor.dl
 C:\Users\amipr\source\repos\NoteMarketPlaceHtml\bin\WebGrease.dll
 C:\Users\amipr\source\repos\NoteMarketPlaceHtml\bin\EntityFramework.xml
 C:\Users\amipr\source\repos\NoteMarketPlaceHtml\bin\EntityFramework.SqlServer.xml
+C:\Users\amipr\source\repos\NoteMarketPlaceHtml\bin\ExpressiveAnnotations.xml
+C:\Users\amipr\source\repos\NoteMarketPlaceHtml\bin\ExpressiveAnnotations.MvcUnobtrusive.xml
 C:\Users\amipr\source\repos\NoteMarketPlaceHtml\bin\PagedList.xml
 C:\Users\amipr\source\repos\NoteMarketPlaceHtml\bin\PagedList.Mvc.xml
 C:\Users\amipr\source\repos\NoteMarketPlaceHtml\bin\System.Web.Helpers.xml

@@ -1,0 +1,162 @@
+﻿@model IEnumerable<NoteMarketPlaceHtml.Models.DownloadNotesViewModel>
+
+@{
+    ViewBag.Title = "DownloadedNote";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="dashboard_table x-t-100">
+    <div class="container">
+        <div class="row">
+            <div class="form-heading col-md-6" style="padding: 0;">
+                <h3>Downloaded Notes</h3>
+            </div>
+        </div>
+        <div class="row seller-select">
+
+            <div class="small_text col-md-12 col-12">
+                <div class="col-md-2 col-4" style="float: left; ">Note</div>
+                <div class="col-md-2 col-4" style="float: left; ">Seller</div>
+                <div class="col-md-2 col-4" style="float: left; ">Buyer</div>
+            </div>
+            <div class="seller_drop col-md-2 col-4" style="padding-top: 20px; padding-left: 0;">
+                @Html.DropDownList("NoteId", new SelectList(ViewBag.NoteList, "NoteId", "Title"), "Select Note", new { @onchange = "Filter(this)" })
+            </div>
+            <div class="seller_drop col-md-2 col-4" style="padding-top: 20px; padding-left: 0;">
+                @Html.DropDownList("SellerId", new SelectList(ViewBag.SellerList, "SellerId", "Name"), "Select Seller", new { @onchange = "Filter(this)" })
+            </div>
+            <div class="seller_drop col-md-2 col-4" style="padding-top: 20px; padding-left: 0;">
+                @Html.DropDownList("BuyerId", new SelectList(ViewBag.BuyerList, "BuyerId", "Name"), "Select Buyer", new { @onchange = "Filter(this)" })
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-12">
+                <div class="search-note">
+
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8 col-8">
+                            <div class="search">
+                                <img src="~/Content/img/Search/search.jpg" />
+                                <input type="search" class="form-control" placeholder="Search" id="searchbox">
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4 col-4 search_button">
+                            <button type="button" class="btn btn-primary searc_btn">Search</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row ">
+            <table class="table table-hover table-responsive" id="inProgresstbl">
+                <thead>
+                    <tr class="text-uppercase">
+                        <th scope="col" style="width: 5%;">sr no.</th>
+                        <th scope="col" style="width: 15%;">note title</th>
+                        <th scope="col" style="width: 10%;">category</th>
+                        <th scope="col" style="width: 10%;">buyer</th>
+                        <th scope="col" style="width: 5%;"></th>
+                        <th scope="col" style="width: 15%;">seller</th>
+                        <th scope="col" style="width: 5%;"></th>
+                        <th scope="col" style="width: 5%;">sell type</th>
+                        <th scope="col" style="width: 5%;">price</th>
+                        <th scope="col" style="width: 20%;">downloaded date</th>
+                        <th scope="col" style="width: 5%;"></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @{ if (Model.Count() == 0)
+                        {
+                            <tr>
+                                <td colspan="11" style="text-align:center;">No Records Found</td>
+                            </tr>
+                        }
+                        else
+                        {
+                            int cnt = 0;
+                            foreach (var data in Model)
+                            {
+                                cnt++;
+
+                                <tr>
+                                    <td>@cnt</td>
+                                    <td class="purple_text" onclick="NoteDetail('@data.NoteId')">@data.Title</td>
+                                    <td>@data.Category</td>
+                                    <td>@data.BuyerName</td>
+                                    <td><img src="~/Content/img/Search/eye.png" onclick="Member('@data.BuyerId')"></td>
+                                    <td>@data.SellerName</td>
+                                    <td><img src="~/Content/img/Search/eye.png" onclick="Member('@data.SellerId')"></td>
+                                    <td>@(data.Price == 0 ? "Free" : "Paid")</td>
+                                    <td>$@data.Price</td>
+                                    <td>@data.DownloadedDate.ToString("dd-MM-yyyy, HH:mm")</td>
+                                    <td>
+                                        <img id="more-dropeddown" src="~/Content/img/Search/dots.png"
+                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item" target="_blank" href="@Url.Content(data.NotePath)">Download Notes</a>
+                                            <a class="dropdown-item" onclick="NoteDetail('@data.NoteId')">View More Details</a>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+<script src="~/Scripts/js/jquery.min.js"></script>
+
+
+<script>
+
+    var sellerId, noteId, buyerId;
+
+    function Filter(obj) {
+
+        var data = {};
+
+        if (obj.id == "NoteId") {
+            noteId = obj.value;
+        }
+        if (obj.id == "SellerId") {
+            sellerId = obj.value;
+        }
+        if (obj.id == "BuyerId") {
+            buyerId = obj.value;
+        }
+
+
+        if (sellerId != null) {
+            data.sellerId = sellerId;
+        }
+        if (noteId != null) {
+            data.noteId = noteId;
+        }
+        if (buyerId != null) {
+            data.buyerId = buyerId;
+        }
+
+        location.href = "../Notes/DownloadNotes/data" + data ;
+
+    }
+
+
+
+
+    function NoteDetail(id) {
+        location.href = "../Notes/NoteDetails/" + id ;
+    }
+
+    function Member(id) {
+        location.href = "../Admin/MemberDetails?sellerId=" + id;
+    }
+
+
+</script>

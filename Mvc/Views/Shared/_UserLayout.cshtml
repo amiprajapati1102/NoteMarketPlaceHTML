@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/Content/css/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    <link rel="stylesheet" href="~/Content//css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
     <link href="~/Content/css/pages/datatables.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/Content/css/style.css">
     <link href="~/Content/css/pages/AddNotes.css" rel="stylesheet" />
@@ -21,9 +21,9 @@
 </head>
 <body>
     <!-- Header -->
-    <header >
+    <header>
         <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-            <a class="navbar-brand" href="@Url.Action("Dashboard","User")">
+            <a class="navbar-brand" href="@Url.Action("Index","Home")">
                 <img src="~/Content/img/login/logo.png" alt=" logo" />
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,7 +33,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("SearchNotes","User")">Search Notes</a>
+                        <a class="nav-link" href="@Url.Action("SearchNotes","Notes")">Search Notes</a>
                     </li>
 
                     @if (User.Identity.IsAuthenticated)
@@ -45,7 +45,7 @@
 
                         </li>
                         <li class="nav-item">
-                            @Html.ActionLink("Buyer Requests", "Dashboard", "User", null, new { @class = "nav-link" })
+                            @Html.ActionLink("Buyer Requests", "BuyerRequest", "User", null, new { @class = "nav-link" })
 
 
                         </li>
@@ -61,11 +61,12 @@
 
 
 
+                <li class="nav-item">
+                    @Html.ActionLink("FAQ", "Faq", "Home", null, new { @class = "nav-link" })
+                </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Faq","Home")">FAQ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Contact","Account")">Contact Us</a>
+                        @Html.ActionLink("Contact", "Contact", "Account", null, new { @class = "nav-link" })
+
                     </li>
                     @if (User.Identity.IsAuthenticated)
                     {
@@ -76,14 +77,15 @@
                             </a>
                             <div class="dropdown-menu">
                                 @Html.ActionLink("My Profile", "MyProfile", "User", null, new { @class = "dropdown-item " })
-                                <a href="myDownloads.html"><button class="dropdown-item" type="button">My Downloads</button></a>
-                                <a href="my_sold_notes.html"><button class="dropdown-item" type="button">My Sold Notes</button></a>
-                                <a href="my_rejected_notes.html"><button class="dropdown-item" type="button">My Rejected Notes</button></a>
+
+                                @Html.ActionLink("My Downloads", "MyDownloads", "User", null, new { @class = "dropdown-item " })
+                                @Html.ActionLink("My Sold Notes", "MySoldNotes", "User", null, new { @class = "dropdown-item " })
+                                @Html.ActionLink("My Rejected Notes", "MyRejectedNotes", "User", null, new { @class = "dropdown-item " })
                                 @Html.ActionLink("Change Password", "ChangePassword", "Account", null, new { @class = "dropdown-item " })
-                                <a href="home-page.html"><button class="dropdown-item" type="button"><span>LOGOUT</span></button></a>
+                                @Html.ActionLink("Logout", "Logout", "Account", null, new { @class = "dropdown-item " })
                             </div>
                         </li>
-
+                       
                         <li class="nav-item">
                             @Html.ActionLink("Logout", "Logout", "Account", null, new { @class = "btn btn-primary btn-lg btn-block btn_login ", Style = "background:#6255a5; color:#fff;" })
                         </li>
@@ -147,10 +149,11 @@
 
     <script src="~/Scripts/js/jquery.min.js"></script>
 
-    <script src="~/Scripts/js/pages/datatables.min.js"></script>
-    <script src="~/Scripts/js/bootstrap/bootstrap.js"></script>
- 
 
+    <script src="~/Scripts/js/popper.min.js"></script>
+    <script src="~/Scripts/js/bootstrap/bootstrap.js"></script>
+
+    <script src="~/Scripts/js/pages/datatables.min.js"></script>
     <script src="~/Scripts/js/script.js"></script>
 </body>
 </html>

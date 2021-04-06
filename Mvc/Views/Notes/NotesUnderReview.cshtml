@@ -1,0 +1,243 @@
+﻿@model IEnumerable<NoteMarketPlaceHtml.Models.NoteUnderReviewViewModel>
+
+@{
+    ViewBag.Title = "NotesUnderReview";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="dashboard_table x-t-100">
+    <div class="container">
+        <div class="row">
+            <div class="form-heading col-md-6">
+                <h3>Notes Under Review</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="small_text col-md-12">seller</div>
+            <div class="seller_drop col-md-4 col-sm-6 col-12" style="padding-top: 20px; padding-left: 0;">
+               
+                   
+                    @Html.DropDownList("SellerId", new SelectList(ViewBag.SellerList, "SellerId", "Name"), "Select Seller", new { @onchange = "Seller(this) ", @class = "dropdown dropdown-menu-right" })
+              
+            </div>
+
+            <div class="col-md-8 col-sm-6 col-12">
+                <div class="search-note">
+
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8 col-8">
+                            <div class="search">
+                                <img src="~/Content/img/Search/search.jpg" />
+                                <input type="search" class="form-control" placeholder="Search" id="searchbox">
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4 col-4 search_button">
+                            <button type="button" class="btn btn-primary searc_btn">Search</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div>
+            <hr />
+        </div>
+        <div class="row">
+            <div class="container">
+                <table class="table table-hover table-responsive " id="inProgresstbl">
+                    <thead>
+                        <tr class="text-uppercase">
+                            <th scope="col">Sr No.</th>
+                            <th scope="col"  style="width: 600px;" >Added date</th>
+                            <th scope="col">title</th>
+                            <th scope="col">category</th>
+                            <th scope="col">Seller</th>
+                            
+                            <th scope="col"></th>
+                            <th scope="col" >status</th>
+                            <th scope="col"></th>
+                            <th scope="col">ACTION</th>
+                            <th scope="col"></th>
+                            <th scope="col">  </th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @{ if (Model.Count() == 0)
+                            {
+                                <tr>
+                                    <td colspan="5" style="text-align:center;">No Record Available</td>
+                                </tr>
+                            }
+                            else
+                            {
+                                int cnt = 0;
+                                foreach (var data in Model)
+                                {
+                                    cnt++;
+
+                    <tr>
+
+                        <td scope="row">@cnt</td>
+                        <td>@data.DateAdded</td>
+                        <td>@data.Title</td>
+                        <td>@data.Category</td>
+
+                        <td>
+                            @data.Seller
+
+                        </td>
+                        <td>
+                            <div class="table-actions-view">
+                                <img src="~/Content/img/Search/eye.png" alt="view" onclick="SellerDetail(@data.SellerId)">
+                            </div>
+                        </td>
+                        <td>@data.status</td>
+
+                        <td>  <button class="  btn green_btn " onclick="Approve(@data.NoteId)">Approve</button></td>
+                        <td>
+
+                            <button class="btn red_btn" data-toggle="modal" data-target="#rejectModal" onclick="setdata('@data.NoteId', '@data.Title', '@data.Category')">Reject</button>
+
+
+                        </td>
+                        <td> <button class="btn  gray_btn" onclick="InReview(@data.NoteId)">InReview</button></td>
+                        <td>
+                            <div>
+                                <div class="dropdown">
+
+                                    <img id="more-dropeddown" src="~/Content/img/Search/dots.png"
+                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <div class="dropdown-menu more-dropdown-menu" aria-labelledby="more-dropeddown">
+                                        <a class="dropdown-item" onclick="NoteDetail(@data.NoteId)">View More Details</a>
+                                        <a class="dropdown-item" target="_blank" href="@Url.Content(data.NotePath)">Download Notes</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+
+
+
+                    </tr>
+
+
+                                }
+                            } }
+
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+
+
+
+
+<div class="modal fade" id="rejectModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="vertical-alignment-helper">
+        <div class="modal-dialog vertical-align-center">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <img src="~/Content/img/Search/close.png" class="close" data-dismiss="modal">
+                </div>
+                <div class="modal-body">
+
+                    <div class="reject-popup">
+
+                        <h4 id="rejectmodal-note-title"></h4>
+
+                        @using (Html.BeginForm(FormMethod.Post))
+                        {
+                            @Html.Hidden("noteId");
+
+                            <label>Remarks*</label>
+                            @Html.TextArea("Reject", new { @placeholder = "Write remarks", required = "required" })
+
+                            <button class="btn btn-cancel pull-right" data-dismiss="modal">Cancel</button>
+                            <button class="btn btn-reject pull-right" formaction="RejectNote">Reject</button>}
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/js/jquery.min.js"></script>
+<script>
+
+    function Seller(sel) {
+        alert(sel.value);
+
+        location.href = "NotesUnderReview?SellerId=" + sel.value;
+
+
+
+    }
+    function NoteDetail(id) {
+        location.href = "../Notes/NoteDetails/" + id + "?ReadOnly=true";
+    }
+
+    function SellerDetail(id) {
+        location.href = "MemberDetails?id=" + id;
+    }
+
+    function InReview(id) {
+
+        if (confirm("With this Action user will be informeb about note is in review process")) {
+            $.ajax({
+                method: 'POST',
+                url: 'NoteStatusUpdate',
+                data: { noteid: id, status: "InReview" },
+                success: function () {
+                    location.reload();
+                },
+                error: function () {
+                    alert("Try Again");
+                }
+            });
+        }
+    }
+
+    function Approve(id) {
+
+        if (confirm("with approve the notes  System will publish the note.")) {
+            $.ajax({
+                method: 'POST',
+                url: 'NoteStatusUpdate',
+                data: { noteid: id, status: "Approve" },
+                success: function () {
+                    location.reload();
+                },
+                error: function () {
+                    alert("Try Again");
+                }
+            });
+        }
+    }
+
+    function setdata(id, title, category) {
+        $("#rejectModal input[type='hidden']").attr('value', id);
+        $('#rejectModal #rejectmodal-note-title').text(title + " - " + category);
+    }
+
+    $('#rejectModal form').on('submit', function () {
+        return confirm('Are you sure you want to reject seller request?');
+    });
+
+
+</script>

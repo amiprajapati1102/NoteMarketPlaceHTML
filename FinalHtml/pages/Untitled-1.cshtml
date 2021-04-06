@@ -1,0 +1,350 @@
+
+
+@{ ViewBag.Title = "NoteDetails";
+    if (!User.Identity.IsAuthenticated)
+    {
+        Layout = "~/Views/Shared/_UserLayout.cshtml";
+    }
+    else
+    {
+        if (User.IsInRole("Member"))
+        {
+            Layout = "~/Views/Shared/_UserLayout.cshtml";
+        }
+        if (User.IsInRole("Admin") || User.IsInRole("Super_Admin"))
+        {
+            Layout = "~/Views/Shared/_AdminLayout.cshtml"; <!-- CUSTOM CSS -->
+                        <link rel="stylesheet" href="~/Content/index.css"> }
+                                    } }
+
+@{ if (TempData["ReadOnly"] != null && TempData["ReadOnly"].Equals("true"))
+                {
+    <script>var Readonly = true;</script> }
+                else
+                {
+    <script>Readonly = false</script> } }
+
+@{ string showModal = "";
+                if (TempData["ShowModal"] != null && TempData["ShowModal"].Equals(1))
+                {
+                    showModal = "show";
+                }
+                else
+                {
+                    showModal = "hide";
+                } }
+
+
+@{ foreach (var book in ViewBag.NoteDetails)
+                { <!-- Note Details -->
+                    <div id="note-details">
+
+                        <div class="content-box-lg">
+
+                            <h4>Notes Details</h4>
+
+                            <div class="row">
+
+                                <div class="col-md-7 col-sm-7">
+
+                                    <div class="note-details-left">
+
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-4">
+                                                <img src="@book.Image" alt="book img">
+                                            </div>
+                                            <div class="col-md-8 col-sm-8">
+                                                <h2>@book.Title</h2>
+                                                <h5>@book.Category</h5>
+                                                <p>@book.Description</p>
+                                                <Button class="btn" type="submit" id="purchase_btn" noteId="@book.Id">
+                                                    DOWNLOAD /
+                                                    $@book.Price
+                                                </Button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-5 col-sm-5">
+
+                                    <div class="note-details-right">
+
+                                        <div class="row">
+
+                                            <div class="col-md-6 col-sm-6 col-xs-4">
+                                                <div class="more-info-left">
+                                                    <h5>Institution:</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-8">
+                                                <div class="more-info-right">
+                                                    <h5>@book.Institute</h5>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-sm-6 col-xs-4">
+                                                <div class="more-info-left">
+                                                    <h5>Country:</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-8">
+                                                <div class="more-info-right">
+                                                    <h5>@book.Country</h5>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <div class="more-info-left">
+                                                    <h5>Course Name:</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <div class="more-info-right">
+                                                    <h5>@book.CourseName</h5>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-sm-6 col-xs-4">
+                                                <div class="more-info-left">
+                                                    <h5>Course Code:</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-8">
+                                                <div class="more-info-right">
+                                                    <h5>@book.CourseCode</h5>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-sm-6 col-xs-4">
+                                                <div class="more-info-left">
+                                                    <h5>Professor:</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-8">
+                                                <div class="more-info-right">
+                                                    <h5>@book.Professor</h5>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-sm-6 col-xs-8">
+                                                <div class="more-info-left">
+                                                    <h5>Number of Pages:</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-4">
+                                                <div class="more-info-right">
+                                                    <h5>@book.Pages</h5>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-sm-6 col-xs-5">
+                                                <div class="more-info-left">
+                                                    <h5>Approved Date:</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-7">
+                                                <div class="more-info-right">
+                                                    <h5>@(book.ApproveDate)</h5>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-6 col-sm-6 col-xs-4">
+                                                <div class="more-info-left">
+                                                    <h5>Rating:</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-8">
+                                                <div class="more-info-right">
+                                                    <fieldset class="rating">
+
+                                                        @{ if (ViewBag.AverageReview == 0)
+                                                                            {
+                                                                                for (int i = 5; i > 0; i--)
+                                                                                {
+                                                            <input type="radio" name="noterating" value="@i" /><label class="full"></label> }
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                for (int i = 5; i > 0; i--)
+                                                                                {
+                                                                                    if (i == ViewBag.AverageReview)
+                                                                                    {
+                                                            <input type="radio" name="noterating" value="@i" checked /><label class="full"></label> }
+                                                                                    else
+                                                                                    {
+                                                            <input type="radio" name="noterating" value="@i" /><label class="full"></label> }
+                                                                                }
+                                                                            } }
+
+                                                    </fieldset>
+                                                    <h5>@ViewBag.TotalReview Ratings</h5>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <p>@ViewBag.Spam User Marks this note as inappropriate</p>
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                            <!--########## Bottom Part ################-->
+
+                            <hr>
+                            <div class="note-details-bottom">
+
+                                <div class="row">
+
+                                    <div class="col-md-5 col-sm-5">
+                                        <h4>Notes Preview</h4>
+                                        <div class="note-preview">
+
+                                            <div id="Iframe-Cicis-Menu-To-Go" class="set-margin-cicis-menu-to-go">
+                                                <div class="responsive-wrapper responsive-wrapper-padding-bottom-90pct">
+                                                    <iframe src="@book.NotePreview">
+                                                        <p style="font-size: 110%;">
+                                                            <em>
+                                                                <strong>ERROR: </strong>
+                                                                An &#105;frame should be displayed here but your browser version does
+                                                                not support &#105;frames.
+                                                            </em> Please update your browser to its most
+                                                            recent version and try again, or access the file <a href="http://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf">
+                                                                with
+                                                                this link.
+                                                            </a>
+                                                        </p>
+                                                    </iframe>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="col-md-7 col-sm-7">
+                                        <h4>Customer Reviews</h4>
+                                        <div class="note-review">
+
+                                            @{ int a = 0;
+                                                                foreach (var review in ViewBag.Reviews)
+                                                                {
+                                                                    a++;
+                                                <div class="customer-review">
+                                                    <div class="row">
+                                                        <div class="col-md-1 col-sm-2 col-xs-2">
+                                                            <img src="@review.Image" alt="customer" class="img-circle">
+                                                        </div>
+                                                        <div class="col-md-11 col-sm-10 col-xs-10">
+                                                            <h5>@review.First_Name @review.Last_Name</h5>
+                                                            <fieldset class="rating">
+
+                                                                @{ for (int j = 5; j > 0; j--)
+                                                                                        {
+                                                                                            if (review.Ratings == j)
+                                                                                            {
+                                                                    <input type="radio" name="customerrating @a" value="@j" checked /><label class="full"></label> }
+                                                                                            else
+                                                                                            {
+                                                                    <input type="radio" name="customerrating @a" value="@j" /><label class="full"></label> }
+                                                                                        } }
+
+                                                            </fieldset>
+                                                            <br />
+                                                            <p><br /> @review.Review</p>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                                    <hr> } }
+
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div> <!-- Note Details Ends --> <!-- Model -->
+                                                                    <div class="modal fade" id="purchasemodel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                                                                         aria-hidden="true">
+                                                                        <div class="vertical-alignment-helper">
+                                                                            <div class="modal-dialog vertical-align-center">
+                                                                                <div class="modal-content">
+                                                                                    <div class="modal-header">
+                                                                                        <button type="button" class="close" data-dismiss="modal">
+                                                                                            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                                                                                        </button>
+
+                                                                                    </div>
+                                                                                    <div class="modal-body">
+
+                                                                                        <div class="purchase-popup">
+                                                                                            <!-- <i class="fa fa-check-circle"></i> -->
+                                                                                            <img src="~/img/icons/SUCCESS.png">
+                                                                                            <h3>Thank you for purchasing!</h3>
+                                                                                            <div class="popup-msg">
+                                                                                                <h5>Dear @TempData["UserName"],</h5>
+                                                                                                <p>
+                                                                                                    As this is paid notes - you need to pay to seller <span>@book.Seller</span> offline. We
+                                                                                                    will send hil an email that you want to download this note. He may contact you
+                                                                                                    further for payment process completion.
+                                                                                                </p>
+                                                                                                <p>
+                                                                                                    In case you have urgency,<br>
+                                                                                                    Please contact us on +919864536787
+                                                                                                </p>
+                                                                                                <p>
+                                                                                                    Once he receives the payment and acknowledge us - selected notes you can see over my
+                                                                                                    downloads tab for download.
+                                                                                                </p>
+                                                                                                <p>Have a good day.</p>
+                                                                                            </div>
+                                                                                        </div>
+
+
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div> <!-- Model Ends --> } }
+
+<script src="~/Scripts/jquery.min.js"></script>
+
+<script>
+
+    if (Readonly) {
+        $('#purchase_btn').attr('disabled', 'disabled');
+    }
+
+
+    $(function () {
+        var m = "@(showModal)";
+        $('#purchasemodel').modal(m);
+    });
+
+
+    $('#purchase_btn').click(function () {
+
+        if (confirm("Are you sure you want to download this note. Please confirm."))
+        {
+            var noteId = $('#purchase_btn').attr('noteId');
+            location.href = "Purchase?noteId=" + noteId;
+        }
+
+    });
+
+
+</script>

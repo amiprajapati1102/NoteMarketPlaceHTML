@@ -1,0 +1,322 @@
+﻿
+
+
+@{ ViewBag.Title = "NoteDetails";
+    if (!User.Identity.IsAuthenticated)
+    {
+        Layout = "~/Views/Shared/_UserLayout.cshtml";
+
+      
+
+    }
+    else
+    {
+        if (User.IsInRole("Member"))
+        {
+            Layout = "~/Views/Shared/_UserLayout.cshtml";
+        }
+        if (User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
+        {
+            Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+        }
+    } }
+
+@{ if (TempData["ReadOnly"] != null && TempData["ReadOnly"].Equals("true"))
+    {
+        <script>var Readonly = true;</script>
+    }
+    else
+    {
+        <script>Readonly = false</script>
+    } }
+@{ string showModal = "";
+    if (TempData["ShowModal"] != null && TempData["ShowModal"].Equals(1))
+    {
+        showModal = "show";
+    }
+    else
+    {
+        showModal = "hide";
+    } }
+<!-->h1>lalala</!--h1-->
+@{ foreach (var data in ViewBag.NoteDetails)
+    {
+        <!-- Note Details --><section class="notes_details x-t-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 small_heading">
+                        Notes Details
+                    </div>
+                </div>
+
+                <div class="row">
+
+
+                    <div class="col-md-7">
+
+                        <div class="book_left">
+
+                            <div class="row">
+
+                                <div class="col-md-4 col-sm-4">
+                                    <img src="@Url.Content(data.Image)" alt="book img">
+                                </div>
+
+                                <div class="col-md-8 col-sm-8">
+                                    <h2>@data.Title</h2>
+                                    <h5>@data.Category</h5>
+                                    <p>@data.Description</p>
+
+                                    <div class="download_button">
+                                        <button type="submit" class="btn btn-primary btn_download" data-toggle="modal" id="Download" value="@data.Id">
+                                            DOWNLOAD /   $ @data.Price
+                                        </button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-5 book_right">
+
+                        <div class="row">
+
+                            <div class="col-md-6 col-sm-6 col-4">
+                                <div class="note-text-left">
+                                    <h5>Institution:</h5>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-8">
+                                <div class="note-text-right">
+                                    <h5>@data.Institute</h5>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-6">
+                                <div class="note-text-left">
+                                    <h5>Country:</h5>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-6">
+                                <div class="note-text-right">
+                                    <h5>@data.Country</h5>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6 col-sm-6 col-6">
+                                <div class="note-text-left">
+                                    <h5>Course Name:</h5>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-6">
+                                <div class="note-text-right">
+                                    <h5>@data.CourseName</h5>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6 col-sm-6 col-6">
+                                <div class="note-text-left">
+                                    <h5>Course Code:</h5>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-6">
+                                <div class="note-text-right">
+                                    <h5>@data.CourseCode</h5>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6 col-sm-6 col-6">
+                                <div class="note-text-left">
+                                    <h5>Professor:</h5>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-6">
+                                <div class="note-text-right">
+                                    <h5>@data.Professor</h5>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6 col-sm-6 col-6">
+                                <div class="note-text-left">
+                                    <h5>Number of Pages:</h5>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-6">
+                                <div class="note-text-right">
+                                    <h5>@data.Pages</h5>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-sm-6 col-6">
+                                <div class="note-text-left">
+                                    <h5>Approved Date:</h5>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-6">
+                                <div class="note-text-right">
+                                    <h5>@(data.ApproveDate)</h5>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6 col-4">
+                                <div class="note-text-left">
+                                    <h5>Rating:</h5>
+                                </div>
+                            </div>
+                            <div class="col-md-8 col-sm-6 col-8">
+                                <div class="note-text-right">
+
+
+
+                                    <fieldset class="rating">
+
+                                        @{ if (ViewBag.AverageReview == 0)
+                                            {
+                                                for (int i = 5; i > 0; i--)
+                                                {
+                                                    <input type="radio" name="noterating" value="@i" /><label class="full"></label> }
+                                            }
+                                            else
+                                            {
+                                                for (int i = 5; i > 0; i--)
+                                                {
+                                                    if (i == ViewBag.AverageReview)
+                                                    {
+                                                        <input type="radio" name="noterating" value="@i" checked /><label class="full"></label> }
+                                                    else
+                                                    {
+                                                        <input type="radio" name="noterating" value="@i" /><label class="full"></label> }
+                                                }
+                                            } }
+
+                                    </fieldset>
+                                    <h5>@ViewBag.TotalReview Ratings</h5>
+
+                                </div>
+                            </div>
+                            <div class="row col-md-12">
+                                <span class="col-md-12 red_text">
+                                    @ViewBag.Spam User Marks this note as inappropriate
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </section>
+        <section class="notes_details_down">
+            <div class="container">
+                <div class="row">
+                    <div class="small_heading col-md-5 col-sm-12 col-12">
+                        <h4>Notes Preview</h4>
+                        <div class="col-md-12 book_left">
+                            <iframe src="@Url.Content(data.NotePreview)">
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <div class="small_heading col-md-7 col-sm-12 col-12">
+                        <h4>Customer Reviews</h4>
+
+                        @{ int a = 0;
+                            foreach (var x in ViewBag.Reviews)
+                            {
+                                a++;
+                                <div class="col-md-12 book_right">
+                                    <div class="customer_img col-md-1 col-2">
+                                        <img src="@Url.Content(x.Image)">
+                                    </div>
+                                    <div class="customer col-md-11 col-12">
+                                        <h5>@x.First_Name @x.Last_Name</h5>
+                                        <fieldset class="rating down-rate">
+
+                                            @{ for (int i = 5; i > 0; i--)
+                                                {
+                                                    if (x.Ratings == i)
+                                                    {
+                                                        <input type="radio" name="customerrating @a" value="@i" checked /><label class="full"></label> }
+                                                    else
+                                                    {
+                                                        <input type="radio" name="customerrating @a" value="@i" /><label class="full"></label> }
+                                                } }
+
+                                        </fieldset>
+                                        <br />
+                                        <p><br /> @x.Review</p>
+                                    </div>
+                                    <hr>
+
+
+
+                                </div>
+
+                                <hr> } }
+
+                    </div>
+                </div>
+            </div>
+        </section><div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                       aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal_img text-center">
+                            <img src="~/Content/img/Search/SUCCESS.png" />
+                            <br>
+                            <span class="modal_heading text-center">Thank you for purchasing!</span>
+                        </div>
+                        <div class="modal_inside">
+                            <h5 class="title">Dear @TempData["UserName"]</h5>
+                            <p class="modal_text">
+                                As this is paid notes - you need to pay to seller <span>@data.Seller</span> offline. We
+                                will send hil an email that you want to download this note. He may contact you
+                                further for payment process completion.
+                            </p>
+                            <p class="modal_text">
+                                In case, you have urgency,<br>
+                                Please contact us on +9195377345959.
+                            </p>
+                            <p class="modal_text">
+                                Once he receives the payment and acknowledge us - selected notes you can
+                                see over my download tab for download.
+                            </p>
+                            <p class="modal_text">Have a good day.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> }
+}
+<script src="~/Scripts/js/jquery.min.js"></script>
+<script>
+
+    if (Readonly) {
+        $('#Download').attr('disabled', 'disabled');
+    }
+
+       $(function () {
+        var m = "@(showModal)";
+           $('#exampleModal').modal(m);
+       });
+    $('#Download').click(function () {
+
+        if (confirm("Are you sure you want to download this note?")) {
+            var Id = $('#Download').val();
+            location.href = "../BuyNote?noteId=" + Id;
+        }
+
+    });
+
+</script>

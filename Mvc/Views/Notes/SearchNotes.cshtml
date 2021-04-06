@@ -1,0 +1,288 @@
+﻿@model IEnumerable<NoteMarketPlaceHtml.Models.SearchModelViewModel>
+
+
+@{ ViewBag.Title = "SearchNotes";
+    if (!User.Identity.IsAuthenticated)
+    {
+        Layout = "~/Views/Shared/_UserLayout.cshtml";
+      
+    }
+    else
+    {
+        if (User.IsInRole("Member"))
+        {
+            Layout = "~/Views/Shared/_UserLayout.cshtml";
+        }
+        if (User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
+        {
+            Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+        }
+    } }
+
+
+
+
+<style type="text/css">
+
+    .search-result {
+        padding: 0 60px 100px 60px;
+    }
+
+    .paging {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .pagination {
+        display: flex;
+    }
+
+    .page_num {
+        margin-top: 6px;
+    }
+
+        .page_num a {
+            color: #000000;
+            font-size: 16px;
+            margin: 0 15px;
+            padding-left: 0;
+            padding-right: 0;
+            text-decoration: none;
+        }
+
+            .page_num a.active {
+                color: #fff;
+                background-color: #6255a5;
+                padding: 5px 10px;
+                border-radius: 50%;
+            }
+
+    @@media (max-width: 480px) {
+
+        .page_num a {
+            font-size: 14px;
+            margin: 0 10px;
+        }
+
+        .search-result {
+            padding: 0 20px 100px 20px;
+        }
+    }
+</style>
+<div class="banner-image x-t-100">
+    <div class="banner-text">
+        <h1>Search Notes</h1>
+    </div>
+</div>
+<section id="search-note">
+    <div class="container">
+        <div class="search-filters">
+            <h2>Search and Filter Notes</h2>
+            <div class="filter-inputs">
+                <div class="filter-search">
+                    <img src="~/Content/img/Search/search.jpg" alt="search">
+                    <input type="search" class="form-control filters" id="Search" placeholder="Search notes here...">
+                </div>
+                <div class="filters-other">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-2 col-6">
+
+                            @Html.DropDownList("Type", new SelectList(ViewBag.TypeList, "Id", "Name"), "Select Type", new { @class = "filters-02", onchange = "myFunc(this)" })
+
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-6">
+                            @Html.DropDownList("Category", new SelectList(ViewBag.CategoryList, "Id", "Name"), "Select Category", new { @class = "filters-02", onchange = "myFunc(this)" })
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-6">
+                            @Html.DropDownList("University", new SelectList(ViewBag.University), "Select University", new { @class = "filters-02", onchange = "myFunc(this)" })
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-6">
+                            @Html.DropDownList("Course", new SelectList(ViewBag.Course), "Select Course", new { @class = "filters-02", onchange = "myFunc(this)" })
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-6">
+                            @Html.DropDownList("Country", new SelectList(ViewBag.Country, "Id", "Name"), "Select Country", new { @class = "filters-02", onchange = "myFunc(this)" })
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-6">
+                            <select class="filters-02" id="Rating" onchange="myFunc(this)">
+                                <option value="">Select rating</option>
+                                <option value="1">1 +</option>
+                                <option value="2">2 +</option>
+                                <option value="3">3 +</option>
+                                <option value="4">4 +</option>
+                                <option value="5">5 +</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="search-result">
+
+    <div class="container">
+        <h2>Total <span>@Model.Count()</span> notes </h2>
+
+
+        <div class="row">
+            @{ foreach (var Note in Model)
+                {
+
+                    <div class="col-md-4 col-sm-12 col-12">
+
+                        <div class="notes" style="margin-bottom: 20px;">
+                            <img src="@Url.Content(Note.Image)" alt="note image" class="note-img">
+                            <div class="details">
+                                <h4 style="cursor:pointer;" noteId="@Note.Id">@Note.Title</h4>
+                                <p class="note-details"><img src="../img/Search/university.png">@Note.University</p>
+                                <p class="note-details"><img src="../img/Search/pages.png">@Note.Pages </p>
+                                <p class="note-details"><img src="../img/Search/date.png">@Note.PublishDate.GetValueOrDefault().ToString("ddd, MMM dd yyyy")</p>
+                                <p class="note-details"><img src="../img/Search/flag.png">@(Note.TotalSpams) Users marked this note as inappropriate</p>
+                                <div class="ratings">
+                                    <div class="rate">
+
+                                        @{ for (int j = 5; j > 0; j--)
+                                            {
+                                                if (j == Note.Rating)
+                                                {
+                                                    <input type="radio" name="bookrate @Note.Id" value="@j" checked /><label></label> }
+                                                else
+                                                {
+                                                    <input type="radio" name="bookrate @Note.Id" value="@j" /><label></label> }
+
+                                            } }
+
+                                    </div>
+
+                                    <p>@(Note.TotalRating) reviews</p>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                }
+            }
+
+
+
+        </div>
+        <div class="paging">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link previousPage" href="#" aria-label="Previous">
+                        <span aria-hidden="true"> <img src="~/Content/img/Search/left-arrow.png" alt="previous"> </span>
+                    </a>
+                </li>
+                <li class="page_num"></li>
+                <li class="page-item">
+                    <a class="page-link nextPage" href="#" aria-label="Next">
+                        <span aria-hidden="true"> <img src="~/Content/img/Search/right-arrow.png" alt="next"> </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+
+</div>
+
+<script src="~/Scripts/js/jquery.min.js"></script>
+
+
+<script src="~/Scripts/js/pages/paginga.jquery.min.js"></script>
+
+<script>
+    var type, category, university, course, country, rating;
+
+    function myFunc(obj) {
+
+        var data = {};
+
+        if (obj.id == "Type") {
+            type = obj.value;
+        }
+        if (obj.id == "Category") {
+            category = obj.value;
+        }
+        if (obj.id == "University") {
+            university = obj.value;
+        }
+        if (obj.id == "Course") {
+            course = obj.value;
+        }
+        if (obj.id == "Country") {
+            country = obj.value;
+        }
+        if (obj.id == "Rating") {
+            rating = obj.value;
+        }
+
+
+        if (type != null) {
+            data.Type = type;
+        }
+        if (category != null) {
+            data.Category = category;
+        }
+        if (university != null) {
+            data.University = university;
+        }
+        if (course != null) {
+            data.Course = course;
+        }
+        if (country != null) {
+            data.Country = country;
+        }
+        if (rating != null) {
+            data.Rating = rating;
+        }
+
+        console.log(data);
+
+        $.ajax({
+            method: 'GET',
+            url: 'SearchNotes',
+            data: data,
+            success: function (data) {
+                $("body").html(data);
+            },
+            error: function () {
+                alert("Try Again");
+            }
+        });
+    }
+
+    $('#Search').on('keypress', function (e) {
+        if (e.which == 13) {
+            location.href = "SearchNotes?search=" + $(this).val();
+        }
+    });
+
+
+
+    $('.search-result').paginga({
+        itemsPerPage: 9,
+        itemsContainer: ".row",
+        item: "> div",
+        pager: ".paging",
+        nextPage: ".nextPage",
+        previousPage: ".previousPage",
+        pageNumbers: ".page_num"
+    });
+
+
+    $('.details>h4').click(function () {
+        // location.href = "" + id + "?ReadOnly=true";
+        location.href = "../Notes/NoteDetails/" + $(this).attr('noteId');
+
+    });</script>
+
+

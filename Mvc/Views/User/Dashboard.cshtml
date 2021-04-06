@@ -214,7 +214,7 @@
                         <td>@data.Price</td>
                         <td>
                             <div class="table-icon-view">
-                                <img src="~/Content/images/icons/eye.png" alt="view" onclick="View(@data.Id)" />
+                                <img  src="~/Content/img/Search/eye.png" alt="view" onclick="View(@data.Id)" />
                             </div>
                         </td>
                     </tr> }
@@ -226,7 +226,7 @@
 
 <script>
     function View(id) {
-        loaction.href = "../AddNote/" + id + "?ReadOnly=true";
+        location.href = "../Notes/NoteDetails/" + id + "?ReadOnly=true";
     }
 
     function Edit(id) {
@@ -250,4 +250,6 @@
             })
         }
     }
+
+   
 </script>

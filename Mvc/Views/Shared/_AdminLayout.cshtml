@@ -13,7 +13,7 @@
     <link href="~/Content/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
     <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
-
+    <link href="~/Content/css/pages/datatables.css" rel="stylesheet" />
     <link href="~/Content/css/pages/AddNotes.css" rel="stylesheet" />
     <link href="~/Content/css/pages/Dashbord.css" rel="stylesheet" />
     <link href="~/Content/css/style.css" rel="stylesheet" />
@@ -28,7 +28,7 @@
     <!--Header-->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-            <a class="navbar-brand" href="@Url.Action("Dashboard","User")">
+            <a class="navbar-brand" href="@Url.Action("Index","Home")">
                 <img src="~/Content/img/login/logo.png" alt=" logo" />
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -45,34 +45,19 @@
                         <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                            id="notes">Notes</a>
                         <div class="dropdown-menu">
-                            <a href="NotesUnderReview.html">
-                                <button class="dropdown-item" type="button">
-                                    Notes Under
-                                    Review
-                                </button>
-                            </a>
-                            <a href="PublishedNotes.html">
-                                <button class="dropdown-item" type="button">
-                                    Published
-                                    Notes
-                                </button>
-                            </a>
-                            <a href="DownloadedNotes.html">
-                                <button class="dropdown-item" type="button">
-                                    Downloaded
-                                    Notes
-                                </button>
-                            </a>
-                            <a href="RejectedNotes.html">
-                                <button class="dropdown-item" type="button">
-                                    Rejected
-                                    Notes
-                                </button>
-                            </a>
+                            @Html.ActionLink("Notes Under Review", "NotesUnderReview", "Notes", null, new { @class = "dropdown-item " })
+                            @Html.ActionLink("Published Notes", "PublishedNotes", "Notes", null, new { @class = "dropdown-item " })
+
+                            @Html.ActionLink("Downloaded Notes", "DownloadedNote", "Notes", null, new { @class = "dropdown-item " })
+                            @Html.ActionLink("Rejected Notes", "RejectedNotes", "Notes", null, new { @class = "dropdown-item " })
+
                         </div>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="Members.html">Members</a>
+
+                        @Html.ActionLink("Members", "Members", "Admin", null, new { @class = "nav-link" })
+
                     </li>
 
                     <li class="nav-item dropdown">
@@ -98,8 +83,10 @@
                                     Configuration
                                 </button>
                             </a>
-
-                            @Html.ActionLink("Manage Administrator", "AddAdmin", "Admin", null, new { @class = "dropdown-item " })
+                            @if (User.IsInRole("superAdmin"))
+                            {
+                                @Html.ActionLink("Manage Administrator", "AddAdmin", "Admin", null, new { @class = "dropdown-item " })
+                            }
                             @Html.ActionLink("Manage Category", "Category", "Admin", null, new { @class = "dropdown-item " })
                             @Html.ActionLink("Manage Type", "Type", "Admin", null, new { @class = "dropdown-item " })
                             @Html.ActionLink("Manage Countries", "Country", "Admin", null, new { @class = "dropdown-item " })
@@ -116,24 +103,9 @@
                                 <img src="@Url.Content(@ViewBag.UserProfile)" height="45" width="45" />
                             </a>
                             <div class="dropdown-menu">
-                                <a href="Profile.html">
-                                    <button class="dropdown-item" type="button">
-                                        Update
-                                        Profile
-                                    </button>
-                                </a>
-                                <a href="../Pages/ChangePassword.html">
-                                    <button class="dropdown-item" type="button">
-                                        Change
-                                        Password
-                                    </button>
-                                </a>
-                                <a href="../pages/HomePage.html">
-                                    <button class="dropdown-item"
-                                            type="button">
-                                        <span>LOGOUT</span>
-                                    </button>
-                                </a>
+                                @Html.ActionLink("Update Profile", "AddAdmin", "Admin", null, new { @class = "dropdown-item " })
+                                @Html.ActionLink("Change Password", "ChangePassword", "Account", null, new { @class = "dropdown-item " })
+                                @Html.ActionLink("Logout", "Logout", "Account", null, new { @class = "dropdown-item " })
                             </div>
                         </li>
 
@@ -175,11 +147,14 @@
         </div>
     </section>
     <!--Script Files-->
+    <script src="~/Scripts/js/jquery.min.js"></script>
 
-    <script src="~/Scripts/js/jquery.js"></script>
+
+    <script src="~/Scripts/js/popper.min.js"></script>
     <script src="~/Scripts/js/bootstrap/bootstrap.js"></script>
-    <script src="~/Scripts/js/script.js"></script>
 
+    <script src="~/Scripts/js/pages/datatables.min.js"></script>
+    <script src="~/Scripts/js/script.js"></script>
 </body>
 
 </html>

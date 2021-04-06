@@ -71,6 +71,7 @@ for (i = 0; i < acc.length; i++) {
 
 
 $(function () {
+
     var table = $('#inProgresstbl').DataTable({
         'pageLength': 5,
         'dom': 'tp',
@@ -83,52 +84,30 @@ $(function () {
     });
 
     $('.searc_btn').click(function () {
-        table.search($(' #searchbox').val()).draw();
+        table.search($('#searchbox').val()).draw();
+    });
+});
+$(function () {
+
+    var table = $('#inPublishtbl').DataTable({
+        'pageLength': 5,
+        'dom': 'tp',
+        'language': {
+            'paginate': {
+                'previous': '<a aria-hidden="true"> <img src="../Content/img/Search/left-arrow.png" > </a>',
+                'next': '<a aria-hidden="true"> <img src="../Content/img/Search/right-arrow.png"> </a>'
+            }
+        }
+    });
+
+    $('.search_publish_btn').click(function () {
+        table.search($('#search_publish_box').val()).draw();
     });
 });
 
 
-/* =========================================
-              Navigation
-============================================ */
-
-function sticky_header() {
-    var header_height = jQuery('.home_navbar').innerHeight() / 2;
-    var scrollTop = jQuery(window).scrollTop();;
-    if (scrollTop > header_height) {
-        jQuery('body').addClass('sticky-nav')
-        $(".home_navbar .navbar img").attr("src", "../Content/images/logo/logo-blue.png");
-    } else {
-        jQuery('body').removeClass('sticky-nav')
-        $(".home_navbar .navbar img").attr("src", "../Content/images/logo/logo-white.png");
-    }
-}
-
-jQuery(document).ready(function () {
-    sticky_header();
-});
-
-jQuery(window).scroll(function () {
-    sticky_header();
-});
-jQuery(window).resize(function () {
-    sticky_header();
-});
 
 
-/*================================
- Password eye icon
-==================================*/
-$(".toggle-password").click(function () {
-
-    $(this).toggleClass("fa-eye fa-eye-slash");
-    var input = $($(this).attr("toggle"));
-    if (input.attr("type") == "password") {
-        input.attr("type", "text");
-    } else {
-        input.attr("type", "password");
-    }
-});
 
 
 
@@ -153,14 +132,24 @@ for (i = 0; i < acc.length; i++) {
     });
 }
 
-// Add notes
-function disable() {
-    document.getElementById("SellingPrice").disabled = true;
-}
+
+    function disable() {
+        document.getElementById("SellingPrice").disabled = true;
+        document.getElementById("NotePreview").required = false;
+    }
 
 function undisable() {
     document.getElementById("SellingPrice").disabled = false;
+    document.getElementById("NotePreview").required = true;
+
 }
+$(document).ready(function () {
+    if ($('#SellType:checked').val()=="Free" ){
+        disable();
+    }
+   
+    
+});  
 
 
 

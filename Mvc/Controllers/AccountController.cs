@@ -18,7 +18,7 @@ namespace NoteMarketPlaceHtml.Controllers
     {
 
         // GET: Account
-        NoteMarketPlaceEntities db = new NoteMarketPlaceEntities();
+        readonly NoteMarketPlaceEntities db = new NoteMarketPlaceEntities();
         protected override void Initialize(RequestContext requestContext)
         {
             base.Initialize(requestContext);
@@ -32,17 +32,28 @@ namespace NoteMarketPlaceHtml.Controllers
                                join Users in db_1.Users on Details.UserId equals Users.Id
                                where Users.EmailId == requestContext.HttpContext.User.Identity.Name
                                select Details.ProfilePicture).FirstOrDefault();
+                    var imgMember = (from Details in db_1.UserProfiles
+                                     join Users in db_1.Users on Details.UserI equals Users.Id
+                                     where Users.EmailId == requestContext.HttpContext.User.Identity.Name
+                                     select Details.ProfilePicture).FirstOrDefault();
 
-                    if (img == null)
+                    if (img != null)
                     {
                         // set default image
-                        var defaultImg = db_1.SystemConfigurations.FirstOrDefault(m => m.KeyData == "DefaultMemberDisplayPicture").ValueData;
-                        ViewBag.UserProfile = defaultImg;
+                        ViewBag.UserProfile = img;
+                       
+                    }
+                    else if (imgMember != null)
+                    {
+                        // set default image
+                        ViewBag.UserProfile = imgMember;
                     }
                     else
                     {
-                        ViewBag.UserProfile = img;
-                        TempData["oldprofile"] = img;
+                        var defaultImg = db_1.SystemConfigurations.FirstOrDefault(m => m.KeyData == "DefaultMemberDisplayPicture").ValueData;
+                        ViewBag.UserProfile = defaultImg;
+
+
                     }
 
 
@@ -58,7 +69,7 @@ namespace NoteMarketPlaceHtml.Controllers
         public ActionResult RegisterUser()
         {
             RegisterUserViewModel model = new RegisterUserViewModel();
-            return View();
+            return View(model);
         }
         [HttpPost]
         public ActionResult RegisterUser(RegisterUserViewModel user)
@@ -68,14 +79,16 @@ namespace NoteMarketPlaceHtml.Controllers
             {
                 if (!db.Users.Any(model => model.EmailId == user.EmailID))
                 {
-                    User use = new User();
-                    use.FirstName = user.FirstName;
-                    use.EmailId = user.EmailID;
-                    use.LastName = user.LastName;
-                    use.Password = user.Password;
-                    use.RoleId = 3;
-                    use.Code = Guid.NewGuid();
-                    use.CreatedDate = DateTime.Now;
+                    User use = new User
+                    {
+                        FirstName = user.FirstName,
+                        EmailId = user.EmailID,
+                        LastName = user.LastName,
+                        Password = user.Password,
+                        RoleId = 3,
+                        Code = Guid.NewGuid(),
+                        CreatedDate = DateTime.Now
+                    };
                     db.Users.Add(use);
                     db.SaveChanges();
                     SendActivationEmail(use);
@@ -93,7 +106,7 @@ namespace NoteMarketPlaceHtml.Controllers
 
         private void SendActivationEmail(User model)
         {
-            using (MailMessage mm = new MailMessage("email.com", model.EmailId))
+            using (MailMessage mm = new MailMessage("email", model.EmailId))
             {
                 mm.Subject = "Note MarketPlace Email Verification";
 
@@ -114,7 +127,7 @@ namespace NoteMarketPlaceHtml.Controllers
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
                 smtp.EnableSsl = true;
-                NetworkCredential NetworkCred = new NetworkCredential("email.com", "pass");
+                NetworkCredential NetworkCred = new NetworkCredential("email", "pass");
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = NetworkCred;
                 smtp.Port = 587;
@@ -167,7 +180,7 @@ namespace NoteMarketPlaceHtml.Controllers
                     return View();
                 }
              
-                else if (result.IsVerified == true && result.RoleId==3)
+                else if (result.IsVerified == true && result.RoleId==3&&result.IsActive==true)
                 {
 
                     FormsAuthentication.SetAuthCookie(objLoginModel.EmailID, false);
@@ -177,13 +190,13 @@ namespace NoteMarketPlaceHtml.Controllers
                     }
                     Session["EmailID"] = objLoginModel.EmailID;
                     
-                    return RedirectToAction("SearchNotes", "User");
+                    return RedirectToAction("SearchNotes", "Notes");
                 }
-                else if (result.IsVerified == true && (result.RoleId == 1  ||result.RoleId==2))
+                else if (result.IsVerified == true && (result.RoleId == 1  ||result.RoleId==2)&&result.IsActive==true)
                 {
                     Session["EmailID"] = objLoginModel.EmailID;
-
-                    return RedirectToAction("Contact", "Home");
+                    FormsAuthentication.SetAuthCookie(objLoginModel.EmailID, false);
+                    return RedirectToAction("Index", "Admin");
                    
                 }
                 else
@@ -244,7 +257,7 @@ namespace NoteMarketPlaceHtml.Controllers
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
                 smtp.EnableSsl = true;
-                NetworkCredential NetworkCred = new NetworkCredential("email.com", "pass");
+                NetworkCredential NetworkCred = new NetworkCredential("email", "pass");
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = NetworkCred;
                 smtp.Port = 587;
@@ -298,7 +311,7 @@ namespace NoteMarketPlaceHtml.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        
+        [Authorize]
         public ActionResult ChangePassword(ChangePasswordViewModel model)
         {
 
@@ -316,9 +329,10 @@ namespace NoteMarketPlaceHtml.Controllers
                         return View();
                     }
 
-                    if (currentUser.Password == model.ConfirmPassword)
+                    if (currentUser.Password == model.NewPassword)
                     {
-                        TempData["OldpwdSame"] = "1";
+
+                        ModelState.AddModelError("Error", "Old Password and New Password Are Same");
                         return View();
                     }
 
@@ -382,7 +396,7 @@ namespace NoteMarketPlaceHtml.Controllers
                     SmtpClient smtp = new SmtpClient();
                     smtp.Host = "smtp.gmail.com";
                     smtp.EnableSsl = true;
-                    NetworkCredential NetworkCred = new NetworkCredential("email@gmail.com", "pass");
+                    NetworkCredential NetworkCred = new NetworkCredential("email", "pass");
                     smtp.UseDefaultCredentials = true;
                     smtp.Credentials = NetworkCred;
                     smtp.Port = 587;
