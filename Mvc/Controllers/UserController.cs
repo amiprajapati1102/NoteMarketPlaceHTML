@@ -16,7 +16,7 @@ namespace NoteMarketPlaceHtml.Controllers
     public class UserController : Controller
     {
         readonly NoteMarketPlaceEntities db = new NoteMarketPlaceEntities();
-      
+       
         protected override void Initialize(RequestContext requestContext)
         {
             base.Initialize(requestContext);
@@ -24,20 +24,21 @@ namespace NoteMarketPlaceHtml.Controllers
             {
                 using (var db_1 = new NoteMarketPlaceEntities())
                 {
-                 
+                    //current user profile img
+                    // set default image
                     var img = (from Details in db_1.AddAdmins
                                join Users in db_1.Users on Details.UserId equals Users.Id
                                where Users.EmailId == requestContext.HttpContext.User.Identity.Name
                                select Details.ProfilePicture).FirstOrDefault();
-                   
+                    
 
                     if (img != null)
                     {
-                        
+                        // set default image
                         ViewBag.UserProfile = img;
                         TempData["oldprofile"] = img;
                     }
-                    
+                   
                     else
                     {
                         var defaultImg = db_1.SystemConfigurations.FirstOrDefault(m => m.KeyData == "DefaultMemberDisplayPicture").ValueData;
@@ -58,29 +59,31 @@ namespace NoteMarketPlaceHtml.Controllers
         public ActionResult Dashboard()
         {
            
+               
                 var currentUser = db.Users.FirstOrDefault(model => model.EmailId == User.Identity.Name);
 
-               
+                
                 var earning = (from download in db.Downloads
                                where download.Seller == currentUser.Id && download.IsSellerHasAllowedDownload == true
                                group download by download.Seller into total
                                select total.Sum(model => model.PurchasedPrice)).ToList();
                 ViewBag.TotalEarning = earning.Count() == 0 ? 0 : earning[0];
 
+              
                 var soldNotes = (from download in db.Downloads
                                  where download.Seller == currentUser.Id &&download.IsSellerHasAllowedDownload == true
                                  group download by download.Seller into total
                                  select total.Count()).ToList();
                 ViewBag.TotalSoldNotes = soldNotes.Count() == 0 ? 0 : soldNotes[0];
 
-            
+             
                 var downloadNotes = (from download in db.Downloads
                                      where download.Downloader == currentUser.Id && download.IsSellerHasAllowedDownload == true
                                      group download by download.Downloader into total
                                      select total.Count()).ToList();
                 ViewBag.TotalDownloadNotes = downloadNotes.Count() == 0 ? 0 : downloadNotes[0];
 
-               
+              
                 var rejectedNotes = (from notes in db.SellerNotes
                                      join status in db.ReferenceDatas on notes.Status equals status.Id
                                      where status.RefCategory == "Notes Status" && status.Values == "Rejected" && notes.SellerId == currentUser.Id
@@ -112,7 +115,7 @@ namespace NoteMarketPlaceHtml.Controllers
 
                 ViewBag.ProgressNotes = progressNotes;
 
-               
+              
                 var publishedNotes = (from notes in db.SellerNotes
                                       join category in db.NoteCategories on notes.Category equals category.Id
                                       join status in db.ReferenceDatas on notes.Status equals status.Id
@@ -137,9 +140,10 @@ namespace NoteMarketPlaceHtml.Controllers
         public ActionResult AddNote(int? edit)
         {
            
+                
                 var type = db.NoteTypes.ToList();
 
-               
+              
                 var category = db.NoteCategories.ToList();
 
                
@@ -148,7 +152,7 @@ namespace NoteMarketPlaceHtml.Controllers
                 ViewBag.CategoryList = category;
                 ViewBag.NoteTypeList = type;
                 ViewBag.CountryList = country;
-                ViewBag.Edit = false;
+            
                
                
                 if (!edit.Equals(null))
@@ -174,9 +178,8 @@ namespace NoteMarketPlaceHtml.Controllers
                                     SellType = Notes.IsPaid == true ? "Paid" : "Free",
                                     SellingPrice = (decimal)Notes.SellingPrice,
                                     NotePreview = Notes.NotesPreview
-                                }).FirstOrDefault();
-                    
-                    ViewBag.Edit = true;
+                                }).FirstOrDefault<AddNoteModel>();
+                 
                     return View(note);
                 }
                 else
@@ -193,106 +196,130 @@ namespace NoteMarketPlaceHtml.Controllers
 
         [HttpPost]
 
-        public ActionResult Save(int? Id, AddNoteModel note)
+        public ActionResult AddNote(int? Id, AddNoteModel note)
         {
             
                 var type = db.NoteTypes.ToList();
 
-              
+                // all category
                 var category = db.NoteCategories.ToList();
 
-               
+                // all country
                 var country = db.Countries.ToList();
 
                 ViewBag.CategoryList = category;
                 ViewBag.NoteTypeList = type;
                 ViewBag.CountryList = country;
                 ViewBag.Edit = false;
-                if (ModelState.IsValid)
-                {
-                    var currentuserId = db.Users.FirstOrDefault(model => model.EmailId == User.Identity.Name).Id;
-                    var DefaultNoteDisplayPicture = db.SystemConfigurations.FirstOrDefault(m => m.KeyData == "DefaultNoteDisplayPicture").ValueData;
-                    
+           
+            if (ModelState.IsValid)
+            {
                
+           
+                var currentuser= db.Users.FirstOrDefault(model => model.EmailId == User.Identity.Name);
+                var DefaultNoteDisplayPicture = db.SystemConfigurations.FirstOrDefault(m => m.KeyData == "DefaultNoteDisplayPicture").ValueData;
+                var DefaultNote = db.SystemConfigurations.FirstOrDefault(m => m.KeyData == "DefaultNote").ValueData;
+             
 
                 if (!Id.Equals(null))
-                        {
-                            var noteDetails = db.SellerNotes.SingleOrDefault(model => model.Id == Id &&( model.Status == 6 ));
-                            var attachment = db.SellerNotesAttachements.SingleOrDefault(model => model.NoteId == Id);
+                {
+                    var noteDetails = db.SellerNotes.SingleOrDefault(model => model.Id == Id && (model.Status == 6));
+                    var attachment = db.SellerNotesAttachements.SingleOrDefault(model => model.NoteId == Id);
 
-                        if (UploadNotes == null)
+                    if (UploadNotes == null)
+                    {
+                        attachment.FilePath = attachment.FilePath;
+                        attachment.FileName = attachment.FileName;
+                    }
+                    else
+                    {
+                        string old = Server.MapPath(attachment.FilePath);
+                        FileInfo fileInfo = new FileInfo(old);
+                        if (fileInfo.Exists)
                         {
-                            attachment.FilePath = attachment.FilePath;
-                            attachment.FileName = attachment.FileName;
+                            fileInfo.Delete();
+
                         }
-                        else
+                        string atta1 = UploadNotes.FileName;
+                        attachment.FilePath = "../Members/" + currentuser.Id + "/" + Id + "/" + "Attachment/" + atta1;
+                        atta1 = Path.Combine(Server.MapPath(string.Format("../Members/{0}/{1}/Attachment", currentuser.Id, Id)), atta1);
+                        UploadNotes.SaveAs(atta1);
+                        attachment.FileName = UploadNotes.FileName;
+                    }
+                    if (NotePreview == null)
+                    {
+                        noteDetails.NotesPreview = noteDetails.NotesPreview;
+
+                    }
+                    else
+                    {
+                        string old = Server.MapPath(noteDetails.NotesPreview);
+                        FileInfo fileInfo = new FileInfo(old);
+                        if (fileInfo.Exists)
                         {
-                           
-                            string atta1 = UploadNotes.FileName;
-                            attachment.FilePath = "/Members/" + currentuserId + "/" + Id + "/" + "Attachment/" + atta1;
-                            atta1 = Path.Combine(Server.MapPath(string.Format("/Members/{0}/{1}/Attachment", currentuserId, Id)), atta1);
-                            UploadNotes.SaveAs(atta1);
-                            attachment.FileName = UploadNotes.FileName;
+                            fileInfo.Delete();
+
                         }
-                        if (NotePreview == null)
+                    
+                        noteDetails.NotesPreview = "../Members/" + currentuser.Id+ "/" + Id + "/" + NotesPreview.FileName;
+                       string  atta1 = Path.Combine(Server.MapPath(string.Format("../Members/{0}/{1}", currentuser.Id, Id)), atta1);
+                        NotePreview.SaveAs(atta1);
+
+                    }
+                    if (DisplayPicture == null)
+                    {
+                        noteDetails.DisplayPicture = noteDetails.DisplayPicture;
+
+                    }
+                    else
+                    {
+                        string old = Server.MapPath(noteDetails.DisplayPicture);
+                        FileInfo fileInfo = new FileInfo(old);
+                        if (fileInfo.Exists)
                         {
-                            noteDetails.NotesPreview = noteDetails.NotesPreview;
-                           
+                            fileInfo.Delete();
+
                         }
-                        else
-                        {
+                        string extention_pic = Path.GetExtension(DisplayPicture.FileName);
+                        string Pic = "DP_" + extention_pic;
+                        noteDetails.DisplayPicture = "../Members/" + currentuser.Id + "/" + Id + "/" + Pic;
+
+                        Pic = Path.Combine(Server.MapPath(string.Format("../Members/{0}/{1}", currentuser.Id, Id)), Pic);
+
+                        DisplayPicture.SaveAs(Pic);
+
+                    }
+
+                    noteDetails.Title = note.Title;
+                    noteDetails.Category = note.Category;
+
+                    noteDetails.NoteType = note.NoteType;
+                    noteDetails.NumberofPages = note.NumberofPages;
+                    noteDetails.Description = note.Description;
+                    noteDetails.UniversityName = note.UniversityName;
+                    noteDetails.Country = note.Country;
+                    noteDetails.Course = note.Course;
+                    noteDetails.CourseCode = note.CourseCode;
+                    noteDetails.Professor = note.Professor;
+                    noteDetails.IsPaid = note.SellType == "Free" ? false : true;
+                    noteDetails.SellingPrice = note.SellType == "Free" ? 0 : note.SellingPrice;
 
 
-                        string atta1 = NotePreview.FileName;
-                        noteDetails.NotesPreview = "~/Members/" + currentuserId + "/" + Id + "/" + atta1;
-                            atta1 = Path.Combine(Server.MapPath(string.Format("/Members/{0}/{1}", currentuserId, Id)), atta1);
-                            NotePreview.SaveAs(atta1);
-                            
-                        }
-                        if (DisplayPicture == null)
-                        {
-                            noteDetails.DisplayPicture = noteDetails.DisplayPicture;
-                        
-                        }
-                        else
-                        {
-                        string Pic = DisplayPicture.FileName;
-                            noteDetails.DisplayPicture = "/Members/" + currentuserId + "/" + Id + "/" + DisplayPicture.FileName;
+                    noteDetails.ModifiedDate = DateTime.Now;
+                    attachment.ModifiedDate = DateTime.Now;
+                    noteDetails.Status =  6;
+                    db.SaveChanges();
+                  
+                  
 
-                            Pic = Path.Combine(Server.MapPath(string.Format("/Members/{0}/{1}", currentuserId, Id)), Pic);
-
-                            DisplayPicture.SaveAs(Pic);
-                           
-                        }
-
-                        noteDetails.Title = note.Title;
-                        noteDetails.Category = note.Category;
-                         
-                        noteDetails.NoteType = note.NoteType;
-                        noteDetails.NumberofPages = note.NumberofPages;
-                        noteDetails.Description = note.Description;
-                        noteDetails.UniversityName = note.UniversityName;
-                        noteDetails.Country = note.Country;
-                        noteDetails.Course = note.Course;
-                        noteDetails.CourseCode = note.CourseCode;
-                        noteDetails.Professor = note.Professor;
-                        noteDetails.IsPaid = note.SellType == "Free" ? false : true;
-                        noteDetails.SellingPrice = note.SellType == "Free" ? 0 : note.SellingPrice;
-                       
-
-                             noteDetails.ModifiedDate = DateTime.Now;
-                             attachment.ModifiedDate = DateTime.Now;
-                             
-                            db.SaveChanges();
-
-                            return RedirectToAction("Dashboard");
-                        }
-                        else
-                        {
+                    return RedirectToAction("Dashboard");
+                }
+                else
+                {
                     SellerNote noteDetails = new SellerNote
                     {
                         Title = note.Title,
-                        SellerId = currentuserId,
+                        SellerId = currentuser.Id,
                         Category = note.Category,
                         DisplayPicture = note.DisplayPicture,
                         NoteType = note.NoteType,
@@ -306,35 +333,36 @@ namespace NoteMarketPlaceHtml.Controllers
                         SellingPrice = note.SellType == "Free" ? 0 : note.SellingPrice,
                         IsPaid = note.SellType == "Free" ? false : true,
                         NotesPreview = note.NotePreview,
-                        
+                        Status =  6,
                         CreatedDate = DateTime.Now,
                         IsActive = true
                     };
                     db.SellerNotes.Add(noteDetails);
-                            db.SaveChanges();
+                    db.SaveChanges();
 
-                            var CreatedNote = db.SellerNotes.FirstOrDefault(model => model.SellerId == currentuserId && model.Title == note.Title);
+                    var CreatedNote = db.SellerNotes.FirstOrDefault(model => model.SellerId == currentuser.Id && model.Title == note.Title);
 
-                            
-                          
-                            
-                            string atta1 = UploadNotes.FileName;
-                            note.UploadNotes = "/Members/" + currentuserId + "/" + CreatedNote.Id + "/" + "Attachment/" + atta1;
-                            atta1 = Path.Combine(Server.MapPath(string.Format("/Members/{0}/{1}/Attachment", currentuserId, CreatedNote.Id)), atta1);
+                    // make folder
+                    string folder1 = Server.MapPath(string.Format("../Members/{0}/{1}/Attachment", currentuser.Id, CreatedNote.Id));
+                    Directory.CreateDirectory(folder1);
+
+                    string atta1 = UploadNotes.FileName;
+                    note.UploadNotes = "../Members/" + currentuser.Id + "/" + CreatedNote.Id + "/" + "Attachment/" + atta1;
+                    atta1 = Path.Combine(Server.MapPath(string.Format("../Members/{0}/{1}/Attachment", currentuser.Id, CreatedNote.Id)), atta1);
 
 
-                            UploadNotes.SaveAs(atta1);
+                    UploadNotes.SaveAs(atta1);
 
-                            var attachments = db.SellerNotesAttachements;
-                            attachments.Add(new SellerNotesAttachement
-                            {
-                                NoteId = CreatedNote.Id,
-                                FileName = UploadNotes.FileName,
-                                FilePath = note.UploadNotes,
-                                CreatedDate = DateTime.Now,
-                                IsActive = true
-                            });
-                            var sell = db.SellerNotes.FirstOrDefault(model => model.SellerId == currentuserId && model.Title == note.Title);
+                    var attachments = db.SellerNotesAttachements;
+                    attachments.Add(new SellerNotesAttachement
+                    {
+                        NoteId = CreatedNote.Id,
+                        FileName = UploadNotes.FileName,
+                        FilePath = note.UploadNotes,
+                        CreatedDate = DateTime.Now,
+                        IsActive = true
+                    });
+                    var sell = db.SellerNotes.FirstOrDefault(model => model.SellerId == currentuser.Id && model.Title == note.Title);
                     if (DisplayPicture == null)
                     {
                         sell.DisplayPicture = DefaultNoteDisplayPicture;
@@ -342,10 +370,11 @@ namespace NoteMarketPlaceHtml.Controllers
                     }
                     else
                     {
-                        string Pic = DisplayPicture.FileName;
-                        sell.DisplayPicture = "/Members/" + currentuserId + "/" + CreatedNote.Id + "/" + Pic;
+                        string extention_pic = Path.GetExtension(DisplayPicture.FileName);
+                        string Pic = "DP_" + extention_pic;
+                        sell.DisplayPicture = "../Members/" + currentuser.Id + "/" + CreatedNote.Id + "/" + Pic;
 
-                        Pic = Path.Combine(Server.MapPath(string.Format("/Members/{0}/{1}", currentuserId, CreatedNote.Id)), Pic);
+                        Pic = Path.Combine(Server.MapPath(string.Format("../Members/{0}/{1}", currentuser.Id, CreatedNote.Id)), Pic);
 
                         DisplayPicture.SaveAs(Pic);
 
@@ -353,49 +382,54 @@ namespace NoteMarketPlaceHtml.Controllers
                     }
 
 
+                    if (NotePreview == null)
+                    {
+                        sell.NotesPreview = DefaultNote;
+
+                    }
+                    else
+                    {
+                        string extention_pre = Path.GetExtension(NotePreview.FileName);
+                        string Pre = "Preview_"+extention_pre;
+                        sell.NotesPreview = "../Members/" + currentuser.Id + "/" + CreatedNote.Id + "/" + Pre;
+
+                        Pre = Path.Combine(Server.MapPath(string.Format("../Members/{0}/{1}", currentuser.Id, CreatedNote.Id)), Pre);
 
 
-                    string Pre = NotePreview.FileName;
-                        sell.NotesPreview = "/Members/" + currentuserId + "/" + CreatedNote.Id + "/" + Pre;
-
-                            Pre = Path.Combine(Server.MapPath(string.Format("/Members/{0}/{1}", currentuserId, CreatedNote.Id)), Pre);
-
-
-                            NotePreview.SaveAs(Pre);
-                           
-
-                        
-                        
-
-
-                            db.SaveChanges();
-                            return RedirectToAction("Dashboard", "User");
-                        }
-
-
-
-                        
+                        NotePreview.SaveAs(Pre);
 
 
                     }
-               
 
-                return View();
+
+
+                    db.SaveChanges();
+                   
+
+                    return RedirectToAction("Dashboard", "User");
+                }
 
                 
-              
 
-               
+
+
+            }
+           
+                return View();
+                // return RedirectToAction("AddNote", new { edit = note.Id});
+            }
+
            
         }
 
-     
+       
+
         [HttpPost]
         [Route("User/delete")]
         public string Delete(int Id)
         {
             
-               
+                // get current user
                 var currentuserId = db.Users.FirstOrDefault(model => model.EmailId == User.Identity.Name).Id;
 
                 var note = db.SellerNotes.SingleOrDefault(model => model.Id == Id && model.Status == 6 && model.SellerId == currentuserId);
@@ -416,21 +450,22 @@ namespace NoteMarketPlaceHtml.Controllers
         public ActionResult MyProfile()
         {
             
-               
-                var gender = db.ReferenceDatas.Where(m => m.RefCategory == "Gender" && m.IsActive==true).ToList();
-             
-                var countryList = db.Countries.Where(m=>m.IsActive==true).ToList();
+                // get gender for dropdown
+                var gender = db.ReferenceDatas.Where(m => m.RefCategory == "Gender").ToList();
+                // get country
+                var countryList = db.Countries.ToList();
 
 
+                // get current userId
                 var currentuser = db.Users.FirstOrDefault(m => m.EmailId == User.Identity.Name);
 
-                
+                // get user details
                 var isDetailsAvailable = db.UserProfiles.FirstOrDefault(m => m.UserI == currentuser.Id);
 
                 
                 var UserProfile = new AddUserProfileViewModel();
 
-             
+                // check user details available or not
                 if (isDetailsAvailable != null)
                 {
                     UserProfile = (from Detail in db.UserProfiles
@@ -455,7 +490,7 @@ namespace NoteMarketPlaceHtml.Controllers
                                        Country = Detail.Country,
                                        University = Detail.University,
                                        College = Detail.College
-                                   }).FirstOrDefault();
+                                   }).FirstOrDefault<AddUserProfileViewModel>();
 
                
 
@@ -465,7 +500,7 @@ namespace NoteMarketPlaceHtml.Controllers
 
                     return View(UserProfile);
                 }
-                
+                // if user is first time login
                 else
                 {
                     UserProfile.FirstName = currentuser.FirstName;
@@ -483,25 +518,19 @@ namespace NoteMarketPlaceHtml.Controllers
 
         [HttpPost]
        
-        public ActionResult MyProfile(AddUserProfileViewModel user)
+        public ActionResult MyProfile(AddUserProfileViewModel user,HttpPostedFileBase ProfilePicture)
         {
+            int currentuser = db.Users.FirstOrDefault(m => m.EmailId == User.Identity.Name).Id;
+            var defaultImg = db.SystemConfigurations.FirstOrDefault(m => m.KeyData == "DefaultMemberDisplayPicture").ValueData;
+
+            // get user details
+            var isDetailsAvailable = db.UserProfiles.FirstOrDefault(m => m.UserI == currentuser);
             if (ModelState.IsValid)
             {
-
-
-               
-                    
-                    int currentuser = db.Users.FirstOrDefault(m => m.EmailId == User.Identity.Name).Id;
-                    var defaultImg = db.SystemConfigurations.FirstOrDefault(m => m.KeyData == "DefaultMemberDisplayPicture").ValueData;
-             
-                 
-                    var isDetailsAvailable = db.UserProfiles.FirstOrDefault(m => m.UserI == currentuser);
-                    
-
-                    
+                    // check user details available or not
                     if (isDetailsAvailable != null && user != null)
                     {
-                        
+                        // update details
                         var userUpdate = db.Users.FirstOrDefault(m => m.Id == currentuser);
                         var detailsUpdate = db.UserProfiles.FirstOrDefault(m => m.UserI == currentuser);
                         userUpdate.FirstName = user.FirstName;
@@ -511,8 +540,8 @@ namespace NoteMarketPlaceHtml.Controllers
                         detailsUpdate.Gender = user.Gender;
                         detailsUpdate.CountryCode = user.CountryCode;
                         detailsUpdate.PhoneNumber = user.PhoneNumber;
-                    detailsUpdate.ProfilePicture = user.ProfilePicture;
-                    detailsUpdate.AddressLine1 = user.Address1;
+
+                         detailsUpdate.AddressLine1 = user.Address1;
                         detailsUpdate.AddressLine2 = user.Address2;
                         detailsUpdate.City = user.City;
                         detailsUpdate.State = user.State;
@@ -522,7 +551,7 @@ namespace NoteMarketPlaceHtml.Controllers
                         detailsUpdate.University = user.University;
 
 
-                        if (user.ProfilePicture == null)
+                        if (ProfilePicture == null)
                         {
 
                             detailsUpdate.ProfilePicture = detailsUpdate.ProfilePicture;
@@ -537,11 +566,11 @@ namespace NoteMarketPlaceHtml.Controllers
                                 fileInfo.Delete();
 
                             }
+                            string extention_pic = Path.GetExtension(ProfilePicture.FileName);
+                            string Pic = "DP_" + extention_pic;
+                            detailsUpdate.ProfilePicture = "../Members/" + currentuser + "/" + Pic;
 
-                        string Pic = ProfilePicture.FileName;
-                            detailsUpdate.ProfilePicture = "/Members/" + currentuser + "/" + Pic;
-
-                            Pic = Path.Combine(Server.MapPath(string.Format("/Members/{0}", currentuser)), Pic);
+                            Pic = Path.Combine(Server.MapPath(string.Format("../Members/{0}", currentuser)), Pic);
 
                             ProfilePicture.SaveAs(Pic);
 
@@ -575,20 +604,20 @@ namespace NoteMarketPlaceHtml.Controllers
                         CreatedDate = DateTime.Now
                     };
 
-                    if (user.ProfilePicture == null)
+                    if (ProfilePicture == null)
                     {
                         create.ProfilePicture = defaultImg;
                         db.UserProfiles.Add(create);
                     }
                     else
                     {
-                        string Pic = ProfilePicture.FileName;
-                        detailsUpdate.ProfilePicture = "/Members/" + currentuser + "/" + Pic;
+                        string extention_pic = Path.GetExtension(ProfilePicture.FileName);
+                        string Pic = "DP_" + DateTime.Now.ToString("yyyyMMddHHmmssfff") + extention_pic;
+                        user.ProfilePicture = "../Members/" + currentuser + "/" + Pic;
 
-                        Pic = Path.Combine(Server.MapPath(string.Format("/Members/{0}", currentuser)), Pic);
+                        Pic = Path.Combine(Server.MapPath(string.Format("../Members/{0}", currentuser)), Pic);
 
                         ProfilePicture.SaveAs(Pic);
-
                         db.UserProfiles.Add(create);
                     }
                          db.SaveChanges();
@@ -601,34 +630,37 @@ namespace NoteMarketPlaceHtml.Controllers
 
                     }
 
-                
+
             }
-            return View();
+            
+           
+            return View(user);
+
         }
        
         public ActionResult BuyerRequest()
         {
-            
+            // current login user email
             string userEmail = User.Identity.Name;
 
            
-                var result = (from Purchase in db.Downloads
-                              join Note in db.SellerNotes on Purchase.NoteID equals Note.Id
-                              join Downloader in db.Users on Purchase.Downloader equals Downloader.Id
-                              join Details in db.UserProfiles on Purchase.Downloader equals Details.UserI
-                              join Seller in db.Users on Purchase.Seller equals Seller.Id
+                var result = (from download in db.Downloads
+                              join Note in db.SellerNotes on download.NoteID equals Note.Id
+                              join Downloader in db.Users on download.Downloader equals Downloader.Id
+                              join Details in db.UserProfiles on download.Downloader equals Details.UserI
+                              join Seller in db.Users on download.Seller equals Seller.Id
                               join Category in db.NoteCategories on Note.Category equals Category.Id
-                              where Purchase.IsSellerHasAllowedDownload == false && Seller.EmailId == userEmail
+                              where download.IsSellerHasAllowedDownload == false && Seller.EmailId == userEmail
                               select new ByuerRequestViewModel
                               {
-                                  NoteId = Purchase.NoteID,
-                                  DownloadId = Purchase.Id,
+                                  NoteId = download.NoteID,
+                                  DownloadId = download.Id,
                                   Title = Note.Title,
                                   Category = Category.Name,
                                   Buyer = Downloader.EmailId,
                                   PhoneNo=Details.PhoneNumber,
-                                  Selltype = Purchase.PurchasedPrice == 0 ? "Free" : "Paid",
-                                  Price = (decimal)Purchase.PurchasedPrice,
+                                  Selltype = download.downloaddPrice == 0 ? "Free" : "Paid",
+                                  Price = (decimal)download.PurchasedPrice,
                                   RequestDate = (DateTime)Purchase.CreatedDate
                               }).OrderByDescending(m => m.RequestDate).ToList();
 
@@ -650,14 +682,15 @@ namespace NoteMarketPlaceHtml.Controllers
                 var seller = db.Users.FirstOrDefault(m => m.Id == result.Seller);
                 var downloader = db.Users.FirstOrDefault(m => m.Id == result.Downloader);
 
-              
+                // if result not available
                 if (result != null)
                 {
+                    // set allowDownload true
                     result.IsSellerHasAllowedDownload = true;
                    
                     db.SaveChanges();
 
-                    using (MailMessage mm = new MailMessage("email", seller.EmailId))
+                    using (MailMessage mm = new MailMessage("email@gmail.com", seller.EmailId))
                     {
                         mm.Subject = seller.FirstName + " Allows you to download a note";
 
@@ -675,7 +708,7 @@ namespace NoteMarketPlaceHtml.Controllers
                         SmtpClient smtp = new SmtpClient();
                         smtp.Host = "smtp.gmail.com";
                         smtp.EnableSsl = true;
-                        NetworkCredential NetworkCred = new NetworkCredential("email", "pass");
+                        NetworkCredential NetworkCred = new NetworkCredential("email@gmail.com", "pass");
                         smtp.UseDefaultCredentials = true;
                         smtp.Credentials = NetworkCred;
                         smtp.Port = 587;
@@ -699,24 +732,24 @@ namespace NoteMarketPlaceHtml.Controllers
         public ActionResult MyDownloads()
         {
            
-                
+                // current login userId
                 int currentUser = db.Users.FirstOrDefault(m => m.EmailId == User.Identity.Name).Id;
 
-                var result = (from Purchase in db.Downloads
-                              join Note in db.SellerNotes on Purchase.NoteID equals Note.Id
-                              join Downloader in db.Users on Purchase.Downloader equals Downloader.Id
-                              join Seller in db.Users on Purchase.Seller equals Seller.Id
+                var result = (from download in db.Downloads
+                              join Note in db.SellerNotes on download.NoteID equals Note.Id
+                              join Downloader in db.Users on download.Downloader equals Downloader.Id
+                              join Seller in db.Users on download.Seller equals Seller.Id
                               join Category in db.NoteCategories on Note.Category equals Category.Id
-                              where Purchase.IsSellerHasAllowedDownload == true && Purchase.Downloader == currentUser
+                              where download.IsSellerHasAllowedDownload == true && download.Downloader == currentUser
                               select new MyDownoadViewModel
                               {
-                                  NoteId = Purchase.NoteID,
-                                  DowloadId = Purchase.Id,
+                                  NoteId = download.NoteID,
+                                  DowloadId = download.Id,
                                   Title = Note.Title,
                                   Category = Category.Name,
                                   Buyer = Downloader.EmailId,
                                   Price = (decimal)Purchase.PurchasedPrice,
-                                  SellType = Purchase.PurchasedPrice == 0 ? "Free" : "Paid",
+                                  SellType = download.downloaddPrice == 0 ? "Free" : "Paid",
                                   DownloadDate = Purchase.AttachmentDownloadedDate
                               }).ToList();
 
@@ -728,7 +761,7 @@ namespace NoteMarketPlaceHtml.Controllers
             
             if (!noteId.Equals(null))
             {
-              
+               //rejectedNotes
                     int currentuser = db.Users.SingleOrDefault(m => m.EmailId == User.Identity.Name).Id;
                     var note = (from Note in db.SellerNotes
                                 join Attachment in db.SellerNotesAttachements on Note.Id equals Attachment.NoteId
@@ -742,16 +775,16 @@ namespace NoteMarketPlaceHtml.Controllers
                 
 
             }
-         
+            
             else
             {
                 
                     int currentuser = db.Users.SingleOrDefault(m => m.EmailId == User.Identity.Name).Id;
-                    var note = (from Purchase in db.Downloads
-                                join Attachment in db.SellerNotesAttachements on Purchase.NoteID equals Attachment.NoteId
-                                where Purchase.Id == purchaseId &&
-                                (Purchase.Seller == currentuser || (Purchase.Downloader == currentuser && Purchase.IsSellerHasAllowedDownload == true))
-                                select new { Attachment.NoteId, Attachment.FilePath, Attachment.FileName, Purchase.Downloader, Purchase.Seller }).SingleOrDefault();
+                    var note = (from download in db.Downloads
+                                join Attachment in db.SellerNotesAttachements on download.NoteID equals Attachment.NoteId
+                                where download.Id == downloadId &&
+                                (download.Seller == currentuser || (download.Downloader == currentuser && download.IsSellerHasAllowedDownload == true))
+                                select new { Attachment.NoteId, Attachment.FilePath, Attachment.FileName, download.Downloader, download.Seller }).SingleOrDefault();
 
                     if (note != null)
                     {
@@ -766,7 +799,7 @@ namespace NoteMarketPlaceHtml.Controllers
                             db.SaveChanges();
                         }
 
-                        
+                       
                         byte[] filebyte = GetFile(file);
                         return File(filebyte, System.Net.Mime.MediaTypeNames.Application.Octet, note.FileName);
                     }
@@ -793,23 +826,23 @@ namespace NoteMarketPlaceHtml.Controllers
         public ActionResult MySoldNotes()
         {
             int currentUser = db.Users.FirstOrDefault(m => m.EmailId == User.Identity.Name).Id;
-           
-            var result = (from Purchase in db.Downloads
-                          join Note in db.SellerNotes on Purchase.NoteID equals Note.Id
-                          join Downloader in db.Users on Purchase.Downloader equals Downloader.Id
-                          join Seller in db.Users on Purchase.Seller equals Seller.Id
+            // current login userId
+            var result = (from download in db.Downloads
+                          join Note in db.SellerNotes on download.NoteID equals Note.Id
+                          join Downloader in db.Users on download.Downloader equals Downloader.Id
+                          join Seller in db.Users on download.Seller equals Seller.Id
                           join Category in db.NoteCategories on Note.Category equals Category.Id
-                          where Purchase.IsSellerHasAllowedDownload == true && Purchase.Seller == currentUser
+                          where download.IsSellerHasAllowedDownload == true && download.Seller == currentUser
                           select new MySoldNotesViewModel
                           {
-                              Id = Purchase.Id,
-                              NoteId = Purchase.NoteID,
+                              Id = download.Id,
+                              NoteId = download.NoteID,
                               Title = Note.Title,
                               Category = Category.Name,
                               Buyer = Downloader.EmailId,
-                              SellType = Purchase.PurchasedPrice == 0 ? "Free" : "Paid",
-                              Price = (decimal)Purchase.PurchasedPrice,
-                              DownloadDate = (DateTime)Purchase.AttachmentDownloadedDate
+                              SellType = download.PurchasedPrice == 0 ? "Free" : "Paid",
+                              Price = (decimal)download.PurchasedPrice,
+                              DownloadDate = (DateTime)download.AttachmentDownloadedDate
                           }).ToList();
 
             return View(result);
@@ -819,11 +852,12 @@ namespace NoteMarketPlaceHtml.Controllers
         }
 
 
-       
+      
         [Route("User/MyRejectedNotes")]
         public ActionResult MyRejectedNotes()
         {
-              
+           
+                // current login userId
                 int currentUser = db.Users.FirstOrDefault(m => m.EmailId == User.Identity.Name).Id;
 
                 var result = (from Notes in db.SellerNotes
@@ -849,29 +883,29 @@ namespace NoteMarketPlaceHtml.Controllers
         [HttpPost]
         public ActionResult MemberReview(int DowloadId, int review_rating, string reviewcomment)
         {
-            
+
+           
                 var currentuser = db.Users.FirstOrDefault(m => m.EmailId == User.Identity.Name).Id;
-             
+
                 var purchase = db.Downloads.FirstOrDefault(m => m.Id == DowloadId && m.Downloader == currentuser);
 
-                        SellerNotesReview review = new SellerNotesReview
-                        {
-                            NoteId = purchase.NoteID,
-                            ReviewedById = currentuser,
-                            Id = DowloadId,
-                            Comments = reviewcomment,
-                            Ratings = review_rating,
-                            CreatedDate = DateTime.Now,
-                            IsActive = true,
-                            AgainstDownloadsId = purchase.Seller
-                        };
-                     db.SellerNotesReviews.Add(review);
-
-              
+                var review = db.SellerNotesReviews;
+                review.Add(new SellerNotesReview
+                {
+                    NoteId = purchase.NoteID,
+                    ReviewedById = currentuser,
+                    AgainstDownloadsId = Id,
+                    Comments = reviewcomment,
+                    Ratings = review_rating,
+                    CreatedDate = DateTime.Now
+                });
 
                 db.SaveChanges();
 
                 return RedirectToAction("MyDownloads");
+            
+
+         
             
         }
         public ActionResult UserReport(int Id, string UserRemarks)
@@ -901,8 +935,8 @@ namespace NoteMarketPlaceHtml.Controllers
                
                 var Adminemail = db.SystemConfigurations.Where(m => m.KeyData == "EmailAddresssesForNotify ").First().ValueData;
 
-                
-                using (MailMessage mm = new MailMessage("email", Adminemail))
+               
+                using (MailMessage mm = new MailMessage("email@gmail.com", Adminemail))
                 {
                     mm.Subject = currentuser.FirstName + " Reported an issue for"+note.Title;
 
@@ -922,7 +956,7 @@ namespace NoteMarketPlaceHtml.Controllers
                     SmtpClient smtp = new SmtpClient();
                     smtp.Host = "smtp.gmail.com";
                     smtp.EnableSsl = true;
-                    NetworkCredential NetworkCred = new NetworkCredential("email", "pass");
+                    NetworkCredential NetworkCred = new NetworkCredential("email@gmail.com", "pass");
                     smtp.UseDefaultCredentials = true;
                     smtp.Credentials = NetworkCred;
                     smtp.Port = 587;
@@ -933,6 +967,55 @@ namespace NoteMarketPlaceHtml.Controllers
 
                 return RedirectToAction("MyDownloads");
             
+        }
+        public ActionResult CloneNote(int noteId)
+        {
+           
+              
+
+
+                var clonenote = db.SellerNotes;
+                clonenote.Add(new SellerNote
+                {
+                    Title = oldnote.Note.Title,
+                    Category = oldnote.Note.Category,
+                    DisplayPicture = oldnote.Note.DisplayPicture,
+                    NoteType = oldnote.Note.NoteType,
+                    NumberofPages = oldnote.Note.NumberofPages,
+                    Description = oldnote.Note.Description,
+                    UniversityName = oldnote.Note.UniversityName,
+                    Country = oldnote.Note.Country,
+                    Course = oldnote.Note.Course,
+                    CourseCode = oldnote.Note.CourseCode,
+                    Professor = oldnote.Note.Professor,
+                    SellingPrice = oldnote.Note.SellingPrice,
+                    NotesPreview = oldnote.Note.NotesPreview,
+                    Status = 6,
+                    CreatedDate = DateTime.Now,
+                    SellerId = currentuser.Id,
+                    IsActive = true
+                });
+
+                db.SaveChanges();
+
+                // get created note Id
+               
+                    
+
+
+                    var attachments = db.SellerNotesAttachements;
+                    attachments.Add(new SellerNotesAttachement
+                    {
+                        NoteId = newnote.Id,
+                        FileName = atta1,
+                        FilePath = newfile,
+                        CreatedDate = DateTime.Now,
+                        IsActive = true
+                    });
+                   
+                       
+                    db.SaveChanges();
+            return RedirectToAction("Dashboard");
         }
 
 

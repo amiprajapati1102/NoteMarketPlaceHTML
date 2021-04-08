@@ -23,20 +23,21 @@ namespace NoteMarketPlaceHtml.Controllers
             {
                 using (var db_1 = new NoteMarketPlaceEntities())
                 {
-                   
+                    //current user profile img
+                    // set default image
                     var img = (from Details in db_1.AddAdmins
                                join Users in db_1.Users on Details.UserId equals Users.Id
                                where Users.EmailId == requestContext.HttpContext.User.Identity.Name
                                select Details.ProfilePicture).FirstOrDefault();
-                   
+                  
 
                     if (img != null)
                     {
-                       
+                        // set default image
                         ViewBag.UserProfile = img;
                       
                     }
-                   
+                    
                     else
                     {
                         var defaultImg = db_1.SystemConfigurations.FirstOrDefault(m => m.KeyData == "DefaultMemberDisplayPicture").ValueData;
@@ -53,15 +54,18 @@ namespace NoteMarketPlaceHtml.Controllers
         public ActionResult SearchNotes(int? Type, int? Category, string University, string Course, int? Country, int? Rating, string search)
         {
 
+           
             var type = db.NoteTypes.ToList();
            
             var category = db.NoteCategories.ToList();
-           
+          
             var university = db.SellerNotes.Where(m => m.UniversityName != null).Select(x => x.UniversityName).Distinct().ToList();
-            
+           
             var course = db.SellerNotes.Where(m => m.Course != null).Select(x => x.Course).Distinct().ToList();
            
             var country = db.Countries.ToList();
+
+           
             var notes = (from Notes in db.SellerNotes
                          join Status in db.ReferenceDatas on Notes.Status equals Status.Id
                          where Status.Values == "Published" && Notes.IsActive == true
@@ -151,12 +155,11 @@ namespace NoteMarketPlaceHtml.Controllers
         [Authorize(Roles = "SuperAdmin,Admin")]
         public ActionResult NotesUnderReview(int ? SellerId)
         {
-            using (var db = new NoteMarketPlaceEntities())
-            {
+           
              
                 var seller = (from Notes in db.SellerNotes
                               join User in db.Users on Notes.SellerId equals User.Id
-                              where Notes.Status == 6 
+                              where  Notes.Status == 8
                               group new { Notes, User } by Notes.SellerId into grp
                               select new SellerDetailsModel
                               {
@@ -167,10 +170,9 @@ namespace NoteMarketPlaceHtml.Controllers
                 ViewBag.SellerList = seller;
                 var model = (from Notes in db.SellerNotes
                              join Status in db.ReferenceDatas on Notes.Status equals Status.Id
-                             join attachment in db.SellerNotesAttachements on Notes.Id equals attachment.NoteId
                              join Category in db.NoteCategories on Notes.Category equals Category.Id
                              join User in db.Users on Notes.SellerId equals User.Id
-                             where Notes.Status == 6
+                             where Notes.Status == 7 || Notes.Status == 8
                              select new NoteUnderReviewViewModel
                              {
                                  NoteId = Notes.Id,
@@ -179,7 +181,7 @@ namespace NoteMarketPlaceHtml.Controllers
                                  SellerId = User.Id,
                                  Seller = User.FirstName + " " + User.LastName,
                                  status = Status.Values,
-                                 NotePath=attachment.FilePath,
+                                 
                                  DateAdded = (DateTime)Notes.CreatedDate
                              }).OrderByDescending(x => x.DateAdded).ToList();
 
@@ -192,15 +194,14 @@ namespace NoteMarketPlaceHtml.Controllers
                 return View(filternotes);
 
 
-            }
+            
         }
         [HttpPost]
        
         [Authorize(Roles = "SuperAdmin,Admin")]
         public void NoteStatusUpdate(int noteid, string status)
         {
-            using (var db = new NoteMarketPlaceEntities())
-            {
+            
                 var currentAdmin = db.Users.Single(m => m.EmailId == User.Identity.Name).Id;
 
                 var note = db.SellerNotes.Single(m => m.Id == noteid);
@@ -221,15 +222,13 @@ namespace NoteMarketPlaceHtml.Controllers
                 note.ModifiedDate = DateTime.Now;
 
                 db.SaveChanges();
-            }
+            
 
         }
         [Authorize(Roles = "SuperAdmin,Admin")]
         public ActionResult PublishedNotes(int? sellerId)
         {
-            using (var db = new NoteMarketPlaceEntities())
-            {
-                // seller names
+           
                 var seller = (from Notes in db.SellerNotes
                               join User in db.Users on Notes.SellerId equals User.Id
                               where Notes.Status == 9
@@ -243,12 +242,12 @@ namespace NoteMarketPlaceHtml.Controllers
                 ViewBag.SellerList = seller;
 
 
-                // set model value
+                
                 var model = (from Notes in db.SellerNotes
                              join User in db.Users on Notes.SellerId equals User.Id
                              join Admin in db.Users on Notes.ActionBy equals Admin.Id
                              join Category in db.NoteCategories on Notes.Category equals Category.Id
-                             join attachment in db.SellerNotesAttachements on Notes.Id equals attachment.NoteId
+                            
                              where Notes.Status == 9
                              let total = (db.Downloads.Where(m => m.NoteID == Notes.Id && m.IsSellerHasAllowedDownload == true).Count())
                              select new PublishNoteViewModel
@@ -261,7 +260,7 @@ namespace NoteMarketPlaceHtml.Controllers
                                  Seller = User.FirstName + " " + User.LastName,
                                  ActionBy = Admin.FirstName + " " + Admin.LastName,
                                  PublishDate = (DateTime)Notes.PublishedDate,
-                                 NotePath=attachment.FilePath,
+                               
                                  TotalDownloads = total
                              }).OrderByDescending(x => x.PublishDate).ToList();
 
@@ -271,12 +270,12 @@ namespace NoteMarketPlaceHtml.Controllers
                 }
                 else
                 {
-                    var filterdata = model.Where(m => m.SellerId == sellerId).ToList();
-                    return View(filterdata);
+                    var filtermodel = model.Where(m => m.SellerId == sellerId).ToList();
+                    return View(filtermodel);
                 }
 
 
-            }
+            
 
 
         }
@@ -285,11 +284,8 @@ namespace NoteMarketPlaceHtml.Controllers
         public ActionResult NoteDetails(int? id, bool? ReadOnly)
         {
            
-            using (var db = new NoteMarketPlaceEntities())
-            {
-                
-                var defaultuserImg = db.SystemConfigurations.FirstOrDefault(m => m.KeyData == "DefaultMemberDisplayPicture ").ValueData;
-                // get note details
+            
+              
                 var notes = (from Notes in db.SellerNotes
                              join Category in db.NoteCategories on Notes.Category equals Category.Id
                              let Country = db.Countries.FirstOrDefault(m => m.Id == Notes.Country)
@@ -321,7 +317,7 @@ namespace NoteMarketPlaceHtml.Controllers
                 }
 
 
-             
+               
                 var avg = db.SellerNotesReviews.Where(m => m.NoteId == id).ToList();
                 if (avg.Count() > 0)
                 {
@@ -336,12 +332,14 @@ namespace NoteMarketPlaceHtml.Controllers
                     ViewBag.AverageReview = 0;
                 }
 
+
+                // spam count
                 var spam = db.SellerNotesReportedIssues.Where(m => m.NoteId == id).Count();
                 ViewBag.Spam = spam;
 
-             
+               
                 var reviews = (from Review in db.SellerNotesReviews
-                               join User in db.Users on Review.AgainstDownloadsId equals User.Id
+                               join User in db.Users on Review.ReviewedById equals User.Id
                                join UserDetail in db.UserProfiles on User.Id equals UserDetail.UserI
                                where Review.NoteId == id
                                select new CustomerReview
@@ -354,11 +352,7 @@ namespace NoteMarketPlaceHtml.Controllers
                                }).OrderByDescending(m => m.Ratings).ToList();
 
                 ViewBag.Reviews = reviews;
-                if (!User.Identity.IsAuthenticated)
-                {
-                    TempData["ReadOnly"] = "true";
-
-                }
+                
 
                 if (ReadOnly != null && ReadOnly == true)
                 {
@@ -375,17 +369,16 @@ namespace NoteMarketPlaceHtml.Controllers
                 }
 
 
-            }
+            
 
         }
 
         [Authorize(Roles = "Member")]
-        public ActionResult BuyNote(string noteId)
+        public ActionResult download(string noteId)
         {
             int noteid = int.Parse(noteId);
 
-            using (var db = new NoteMarketPlaceEntities())
-            {
+           
 
                 var user = db.Users.FirstOrDefault(m => m.EmailId == User.Identity.Name);
                 var note = db.SellerNotes.FirstOrDefault(m => m.Id == noteid);
@@ -418,14 +411,12 @@ namespace NoteMarketPlaceHtml.Controllers
                         db.Downloads.Add(create);
                         db.SaveChanges();
 
-                     
-
+                      
                         return File(filebyte, System.Net.Mime.MediaTypeNames.Application.Octet, attachment.FileName);
                     }
                     else
                     {
-                        
-
+                      
                         create.Downloader = user.Id;
                         create.NoteID = noteid;
                         create.Seller = note.SellerId;
@@ -442,13 +433,13 @@ namespace NoteMarketPlaceHtml.Controllers
                         
                         db.SaveChanges();
 
-                       
+                        // seller email
                         var seller = db.Users.FirstOrDefault(m => m.Id == note.SellerId);
                         var details = db.UserProfiles.FirstOrDefault(m => m.UserI == user.Id);
                        
-                        using (MailMessage mm = new MailMessage("email", seller.EmailId))
+                        using (MailMessage mm = new MailMessage("email@gmail.com", seller.EmailId))
                         {
-                            mm.Subject = user.FirstName + " wants to purchase your notes";
+                            mm.Subject = user.FirstName + " wants to download your notes";
 
                             string body = string.Empty;
                             using (StreamReader reader = new StreamReader(Server.MapPath("~/EmailTemplate/BuyerRequest.html")))
@@ -457,16 +448,16 @@ namespace NoteMarketPlaceHtml.Controllers
                             }
                             string FirstName = user.FirstName;
                             string sellerName = seller.FirstName;
-                            string gender = details.Gender == 2 ? "her" : "him";
+                           
                             body = body.Replace("{FirstName}", FirstName);
                             body = body.Replace("{Seller}", sellerName);
-                            body = body.Replace("{gender}", gender);
+                          
                             mm.Body = body;
                             mm.IsBodyHtml = true;
                             SmtpClient smtp = new SmtpClient();
                             smtp.Host = "smtp.gmail.com";
                             smtp.EnableSsl = true;
-                            NetworkCredential NetworkCred = new NetworkCredential("email", "pass");
+                            NetworkCredential NetworkCred = new NetworkCredential("email@gmail.com", "pass");
                             smtp.UseDefaultCredentials = true;
                             smtp.Credentials = NetworkCred;
                             smtp.Port = 587;
@@ -478,7 +469,7 @@ namespace NoteMarketPlaceHtml.Controllers
 
                         TempData["UserName"] = user.FirstName;
 
-                      
+                       
                         TempData["ShowModal"] = 1;
                         return RedirectToAction("NoteDetails", new { id = noteId });
                     }
@@ -489,7 +480,7 @@ namespace NoteMarketPlaceHtml.Controllers
                 {
                     return RedirectToAction("SearchNotes","Notes");
                 }
-            }
+            
 
 
         }
@@ -504,11 +495,11 @@ namespace NoteMarketPlaceHtml.Controllers
             }
             return data;
         }
-
+        [Authorize(Roles = "SuperAdmin,Admin")]
         public ActionResult DownloadedNote(int? noteId, int? sellerId, int? buyerId)
         {
             
-                // seller names
+               
                 var seller = (from Notes in db.SellerNotes
                               join User in db.Users on Notes.SellerId equals User.Id
                               where Notes.Status == 9
@@ -521,10 +512,11 @@ namespace NoteMarketPlaceHtml.Controllers
 
                 ViewBag.SellerList = seller;
 
-                var buyer = (from Purchase in db.Downloads
-                             join User in db.Users on Purchase.Downloader equals User.Id
-                             where Purchase.IsSellerHasAllowedDownload == true && Purchase.IsAttachmentDownloaded == true
-                             group new { Purchase, User } by Purchase.Downloader into grp
+              
+                var buyer = (from download in db.Downloads
+                             join User in db.Users on download.Downloader equals User.Id
+                             where download.IsAttachmentDownloaded == true
+                             group new { download, User } by download.Downloader into grp
                              select new BuyerListModel
                              {
                                  BuyerId = grp.Select(x => x.User.Id).FirstOrDefault(),
@@ -533,74 +525,75 @@ namespace NoteMarketPlaceHtml.Controllers
 
                 ViewBag.BuyerList = buyer;
 
-              
-                var note = (from Purchase in db.Downloads
-                            join Note in db.SellerNotes on Purchase.NoteID equals Note.Id
-                            where Purchase.IsSellerHasAllowedDownload == true && Purchase.IsAttachmentDownloaded == true
-                            group new { Note, Purchase } by Note.Id into grp
+               
+                var note = (from download in db.Downloads
+                            join Note in db.SellerNotes on download.NoteID equals Note.Id
+                            where download.IsSellerHasAllowedDownload == true && download.IsAttachmentDownloaded == true
+                            group new { Note, download } by Note.Id into grp
                             select new NoteListModel
                             {
-                                NoteId = grp.Select(x => x.Purchase.NoteID).FirstOrDefault(),
+                                NoteId = grp.Select(x => x.download.NoteID).FirstOrDefault(),
                                 Title = grp.Select(x => x.Note.Title).FirstOrDefault()
                             }).ToList();
 
                 ViewBag.NoteList = note;
 
-               
-                var model = (from Purchase in db.Downloads
-                             join Note in db.SellerNotes on Purchase.NoteID equals Note.Id
-                             join attachment in db.SellerNotesAttachements on Note.Id equals attachment.NoteId
-                             join Downloader in db.Users on Purchase.Downloader equals Downloader.Id
-                             join Seller in db.Users on Purchase.Seller equals Seller.Id
+                
+                var model = (from download in db.Downloads
+                             join Note in db.SellerNotes on download.NoteID equals Note.Id
+                             
+                             join Downloader in db.Users on download.Downloader equals Downloader.Id
+                             join Seller in db.Users on download.Seller equals Seller.Id
                              join Category in db.NoteCategories on Note.Category equals Category.Id
-                             where Purchase.IsSellerHasAllowedDownload == true && Purchase.IsAttachmentDownloaded == true
+                             where download.IsSellerHasAllowedDownload == true && download.IsAttachmentDownloaded == true
                              select new DownloadNotesViewModel
                              {
-                                 NoteId = Purchase.NoteID,
+                                 NoteId = download.NoteID,
                                  Title = Note.Title,
                                  Category = Category.Name,
-                                 Price = (decimal)Purchase.PurchasedPrice,
+                                 Price = (decimal)download.PurchasedPrice,
                                  SellerId = Seller.Id,
                                  BuyerId = Downloader.Id,
-                                 NotePath=attachment.FilePath,
+                                
                                  SellerName = Seller.FirstName + " " + Seller.LastName,
                                  BuyerName = Downloader.FirstName + " " + Downloader.LastName,
-                                 DownloadedDate = (DateTime)Purchase.AttachmentDownloadedDate
+                                 DownloadedDate = (DateTime)download.AttachmentDownloadedDate
                              }).OrderByDescending(x => x.DownloadedDate).ToList();
 
 
-                var filterdata = model;
+                var filtermodel = model;
 
                 if (!noteId.Equals(null))
                 {
-                    filterdata = filterdata.Where(m => m.NoteId == noteId).ToList();
+                    filtermodel = filtermodel.Where(m => m.NoteId == noteId).ToList();
                  }
             else
             {
-                return View(filterdata);
+                return View(filtermodel);
             }
 
             if (!sellerId.Equals(null))
                 {
-                    filterdata = filterdata.Where(m => m.SellerId == sellerId).ToList();
+                    filtermodel = filtermodel.Where(m => m.SellerId == sellerId).ToList();
                 }
                 else
                 {
-                return View(filterdata);
+                return View(filtermodel);
             }
                 if (!buyerId.Equals(null))
                     {
-                        filterdata = filterdata.Where(m => m.BuyerId == buyerId).ToList();
+                        filtermodel = filtermodel.Where(m => m.BuyerId == buyerId).ToList();
                     }
                     else
                     {
-                return View(filterdata);
+                return View(filtermodel);
             }
 
-            return View(filterdata);
+            return View(filtermodel);
 
             
         }
+        [Authorize(Roles = "SuperAdmin,Admin")]
         public ActionResult RejectNote(int noteId, string Reject)
         {
            
@@ -622,6 +615,7 @@ namespace NoteMarketPlaceHtml.Controllers
         public ActionResult RejectedNotes(int? sellerId)
         {
            
+                // seller names
                 var seller = (from Notes in db.SellerNotes
                               join User in db.Users on Notes.SellerId equals User.Id
                               where Notes.Status == 10
@@ -635,6 +629,7 @@ namespace NoteMarketPlaceHtml.Controllers
                 ViewBag.SellerList = seller;
 
 
+                // set model data
                 var notes = (from Note in db.SellerNotes
                              join Category in db.NoteCategories on Note.Category equals Category.Id
                              join Seller in db.Users on Note.SellerId equals Seller.Id
@@ -655,6 +650,7 @@ namespace NoteMarketPlaceHtml.Controllers
                              }).ToList();
 
 
+             
                 if (!sellerId.Equals(null))
                 {
                     notes = notes.Where(x => x.SellerId == sellerId).ToList();
@@ -666,6 +662,7 @@ namespace NoteMarketPlaceHtml.Controllers
 
         }
         [HttpPost]
+        [Authorize(Roles = "SuperAdmin,Admin")]
         public ActionResult UnPublishNote(int noteid, string Remarks)
         {
             
@@ -683,7 +680,7 @@ namespace NoteMarketPlaceHtml.Controllers
                 db.SaveChanges();
 
 
-            using (MailMessage mm = new MailMessage("email", seller.EmailId))
+            using (MailMessage mm = new MailMessage("email@gmail.com", seller.EmailId))
             {
                 mm.Subject = seller.FirstName + " Sorry! We need to remove your notes from our portal";
 
@@ -705,7 +702,7 @@ namespace NoteMarketPlaceHtml.Controllers
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
                 smtp.EnableSsl = true;
-                NetworkCredential NetworkCred = new NetworkCredential("email", "pass");
+                NetworkCredential NetworkCred = new NetworkCredential("email@gmail.com", "pass");
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = NetworkCred;
                 smtp.Port = 587;

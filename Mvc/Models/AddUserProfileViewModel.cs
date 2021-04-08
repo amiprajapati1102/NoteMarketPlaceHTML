@@ -22,6 +22,7 @@ namespace NoteMarketPlaceHtml.Models
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public Nullable<DateTime> DOB { get; set; }
 
+        [Required]
         public Nullable<int> Gender { get; set; }
 
         [Required]
@@ -51,10 +52,10 @@ namespace NoteMarketPlaceHtml.Models
 
         public string Country { get; set; }
 
-        [Required]
+       
         public string University { get; set; }
 
-        [Required]
+      
         public string College { get; set; }
 
 
@@ -75,6 +76,7 @@ namespace NoteMarketPlaceHtml.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        [Required]
         public string CountryCode { get; set; }
     }
    

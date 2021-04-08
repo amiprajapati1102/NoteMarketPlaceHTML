@@ -20,57 +20,6 @@
         }
     } }
 
-
-
-
-<style type="text/css">
-
-    .search-result {
-        padding: 0 60px 100px 60px;
-    }
-
-    .paging {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .pagination {
-        display: flex;
-    }
-
-    .page_num {
-        margin-top: 6px;
-    }
-
-        .page_num a {
-            color: #000000;
-            font-size: 16px;
-            margin: 0 15px;
-            padding-left: 0;
-            padding-right: 0;
-            text-decoration: none;
-        }
-
-            .page_num a.active {
-                color: #fff;
-                background-color: #6255a5;
-                padding: 5px 10px;
-                border-radius: 50%;
-            }
-
-    @@media (max-width: 480px) {
-
-        .page_num a {
-            font-size: 14px;
-            margin: 0 10px;
-        }
-
-        .search-result {
-            padding: 0 20px 100px 20px;
-        }
-    }
-</style>
 <div class="banner-image x-t-100">
     <div class="banner-text">
         <h1>Search Notes</h1>
@@ -137,10 +86,10 @@
                             <img src="@Url.Content(Note.Image)" alt="note image" class="note-img">
                             <div class="details">
                                 <h4 style="cursor:pointer;" noteId="@Note.Id">@Note.Title</h4>
-                                <p class="note-details"><img src="../img/Search/university.png">@Note.University</p>
-                                <p class="note-details"><img src="../img/Search/pages.png">@Note.Pages </p>
-                                <p class="note-details"><img src="../img/Search/date.png">@Note.PublishDate.GetValueOrDefault().ToString("ddd, MMM dd yyyy")</p>
-                                <p class="note-details"><img src="../img/Search/flag.png">@(Note.TotalSpams) Users marked this note as inappropriate</p>
+                                <p class="note-details"><img src="~/Content/img/Search/university.png">@Note.University</p>
+                                <p class="note-details"><img src="~/Content/img/Search/pages.png">@Note.Pages </p>
+                                <p class="note-details"><img src="~/Content/img/Search/date.png">@Note.PublishDate.GetValueOrDefault().ToString("ddd, MMM dd yyyy")</p>
+                                <p class="note-details"><img src="~/Content/img/Search/flag.png">@(Note.TotalSpams) Users marked this note as inappropriate</p>
                                 <div class="ratings">
                                     <div class="rate">
 

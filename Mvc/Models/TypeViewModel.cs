@@ -9,6 +9,7 @@ namespace NoteMarketPlaceHtml.Models
 {
     public class TypeViewModel
     {
+        public int Id { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Type Name is Required.")]
         [DisplayName("Name")]
         public string Name { get; set; }

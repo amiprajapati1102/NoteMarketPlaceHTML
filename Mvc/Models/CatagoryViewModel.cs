@@ -9,6 +9,8 @@ namespace NoteMarketPlaceHtml.Models
 {
     public class CatagoryViewModel
     {
+        public int Id { get; set; }
+
         [Required(AllowEmptyStrings = false, ErrorMessage = "Catagory Name is Required.")]
         [DisplayName("Name")]
         public string Name { get; set; }

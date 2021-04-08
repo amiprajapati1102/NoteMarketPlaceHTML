@@ -18,20 +18,20 @@ namespace NoteMarketPlaceHtml.Controllers
             {
                 using (var db_1 = new NoteMarketPlaceEntities())
                 {
-                   
+                    //current user profile img
+                    // set default image
                     var img = (from Details in db_1.AddAdmins
                                join Users in db_1.Users on Details.UserId equals Users.Id
                                where Users.EmailId == requestContext.HttpContext.User.Identity.Name
                                select Details.ProfilePicture).FirstOrDefault();
-                    
-
+                   
                     if (img != null)
                     {
-                       
+                        // set default image
                         ViewBag.UserProfile = img;
                        
                     }
-                   
+                 
                     else
                     {
                         var defaultImg = db_1.SystemConfigurations.FirstOrDefault(m => m.KeyData == "DefaultMemberDisplayPicture").ValueData;

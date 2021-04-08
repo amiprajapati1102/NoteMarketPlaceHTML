@@ -171,4 +171,3 @@ C:\Users\amipr\source\repos\NoteMarketPlaceHtml\obj\Debug\NoteMarketPlaceHtml.cs
 C:\Users\amipr\source\repos\NoteMarketPlaceHtml\obj\Debug\NoteMarketPlaceHtml.csproj.CopyComplete
 C:\Users\amipr\source\repos\NoteMarketPlaceHtml\obj\Debug\NoteMarketPlaceHtml.dll
 C:\Users\amipr\source\repos\NoteMarketPlaceHtml\obj\Debug\NoteMarketPlaceHtml.pdb
-C:\Users\amipr\source\repos\NoteMarketPlaceHtml\obj\Debug\NoteMarketPlaceHtml.csprojAssemblyReference.cache

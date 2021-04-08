@@ -37,18 +37,24 @@
         </div>
         <hr />
         <div class="row ">
-            <table class="table table-hover table-responsive" id="inProgresstbl">
+            <table class="table table-hover table-responsive tabledata">
                 <thead>
                     <tr class="text-uppercase">
-                        <th scope="col">sr No.</th>
-                        <th scope="col">Note Title</th>
-                        <th scope="col">Catagory</th>
-                        <th scope="col" width="20px;">Seller</th>
-                        <th scope="col" width="50px;"></th>
-                        <th scope="col">Date Added</th>
-                        <th scope="col">Rejected BY</th>
-                        <th scope="col" width="50px;">Remark</th>
-                        <th></th>
+                        <th scope="col" style="width: 5%">SR NO.</th>
+                        <th scope="col" style="width: 15%">Note Title</th>
+                        <th scope="col" style="width: 10%">Catagory</th>
+                        <th scope="col" style="width: 15%">Seller</th>
+
+                        <th scope="col" style="width: 5%"></th>
+                        <th scope="col" style="width: 5%">Date Added</th>
+                        <th scope="col" style="width: 10%">Rejected BY</th>
+                        <th scope="col" style="width: 30%">Remark</th>
+                       
+                        <th scope="col" style="width: 5%"></th>
+                       
+                      
+
+                      
                     </tr>
                 </thead>
                 <tbody>
@@ -117,7 +123,7 @@
         location.href = "../Admin/MemberDetails?sellerId=" + id;
     }
     function NoteDetail(id) {
-        location.href = "../Notes/NoteDetails/" + id;
+        location.href = "../Notes/NoteDetails/" + id + "?ReadOnly=true";
     }
     function Approve(id) {
 

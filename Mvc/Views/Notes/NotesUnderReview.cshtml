@@ -12,7 +12,7 @@
                 <h3>Notes Under Review</h3>
             </div>
         </div>
-        <div class="row">
+        <div class="row ">
             <div class="small_text col-md-12">seller</div>
             <div class="seller_drop col-md-4 col-sm-6 col-12" style="padding-top: 20px; padding-left: 0;">
                
@@ -46,21 +46,23 @@
         </div>
         <div class="row">
             <div class="container">
-                <table class="table table-hover table-responsive " id="inProgresstbl">
+                <table class="table table-hover table-responsive tabledata">
                     <thead>
                         <tr class="text-uppercase">
-                            <th scope="col">Sr No.</th>
-                            <th scope="col"  style="width: 600px;" >Added date</th>
-                            <th scope="col">title</th>
-                            <th scope="col">category</th>
-                            <th scope="col">Seller</th>
-                            
-                            <th scope="col"></th>
-                            <th scope="col" >status</th>
-                            <th scope="col"></th>
-                            <th scope="col">ACTION</th>
-                            <th scope="col"></th>
-                            <th scope="col">  </th>
+
+                            <th scope="col" style="width: 5%">SR NO.</th>
+                            <th scope="col" style="width: 15%">Added date</th>
+                            <th scope="col" style="width: 10%">title</th>
+                            <th scope="col" style="width: 15%">category</th>
+                          
+                            <th scope="col" style="width: 5%">Seller</th>
+                            <th scope="col" style="width: 5%"></th>
+                            <th scope="col" style="width: 10%">status</th>
+                            <th scope="col" style="width: 30%"></th>
+                            <th scope="col" style="width: 30%">ACTION</th>
+                            <th scope="col" style="width: 5%"></th>
+                            <th scope="col" style="width: 5%"></th>
+
 
 
                         </tr>
@@ -70,7 +72,7 @@
                         @{ if (Model.Count() == 0)
                             {
                                 <tr>
-                                    <td colspan="5" style="text-align:center;">No Record Available</td>
+                                    <td colspan="10" style="text-align:center;">No Record Available</td>
                                 </tr>
                             }
                             else
@@ -193,7 +195,7 @@
     }
 
     function SellerDetail(id) {
-        location.href = "MemberDetails?id=" + id;
+        location.href = "../Admin/MemberDetails?sellerId=" + id;
     }
 
     function InReview(id) {

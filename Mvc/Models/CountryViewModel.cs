@@ -9,6 +9,8 @@ namespace NoteMarketPlaceHtml.Models
 {
     public class CountryViewModel
     {
+        public int Id { get; set; }
+
         [Required(AllowEmptyStrings = false, ErrorMessage = "Country Name is Required.")]
         [DisplayName("Country Name")]
         public string Name { get; set; }

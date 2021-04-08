@@ -10,6 +10,7 @@ namespace NoteMarketPlaceHtml.Models
 {
     public class AdminProfileViewModel
     {
+        public int Id { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "First Name is Required.")]
         [DisplayName("First Name")]
         public string FirstName { get; set; }

@@ -39,7 +39,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                        @Html.ActionLink("Dashboard", "Dashboard", "Admin", null, new { @class = "nav-link" })
+                      
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
@@ -64,12 +65,7 @@
                         <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                            id="report">Reports</a>
                         <div class="dropdown-menu">
-                            <a href="SpamReports.html">
-                                <button class="dropdown-item" type="button">
-                                    Spam
-                                    Report
-                                </button>
-                            </a>
+                            @Html.ActionLink("Spam Reports", "SpamReports", "Admin", null, new { @class = "dropdown-item " })
                         </div>
                     </li>
 
@@ -77,19 +73,14 @@
                         <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                            id="settings">Settings</a>
                         <div class="dropdown-menu">
-                            <a href="SystemConfiguration.html">
-                                <button class="dropdown-item" type="button">
-                                    Manage System
-                                    Configuration
-                                </button>
-                            </a>
+                            
                             @if (User.IsInRole("superAdmin"))
                             {
-                                @Html.ActionLink("Manage Administrator", "AddAdmin", "Admin", null, new { @class = "dropdown-item " })
+                                @Html.ActionLink("Manage Administrator", "ManageAdmin", "Admin", null, new { @class = "dropdown-item " })
                             }
-                            @Html.ActionLink("Manage Category", "Category", "Admin", null, new { @class = "dropdown-item " })
-                            @Html.ActionLink("Manage Type", "Type", "Admin", null, new { @class = "dropdown-item " })
-                            @Html.ActionLink("Manage Countries", "Country", "Admin", null, new { @class = "dropdown-item " })
+                            @Html.ActionLink("Manage Category", "ManageCategory", "Admin", null, new { @class = "dropdown-item " })
+                            @Html.ActionLink("Manage Type", "ManageType", "Admin", null, new { @class = "dropdown-item " })
+                            @Html.ActionLink("Manage Countries", "ManageCountry", "Admin", null, new { @class = "dropdown-item " })
                         </div>
                     </li>
 
@@ -103,7 +94,7 @@
                                 <img src="@Url.Content(@ViewBag.UserProfile)" height="45" width="45" />
                             </a>
                             <div class="dropdown-menu">
-                                @Html.ActionLink("Update Profile", "AddAdmin", "Admin", null, new { @class = "dropdown-item " })
+                                @Html.ActionLink("Update Profile", "AdminProfile", "Admin", null, new { @class = "dropdown-item " })
                                 @Html.ActionLink("Change Password", "ChangePassword", "Account", null, new { @class = "dropdown-item " })
                                 @Html.ActionLink("Logout", "Logout", "Account", null, new { @class = "dropdown-item " })
                             </div>

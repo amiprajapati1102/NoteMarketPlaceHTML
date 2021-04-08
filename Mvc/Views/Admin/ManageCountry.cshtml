@@ -1,0 +1,113 @@
+﻿@model IEnumerable<NoteMarketPlaceHtml.Models.ManageCountryViewModel>
+
+@{
+    ViewBag.Title = "ManageCountry";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<section class="dashboard_table x-t-100">
+    <div class="container">
+        <div class="row">
+            <div class="form-heading">
+                <h3>Manage Country</h3>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="admin_button col-md-4 col-sm-6 col-12">
+                <a href="Country"><button type="button" class="btn btn-primary admin_btn">Add Country</button></a>
+            </div>
+
+            <div class="col-md-8 col-sm-6 col-12">
+                <div class="search-note">
+
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8 col-8">
+                            <div class="search">
+                                <img src="~/Content/img/Search/search.jpg" />
+                                <input type="search" class="form-control" placeholder="Search" id="searchbox">
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4 col-4 search_button">
+                            <button type="button" class="btn btn-primary searc_btn">Search</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <hr />
+        <div class="row ">
+            <table class="table table-hover table-responsive tabledata">
+                <thead>
+                    <tr>
+                        <th scope="col">SR NO.</th>
+                        <th scope="col">COUNTRY NAME</th>
+                        <th scope="col">COUNTRY CODE</th>
+                        <th scope="col" width="300">DATE ADDED</th>
+                        <th scope="col" width="300">ADDED BY</th>
+                        <th scope="col">ACTIVE</th>
+                        <th scope="col">ACTION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ if (Model.Count() == 0)
+                        {
+
+
+                            <tr>
+                                <td colspan="7" style="text-align:center;">No record found</td>
+                            </tr>
+                        }
+                        else
+                        {
+                            int cnt = 0;
+                            foreach (var data in Model)
+                            {
+                                cnt++;
+                                <tr>
+                                    <td>@cnt</td>
+                                    <td>@data.Name</td>
+                                    <td>@data.CountryCode</td>
+                                    <td>@data.CreatedDate</td>
+                                    <td>@data.CreatedBy</td>
+                                    <td>@data.IsActive</td>
+                                    <td>
+
+                                        <i class="fas fa-pencil-alt" onclick="Edit(@data.Id)"></i>
+                                        <i class="fas fa-trash-alt" onclick="Delete(@data.Id)"></i>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<script>
+
+    function Edit(id) {
+        location.href = "Country?edit=" + id;
+    }
+
+    function Delete(id) {
+     
+        $.ajax({
+            method: 'POST',
+            url: 'DeleteCountry',
+            data: { id: id },
+            success: function () {
+                location.reload();
+            },
+            error: function () {
+                alert("Try Again");
+            }
+        });
+    }
+
+
+</script>

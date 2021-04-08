@@ -51,7 +51,7 @@
 
 
         <div class="row ">
-            <table class="table table-hover table-responsive" id="inProgresstbl">
+            <table class="table table-hover table-responsive tabledata">
                 <thead>
                     <tr class="text-uppercase">
                         <th scope="col" style="width: 5%;">sr no.</th>
@@ -143,15 +143,26 @@
             data.buyerId = buyerId;
         }
 
-        location.href = "../Notes/DownloadNotes/data" + data ;
+        console.log(data);
 
+        $.ajax({
+            method: 'GET',
+            url: 'DownloadedNote',
+            data: data,
+            success: function (data) {
+                $("body").html(data);
+            },
+            error: function () {
+                alert("Try Again");
+            }
+        });
     }
 
 
 
 
     function NoteDetail(id) {
-        location.href = "../Notes/NoteDetails/" + id ;
+        location.href = "../Notes/NoteDetails/" + id + "?ReadOnly=true";
     }
 
     function Member(id) {

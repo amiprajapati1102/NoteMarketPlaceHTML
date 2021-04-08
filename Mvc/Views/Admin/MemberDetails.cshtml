@@ -1,0 +1,189 @@
+﻿
+@{
+    ViewBag.Title = "MemberDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<section class="member_details x-t-100">
+    <div class="container">
+        <div class="row">
+            <div class="form-heading">
+                <h3>Member Details </h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="member_content col-md-12">
+                <div class="member_img col-md-2">
+                   
+                    <img src="@Url.Content(@ViewBag.Details.ProfileImage)" alt="member img">
+                </div>
+                <div class="member_left col-md-4">
+                    <div class="row">
+                        <div class="member_info col-md-6 col-sm-6 col-6">
+                            First Name:
+                        </div>
+                        <div class="member_info_dark col-md-6 col-sm-6 col-6">
+                            @ViewBag.Details.FirstName
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="member_info col-md-6 col-sm-6 col-6">
+                            Last Name:
+                        </div>
+                        <div class="member_info_dark col-md-6 col-sm-6 col-6">
+                            @ViewBag.Details.LastName
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="member_info col-md-6 col-sm-6 col-6">
+                            Email:
+                        </div>
+                        <div class="member_info_dark col-md-6 col-sm-6 col-6">
+                            @ViewBag.Details.Email
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="member_info col-md-6 col-sm-6 col-6">
+                            DOB:
+                        </div>
+                        <div class="member_info_dark col-md-6 col-sm-6 col-6">
+                            @(ViewBag.Details.DOB.ToString("dd-MM-yyyy") ?? "N/A")
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="member_info col-md-6 col-sm-6 col-6">
+                            Phone Number:
+                        </div>
+                        <div class="member_info_dark col-md-6 col-sm-6 col-6">
+                            @(ViewBag.Details.Phone ?? "N/A")
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="member_info col-md-6 col-sm-6 col-6">
+                            College/University:
+                        </div>
+                        <div class="member_info_dark col-md-6 col-sm-6 col-6">
+                            @ViewBag.Details.Collage/@ViewBag.Details.University
+                        </div>
+                    </div>
+                </div>
+                <div class="center_line col-md-1" style="margin-left: 80px;"></div>
+                <div class="member_right col-md-4">
+                    <div class="row">
+                        <div class="member_info col-md-6 col-sm-6 col-6">
+                            Address 1:
+                        </div>
+                        <div class="member_info_dark col-md-6 col-sm-6 col-6">
+                            @ViewBag.Details.Address1
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="member_info col-md-6 col-sm-6 col-6">
+                            Address2:
+                        </div>
+                        <div class="member_info_dark col-md-6 col-sm-6 col-6">
+                            @ViewBag.Details.Address2
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="member_info col-md-6 col-sm-6 col-6">
+                            City:
+                        </div>
+                        <div class="member_info_dark col-md-6 col-sm-6 col-6">
+                            @ViewBag.Details.City
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="member_info col-md-6 col-sm-6 col-6">
+                            State:
+                        </div>
+                        <div class="member_info_dark col-md-6 col-sm-6 col-6">
+                            @ViewBag.Details.State
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="member_info col-md-6 col-sm-6 col-6">
+                            Country:
+                        </div>
+                        <div class="member_info_dark col-md-6 col-sm-6 col-6">
+                            @ViewBag.Details.Country
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="member_info col-md-6 col-sm-6 col-6">
+                            Zip Code:
+                        </div>
+                        <div class="member_info_dark col-md-6 col-sm-6 col-6">
+                            @ViewBag.Details.Zipcode
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<hr />
+<section class="dashboard_table">
+    <div class="container">
+        <div class="row">
+            <div class="download_heading col-md-6" style="font-size: 24px;">Notes</div>
+        </div>
+        <div class="row ">
+            <table class="table table-hover table-responsive tabledata">
+                <thead>
+                    <tr class="text-uppercase">
+                        <th scope="col" style="width: 5%;">SR NO.</th>
+                        <th scope="col" style="width: 20%;">note title</th>
+                        <th scope="col" style="width: 5%;">category</th>
+                        <th scope="col" style="width: 5%;">status</th>
+                        <th scope="col" style="width: 5%;">downloaded notes</th>
+                        <th scope="col" style="width: 5%;">total earnings</th>
+                        <th scope="col" style="width: 15%;">date added</th>
+                        <th scope="col" style="width: 15%;">published date</th>
+                        <th scope="col" style="width: 5%;"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ if (Model.Count == 0)
+                        {
+                            <tr>
+                                <td colspan="9" style="text-align:center;">No Record Found</td>
+                            </tr>
+                        }
+                        else
+                        {
+                            int cnt = 0;
+                            foreach (var data in Model)
+                            {
+                                cnt++;
+                <tr>
+                    <td>@cnt</td>
+                    <td class="purple_text" onclick="NoteDetail('@data.NoteId')">@data.Title</td>
+                    <td>@data.Category</td>
+                    <td>@data.Status</td>
+                    <td class="purple_text" onclick="Downloaded('@data.NoteId')">@data.DownloadedNote</td>
+                    <td>$@(data.Earning ?? 0)</td>
+                    <td>@data.DateAdded.ToString("dd-MM-yyyy, HH:mm")</td>
+                    <td>@(data.PublishedDate == null ? "N/A" : data.PublishedDate)</td>
+                    <td>
+                        <img id="more-dropeddown" src="~/Content/img/Search/dots.png"
+                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="dropdown-menu more-dropdown-menu" aria-labelledby="more-dropeddown">
+                            <a class="dropdown-item" target="_blank" href="@Url.Content(data.NotePath)">Download Notes</a>
+                        </div>
+
+                    </td>
+                </tr>
+                                }
+                            }
+                        }
+
+                        </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+<script>
+    function NoteDetail(id) {
+        location.href = "../Notes/NoteDetails/" + id + "?ReadOnly=true";
+    }
+</script>

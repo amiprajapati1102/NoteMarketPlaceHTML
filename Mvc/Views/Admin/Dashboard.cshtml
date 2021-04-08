@@ -1,0 +1,190 @@
+﻿@model IEnumerable<NoteMarketPlaceHtml.Models.AdminDashBoardViewModel>
+
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<section class="dashboard_top">
+    <div class="container">
+        <div class="row">
+            <div class="main_heading col-md-6">Dashboard</div>
+        </div>
+        <div class="row">
+            <div class="boxes col-md-4">
+                <div class="for_publish_box">
+                    <div class="col-md-12 sold">
+                        <span class="heading" onclick="return location.href='../Notes/NotesUnderReview'">@ViewBag.InReview</span><br>
+                        <span class="sub_heading">Numbers of Notes in Review for Publish</span>
+                    </div>
+                </div>
+            </div>
+            <div class="boxes col-md-4">
+                <div class="new_downloaded_box-admin" id="middle-box">
+                    <div class="col-md-12 sold">
+                        <span class="heading" onclick="return location.href='../Notes/DownloadedNote'">@ViewBag.Downloads</span><br>
+                        <span class="sub_heading">Numbers of New Notes Downloaded <br>(Last 7 Days)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="boxes col-md-4">
+                <div class="new_registration_box">
+                    <span class="heading" style="cursor:pointer" onclick="return location.href='Members'">@ViewBag.Registration</span><br>
+                    <span class="sub_heading">Numbers of New Registration <br>(Last 7 Days)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Dashboard Table-->
+<section class="dashboard_table x-t-60">
+    <div class="container">
+        <div class="row">
+            <div class="heading col-md-4 col-12">Published Notes</div>
+
+            <div class="search col-md-8 col-12">
+
+
+                <div class="search-note">
+
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-8">
+                            <div class="search">
+                                <img src="~/Content/img/Search/search.jpg" />
+                                <input type="search" class="form-control" placeholder="Search" id="searchbox">  
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-sm-3 col-4 search_button">
+                            <button type="button" class="btn btn-primary searc_btn">Search</button>
+                        </div>
+
+                        <div class="col-md-3 col-sm-3 col-12">
+                            <div class="btn-group select-month" style="float:center;">
+                                @Html.DropDownList("Month", new SelectList(ViewBag.MonthList, "Id", "Month"), "Select Month", new { @onchange = "MonthFilter(this)" })
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <hr />
+        <div class="row ">
+            <table class="table table-hover table-responsive tabledata">
+                <thead>
+                    <tr class="text-uppercase">
+                        <th scope="col" style="width: 5%;">SR NO.</th>
+                        <th scope="col" style="width: 15%;">TITLE</th>
+                        <th scope="col" style="width: 10%;">category</th>
+                        <th scope="col" style="width: 10%;">Attachment size</th>
+                        <th scope="col" style="width: 10%;">sell type</th>
+                        <th scope="col" style="width: 10%;">price</th>
+                        <th scope="col" style="width: 20%;">publisher</th>
+                        <th scope="col" style="width: 20%;">published date</th>
+                        <th scope="col" style="width: 10%;">Number of downloads</th>
+                        <th scope="col" style="width: 5%;"></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @{ if (Model.Count() == 0)
+                        {
+                            <tr>
+                                <td colspan="10" style="text-align:center;">No Data Available</td>
+                            </tr>
+                        }
+                        else
+                        {
+                            int count = 0;
+                            foreach (var data in Model)
+                            {
+                                count++;
+                                <tr>
+                                    <td scope="row">@count</td>
+                                    <td onclick="NoteDetail(@data.Id)">@data.Title</td>
+                                    <td>@data.Category</td>
+                                    <td>@data.AttachmentSize KB</td>
+                                    <td>@(data.Price == 0 ? "Free" : "Paid" )</td>
+                                    <td>$@data.Price</td>
+                                    <td>@data.Publisher</td>
+                                    <td>@data.PublishDate.ToString("dd-MM-yyyy, HH:mm")</td>
+                                    <td>@data.TotalDownloads</td>
+                                    <td>
+                                        
+                                        <div class="dropdown">
+                                            <img id="more-dropeddown" src="~/Content/img/Search/dots.png"
+                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <div class="dropdown-menu more-dropdown-menu" aria-labelledby="more-dropeddown">
+                                                <a class="dropdown-item" target="_blank" href="@Url.Content(data.FilePath)">Download Notes</a>
+                                                <a class="dropdown-item" onclick="NoteDetail(@data.Id)">View More Details</a>
+                                                <a class="dropdown-item" data-toggle="modal" data-target="#rejectModal" onclick="setNoteId('@data.Id', '@data.Title')">Unpublish</a>
+                                            </div>
+                                        </div>
+                                      
+                                    </td>
+                                </tr>
+                            }
+                        } }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="rejectModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="vertical-alignment-helper">
+        <div class="modal-dialog vertical-align-center">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img src="~/Content/img/Search/close.png" alt="close" class="close" data-dismiss="modal">
+                </div>
+                <div class="modal-body">
+
+                    <div class="reject-popup">
+
+                        <h4>Note Title</h4>
+
+                        @using (Html.BeginForm(FormMethod.Post))
+                        {
+                            @Html.Hidden("noteid")
+
+                            <label>Remarks*</label> @*<textarea placeholder="Write remarks"></textarea>*@
+                            @Html.TextArea("Remarks", new { @placeholder = "Write remarks", required = "required" })
+
+                            <button class="btn btn-cancel pull-right" data-dismiss="modal">Cancel</button>
+                            <button class="btn btn-reject pull-right" formaction="../Notes/UnPublishNote">Unpublish</button>}
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Dashboard Ends -->
+
+
+<script>
+    function MonthFilter(obj) {
+        location.href = "Dashboard?month=" + obj.value;
+    }
+
+    function NoteDetail(id) {
+        location.href = '../Notes/NoteDetails/' + id + "?ReadOnly=true";
+    }
+
+    function setNoteId(id, title) {
+        $("#rejectModal input[type='hidden']").attr('value', id);
+        $('.reject-popup>h4').text(title);
+    }
+
+    $('#rejectModal form').on('submit', function () {
+        return confirm('Are you sure you want to Unpublish this note?');
+    });</script>

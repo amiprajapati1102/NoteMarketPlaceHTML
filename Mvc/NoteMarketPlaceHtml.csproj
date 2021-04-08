@@ -212,6 +212,7 @@
     </Compile>
     <Compile Include="Models\AddNoteModel.cs" />
     <Compile Include="Models\AddUserProfileViewModel.cs" />
+    <Compile Include="Models\AdminDashBoardViewModel.cs" />
     <Compile Include="Models\AdminProfileViewModel.cs" />
     <Compile Include="Models\ByuerRequestViewModel.cs" />
     <Compile Include="Models\CatagoryViewModel.cs" />
@@ -222,6 +223,10 @@
     <Compile Include="Models\DownloadNotesViewModel.cs" />
     <Compile Include="Models\ForgotPasswordModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\ManageAdminViewModel.cs" />
+    <Compile Include="Models\ManageCatagoryViewModel.cs" />
+    <Compile Include="Models\ManageCountryViewModel.cs" />
+    <Compile Include="Models\ManageTypeViewModel.cs" />
     <Compile Include="Models\MemberDetailsViewModel.cs" />
     <Compile Include="Models\MemberViewModel.cs" />
     <Compile Include="Models\MyDownoadViewModel.cs" />
@@ -234,6 +239,7 @@
     <Compile Include="Models\RejectedNoteViewModel.cs" />
     <Compile Include="Models\RoleProvider.cs" />
     <Compile Include="Models\SearchModelViewModel.cs" />
+    <Compile Include="Models\SpamReportViewModel.cs" />
     <Compile Include="Models\SystemConfigurationViewModel.cs" />
     <Compile Include="Models\TypeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -416,7 +422,8 @@
     <Content Include="EmailTemplate\AllowDownload.html" />
     <Content Include="EmailTemplate\BuyerRequest.html" />
     <Content Include="EmailTemplate\ContactUs.html" />
-    <Content Include="EmailTemplate\ForgotPassword.html" />
+    <Content Include="EmailTemplate\Password.html" />
+    <Content Include="EmailTemplate\Publish.html" />
     <Content Include="EmailTemplate\RemoveNote.html" />
     <Content Include="EmailTemplate\ReportIssue.html" />
     <Content Include="favicon.ico" />
@@ -554,6 +561,12 @@
     <Content Include="Views\Notes\RejectedNotes.cshtml" />
     <Content Include="Views\User\MySoldNotes.cshtml" />
     <Content Include="Views\User\MyRejectedNotes.cshtml" />
+    <Content Include="Views\Admin\Dashboard.cshtml" />
+    <Content Include="Views\Admin\ManageType.cshtml" />
+    <Content Include="Views\Admin\ManageCategory.cshtml" />
+    <Content Include="Views\Admin\ManageAdmin.cshtml" />
+    <Content Include="Views\Admin\AdminProfile.cshtml" />
+    <Content Include="Views\Admin\SpamReports.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
